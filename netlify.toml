@@ -1,0 +1,3 @@
+# Minimal configuration for static site
+[build]
+  publish = "."

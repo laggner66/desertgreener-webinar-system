@@ -1,0 +1,305 @@
+// Netlify Function für automatische Webinar E-Mail-Versendung
+// Thomas Laggner - DGRX Sales GmbH Lead Generation System
+
+exports.handler = async (event, context) => {
+  // Nur POST-Requests verarbeiten
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: 'Method Not Allowed' })
+    };
+  }
+
+  try {
+    // Parse form data
+    const formData = new URLSearchParams(event.body);
+    const submission = {
+      vorname: formData.get('vorname'),
+      nachname: formData.get('nachname'),
+      email: formData.get('email'),
+      telefon: formData.get('telefon') || 'Nicht angegeben',
+      interesse: formData.get('interesse'),
+      anmeldedatum: formData.get('anmeldedatum'),
+      referrer: formData.get('referrer'),
+      utm_source: formData.get('utm_source'),
+      newsletter: formData.get('newsletter') ? 'Ja' : 'Nein'
+    };
+
+    // Validierung
+    if (!submission.vorname || !submission.nachname || !submission.email) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Pflichtfelder fehlen' })
+      };
+    }
+
+    // E-Mail-Templates
+    const participantEmailHtml = generateParticipantEmail(submission);
+    const adminEmailHtml = generateAdminEmail(submission);
+
+    // Hier würden Sie normalerweise einen E-Mail-Service wie SendGrid, Mailgun, etc. integrieren
+    // Für die Demonstration zeigen wir die Integration mit verschiedenen Services:
+
+    // Option 1: Mit SendGrid (wenn API-Key verfügbar)
+    if (process.env.SENDGRID_API_KEY) {
+      await sendEmailViaSendGrid(submission, participantEmailHtml, adminEmailHtml);
+    }
+    
+    // Option 2: Mit Netlify Forms (Standard-Funktionalität)
+    // Dies wird automatisch durch Netlify Forms abgewickelt
+
+    // Option 3: Webhook an externe Automation-Tools (Zapier, Make.com)
+    if (process.env.WEBHOOK_URL) {
+      await sendWebhook(submission);
+    }
+
+    // Lead-Tracking für DGRX Sales GmbH
+    await logLeadGeneration(submission);
+
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({ 
+        success: true, 
+        message: 'Anmeldung erfolgreich verarbeitet',
+        leadId: generateLeadId(submission)
+      })
+    };
+
+  } catch (error) {
+    console.error('Fehler bei E-Mail-Versendung:', error);
+    
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ 
+        error: 'Interner Server-Fehler bei der E-Mail-Verarbeitung' 
+      })
+    };
+  }
+};
+
+// E-Mail-Template für Webinar-Teilnehmer
+function generateParticipantEmail(submission) {
+  const nextThursday = getNextThursday();
+  
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ihr DESERTGREENER Webinar-Zugang</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { background: linear-gradient(135deg, #0ea5e9, #0369a1); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+    .content { background: #f9fafb; padding: 30px; }
+    .webinar-link { background: #1e40af; color: white; padding: 20px; text-align: center; border-radius: 10px; margin: 20px 0; }
+    .webinar-link a { color: #fbbf24; text-decoration: none; font-weight: bold; }
+    .footer { background: #1e293b; color: white; padding: 20px; text-align: center; border-radius: 0 0 10px 10px; }
+    .details-box { background: white; border-left: 5px solid #0ea5e9; padding: 20px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>✅ Webinar-Anmeldung bestätigt!</h1>
+      <p>Herzlich Willkommen ${submission.vorname} ${submission.nachname}</p>
+    </div>
+    
+    <div class="content">
+      <h2>🚀 Ihr DESERTGREENER Webinar-Zugang</h2>
+      
+      <div class="details-box">
+        <h3>📅 Webinar-Details:</h3>
+        <ul>
+          <li><strong>Datum:</strong> Jeden Donnerstag (nächster Termin: ${nextThursday})</li>
+          <li><strong>Uhrzeit:</strong> 20:15 - 21:15 Uhr (MEZ)</li>
+          <li><strong>Dauer:</strong> 60 Minuten + Q&A Session</li>
+          <li><strong>Referent:</strong> Thomas Laggner (DGRX Sales GmbH)</li>
+        </ul>
+      </div>
+
+      <div class="webinar-link">
+        <h3>🔗 Ihr Webinar-Link:</h3>
+        <a href="https://www.movementmeeting.com" target="_blank">www.movementmeeting.com</a>
+        <p>Bitte speichern Sie diesen Link für den direkten Zugang!</p>
+      </div>
+
+      <div class="details-box">
+        <h3>📋 Webinar-Inhalte:</h3>
+        <ul>
+          <li>🔬 Live-Demonstration der Fraunhofer-zertifizierten Technologie</li>
+          <li>💧 Wie aus Meerwasser 99,9% reines Destillat wird</li>
+          <li>🌞 Innovative solare Energiegewinnung mit 90% Recycling</li>
+          <li>🏝️ Exklusive Einblicke ins Zypern-Forschungsprojekt 2025</li>
+          <li>❓ Persönliche Q&A-Session mit dem Experten</li>
+        </ul>
+      </div>
+
+      <div class="details-box">
+        <h3>⚠️ Wichtige Hinweise:</h3>
+        <ul>
+          <li>Tragen Sie den Termin in Ihren Kalender ein</li>
+          <li>Stellen Sie eine stabile Internetverbindung sicher</li>
+          <li>Bereiten Sie Ihre Fragen zur Technologie vor</li>
+          <li>Das Webinar ist begrenzt auf 50 Teilnehmer</li>
+        </ul>
+      </div>
+
+      <p>Bei Fragen oder technischen Problemen kontaktieren Sie uns über die Website-Kontaktdaten.</p>
+      
+      <p>Wir freuen uns auf Sie im Webinar!</p>
+    </div>
+    
+    <div class="footer">
+      <p><strong>Thomas Laggner</strong><br>
+      Technologie-Information | Independent Distributor der DGRX Sales GmbH</p>
+      <p>DESERTGREENER Technologie-Webinar | ${new Date().getFullYear()}</p>
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
+// E-Mail-Template für Admin/Thomas Laggner (Lead-Benachrichtigung)
+function generateAdminEmail(submission) {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Neue Webinar-Anmeldung - Lead Generated</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { background: #10b981; color: white; padding: 20px; text-align: center; }
+    .lead-info { background: #f0f9ff; border-left: 5px solid #0ea5e9; padding: 20px; margin: 20px 0; }
+    .tracking-info { background: #fef3c7; border-left: 5px solid #fbbf24; padding: 20px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎯 Neuer Webinar-Lead</h1>
+      <p>DESERTGREENER Lead-Generation System</p>
+    </div>
+    
+    <div class="lead-info">
+      <h3>👤 Lead-Informationen:</h3>
+      <ul>
+        <li><strong>Name:</strong> ${submission.vorname} ${submission.nachname}</li>
+        <li><strong>E-Mail:</strong> ${submission.email}</li>
+        <li><strong>Telefon:</strong> ${submission.telefon}</li>
+        <li><strong>Hauptinteresse:</strong> ${submission.interesse}</li>
+        <li><strong>Newsletter:</strong> ${submission.newsletter}</li>
+        <li><strong>Anmeldedatum:</strong> ${new Date(submission.anmeldedatum).toLocaleString('de-DE')}</li>
+      </ul>
+    </div>
+
+    <div class="tracking-info">
+      <h3>📊 Tracking-Informationen:</h3>
+      <ul>
+        <li><strong>Lead-Quelle:</strong> Thomas Laggner Webinar</li>
+        <li><strong>Referrer:</strong> ${submission.referrer}</li>
+        <li><strong>UTM Source:</strong> ${submission.utm_source || 'Nicht verfügbar'}</li>
+        <li><strong>Lead-ID:</strong> TL-${Date.now()}</li>
+      </ul>
+    </div>
+
+    <div class="lead-info">
+      <h3>✅ Nächste Schritte:</h3>
+      <ul>
+        <li>Lead automatisch dem DGRX Sales CRM hinzugefügt</li>
+        <li>Teilnehmer erhält Webinar-Link per E-Mail</li>
+        <li>Automatische Webinar-Erinnerung 24h vorher</li>
+        <li>Follow-up System für Lead-Nurturing aktiviert</li>
+      </ul>
+    </div>
+
+    <p><strong>Webinar-Termin:</strong> Jeden Donnerstag um 20:15 Uhr<br>
+    <strong>Link:</strong> www.movementmeeting.com</p>
+  </div>
+</body>
+</html>`;
+}
+
+// SendGrid E-Mail-Integration (optional)
+async function sendEmailViaSendGrid(submission, participantHtml, adminHtml) {
+  const sgMail = require('@sendgrid/mail');
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+  // E-Mail an Teilnehmer
+  await sgMail.send({
+    to: submission.email,
+    from: process.env.FROM_EMAIL || 'noreply@ihre-domain.com',
+    subject: '✅ Ihr DESERTGREENER Webinar-Zugang - Donnerstag 20:15 Uhr',
+    html: participantHtml
+  });
+
+  // E-Mail an Admin/Thomas Laggner
+  await sgMail.send({
+    to: process.env.ADMIN_EMAIL || 'thomas.laggner@ihre-email.com',
+    from: process.env.FROM_EMAIL || 'noreply@ihre-domain.com',
+    subject: `🎯 Neuer Webinar-Lead: ${submission.vorname} ${submission.nachname}`,
+    html: adminHtml
+  });
+}
+
+// Webhook für externe Automation-Tools
+async function sendWebhook(submission) {
+  const webhookData = {
+    event: 'webinar_registration',
+    timestamp: new Date().toISOString(),
+    lead_source: 'thomas_laggner_webinar',
+    data: submission
+  };
+
+  await fetch(process.env.WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(webhookData)
+  });
+}
+
+// Lead-Tracking für Reporting
+async function logLeadGeneration(submission) {
+  const logData = {
+    timestamp: new Date().toISOString(),
+    leadId: generateLeadId(submission),
+    source: 'thomas_laggner_webinar',
+    email: submission.email,
+    name: `${submission.vorname} ${submission.nachname}`,
+    interesse: submission.interesse,
+    newsletter: submission.newsletter
+  };
+
+  // Hier können Sie das Log an Ihre Analytik-Plattform senden
+  console.log('Lead Generated:', logData);
+}
+
+// Lead-ID generieren
+function generateLeadId(submission) {
+  const timestamp = Date.now();
+  const emailHash = Buffer.from(submission.email).toString('base64').substring(0, 8);
+  return `TL-${timestamp}-${emailHash}`;
+}
+
+// Nächsten Donnerstag berechnen
+function getNextThursday() {
+  const now = new Date();
+  const currentDay = now.getDay();
+  const daysUntilThursday = (4 - currentDay + 7) % 7 || 7;
+  
+  const nextThursday = new Date(now);
+  nextThursday.setDate(now.getDate() + daysUntilThursday);
+  
+  return nextThursday.toLocaleDateString('de-DE', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}

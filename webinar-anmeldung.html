@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 DESERTGREENER Webinar - Exklusive Technologie-Präsentation | Thomas Laggner</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Exklusives DESERTGREENER Webinar: Erfahren Sie alles über die revolutionäre solare Meerwasser-Destillation. Donnerstag 20:15 Uhr - Kostenlose Anmeldung">
+    <meta name="keywords" content="DESERTGREENER Webinar, Meerwasser Destillation, Solartechnologie, Fraunhofer IBP, Thomas Laggner, Technologie Präsentation">
+    <meta name="author" content="Thomas Laggner - Technologie-Information | Independent Distributor der DGRX Sales GmbH">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="🚀 DESERTGREENER Webinar - Exklusive Technologie-Präsentation">
+    <meta property="og:description" content="Erfahren Sie alles über die Fraunhofer-zertifizierte Destillationstechnologie. Kostenlose Anmeldung für Donnerstag 20:15 Uhr">
+    <meta property="og:image" content="https://ihre-domain.netlify.app/webinar-og.jpg">
+    
+    <!-- Netlify Identity -->
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 50%, #1e40af 100%);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e40af, #0369a1);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .webinar-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .webinar-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 1.4rem;
+            color: #fbbf24;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 3rem 2rem;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-title h2 {
+            font-size: 2rem;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+
+        .form-title p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        /* Lead Generation Form */
+        .lead-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        /* Privacy Checkbox */
+        .privacy-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .privacy-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.2rem;
+        }
+
+        .privacy-text {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .privacy-text a {
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+
+        .privacy-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #0ea5e9, #0369a1);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: #f8fafc;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+        }
+
+        .benefits h3 {
+            text-align: center;
+            color: #1e40af;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-item h4 {
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Urgency Section */
+        .urgency {
+            background: linear-gradient(135deg, #fef3c7, #fbbf24);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .urgency h3 {
+            color: #92400e;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .urgency p {
+            color: #a16207;
+            font-weight: 500;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .success-message h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0.5rem;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .webinar-info {
+                gap: 1rem;
+            }
+
+            .form-section {
+                padding: 2rem 1rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="webinar-badge">🎯 EXKLUSIVES TECHNOLOGIE-WEBINAR</div>
+                <h1>DESERTGREENER Live-Präsentation</h1>
+                <p>Entdecken Sie die revolutionäre Fraunhofer-zertifizierte Meerwasser-Destillationstechnologie</p>
+                
+                <div class="webinar-info">
+                    <div class="info-item">
+                        <strong>📅 Donnerstag</strong>
+                        <span>Wöchentlich</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>🕐 20:15 Uhr</strong>
+                        <span>Mitteleuropäische Zeit</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>⏰ 60 Minuten</strong>
+                        <span>Inkl. Q&A Session</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="form-section">
+            <div class="form-title">
+                <h2>🚀 Jetzt kostenlos anmelden</h2>
+                <p>Sichern Sie sich Ihren Platz für die exklusive Technologie-Präsentation</p>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="benefits">
+                <h3>Das erwartet Sie im Webinar:</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🔬</div>
+                        <h4>Fraunhofer-Technologie</h4>
+                        <p>Live-Demonstration der wissenschaftlich validierten Destillationsanlage</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💧</div>
+                        <h4>99,9% Reinheit</h4>
+                        <p>Wie aus Meerwasser reinstes Destillat gewonnen wird</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🌞</div>
+                        <h4>Solare Effizienz</h4>
+                        <p>90% Energie-Recycling durch innovative Solartechnik</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🏝️</div>
+                        <p>Exklusive Einblicke in das Zypern-Forschungsprojekt 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Urgency -->
+            <div class="urgency">
+                <h3>⚡ Begrenzte Teilnehmerzahl</h3>
+                <p>Nur 50 Plätze verfügbar für persönliche Betreuung und individuelle Fragen</p>
+            </div>
+
+            <!-- Lead Generation Form - Netlify Integration -->
+            <form name="webinar-anmeldung" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="lead-form" id="webinarForm">
+                <!-- Hidden Fields for Netlify -->
+                <input type="hidden" name="form-name" value="webinar-anmeldung">
+                <p style="display: none;">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <!-- Lead Capture Fields -->
+                <div class="form-group">
+                    <label for="vorname">Vorname *</label>
+                    <input type="text" id="vorname" name="vorname" required placeholder="Ihr Vorname">
+                </div>
+
+                <div class="form-group">
+                    <label for="nachname">Nachname *</label>
+                    <input type="text" id="nachname" name="nachname" required placeholder="Ihr Nachname">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-Mail-Adresse *</label>
+                    <input type="email" id="email" name="email" required placeholder="ihre.email@beispiel.de">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefon">Telefonnummer (Optional)</label>
+                    <input type="tel" id="telefon" name="telefon" placeholder="+49 123 456789">
+                </div>
+
+                <div class="form-group">
+                    <label for="interesse">Ihr Hauptinteresse</label>
+                    <select id="interesse" name="interesse" required>
+                        <option value="">Bitte auswählen</option>
+                        <option value="technologie">Technologie & Innovation</option>
+                        <option value="umwelt">Umwelt & Nachhaltigkeit</option>
+                        <option value="business">Geschäftsmöglichkeiten</option>
+                        <option value="wissenschaft">Wissenschaftliche Forschung</option>
+                        <option value="sonstiges">Sonstiges</option>
+                    </select>
+                </div>
+
+                <!-- Hidden Tracking Fields -->
+                <input type="hidden" name="anmeldedatum" id="anmeldedatum">
+                <input type="hidden" name="referrer" id="referrer">
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="lead_source" value="thomas_laggner_webinar">
+
+                <!-- Privacy Checkbox -->
+                <div class="privacy-group">
+                    <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                    <div class="privacy-text">
+                        Ich stimme der Verarbeitung meiner Daten zu und möchte den Webinar-Link sowie Technologie-Informationen von Thomas Laggner (DGRX Sales GmbH) erhalten. 
+                        <a href="#datenschutz-modal" onclick="showPrivacyModal()">Datenschutzerklärung</a>
+                    </div>
+                </div>
+
+                <div class="privacy-group">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <div class="privacy-text">
+                        Ja, ich möchte regelmäßige Updates über DESERTGREENER-Technologie erhalten (jederzeit abbestellbar)
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="button-text">🚀 Webinar-Platz sichern</span>
+                    <div class="loading" id="loading"></div>
+                </button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <h3>✅ Anmeldung erfolgreich!</h3>
+                <p>
+                    Vielen Dank für Ihre Anmeldung! Sie erhalten in den nächsten Minuten eine E-Mail mit:
+                    <br><br>
+                    📧 <strong>Webinar-Link:</strong> www.movementmeeting.com<br>
+                    📅 <strong>Termin:</strong> Donnerstag um 20:15 Uhr<br>
+                    📋 <strong>Agenda:</strong> Detaillierte Webinar-Inhalte<br>
+                    <br>
+                    Prüfen Sie auch Ihren Spam-Ordner. Bei Fragen kontaktieren Sie Thomas Laggner direkt.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Thomas Laggner</strong> - Technologie-Information | Independent Distributor der DGRX Sales GmbH</p>
+            <p>DESERTGREENER Webinar-Anmeldung | Fraunhofer-zertifizierte Technologie 2025</p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Enhanced Functionality -->
+    <script>
+        // Set tracking data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set timestamp
+            document.getElementById('anmeldedatum').value = new Date().toISOString();
+            
+            // Set referrer
+            document.getElementById('referrer').value = document.referrer || 'direct';
+            
+            // Get UTM parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('utm_source').value = urlParams.get('utm_source') || '';
+        });
+
+        // Form submission handling
+        document.getElementById('webinarForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const buttonText = submitBtn.querySelector('.button-text');
+            const loading = document.getElementById('loading');
+            
+            // Show loading state
+            buttonText.textContent = 'Anmeldung wird verarbeitet...';
+            loading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            // Submit form data to Netlify
+            const formData = new FormData(this);
+            
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                // Show success message
+                document.querySelector('.form-section').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Track conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'webinar_registration', {
+                        'event_category': 'Lead Generation',
+                        'event_label': 'DESERTGREENER Webinar',
+                        'value': 1
+                    });
+                }
+                
+                // Redirect to thank you page after 5 seconds
+                setTimeout(() => {
+                    window.location.href = '/danke.html';
+                }, 5000);
+            })
+            .catch((error) => {
+                alert('Fehler bei der Anmeldung. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.');
+                
+                // Reset button
+                buttonText.textContent = '🚀 Webinar-Platz sichern';
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Privacy Modal (Simple Implementation)
+        function showPrivacyModal() {
+            alert(`DATENSCHUTZERKLÄRUNG - WEBINAR ANMELDUNG
+
+Verantwortlicher:
+Thomas Laggner - Independent Distributor der DGRX Sales GmbH
+
+Zweck der Datenverarbeitung:
+- Anmeldung zum DESERTGREENER Webinar
+- Versendung des Webinar-Links (www.movementmeeting.com)
+- Lead-Tracking für DGRX Sales GmbH
+- Technologie-Informationen per E-Mail
+
+Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)
+
+Ihre Rechte:
+- Widerruf der Einwilligung jederzeit möglich
+- Auskunft, Berichtigung, Löschung Ihrer Daten
+- Datenübertragbarkeit und Beschwerde bei Aufsichtsbehörde
+
+Kontakt: Über die angegebenen Kontaktdaten auf der Website.`);
+        }
+
+        // Netlify Identity Integration (if needed for advanced features)
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

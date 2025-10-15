@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESERTGREENER Technologie Deutschland - Solare Meerwasser-Destillation | Thomas Laggner</title>
+    
+    <!-- SEO Meta Tags - MiCA Konform -->
+    <meta name="description" content="DESERTGREENER Deutschland - Vollständige Technologie-Information zur solaren Meerwasser-Destillation. Fraunhofer IBP zertifiziert, 90% Energie-Recycling, Forschungsprojekt Zypern 2025.">
+    <meta name="keywords" content="DESERTGREENER Deutschland, Meerwasser Destillation, Solartechnologie, Fraunhofer IBP, Wasseraufbereitung, Destillationstechnologie, Thomas Laggner, DGRX">
+    <meta name="author" content="Thomas Laggner - Technologie-Information | Independent Distributor der DGRX Sales GmbH">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="DESERTGREENER Deutschland - Solare Destillationstechnologie">
+    <meta property="og:description" content="Fraunhofer-zertifizierte Meerwasser-Destillation mit 90% Energie-Recycling - Vollständige Technologie-Information für Deutschland">
+    <meta property="og:type" content="website">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 50%, #1e40af 100%);
+            padding: 8rem 2rem 4rem;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="water" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23water)"/></svg>');
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #10b981;
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1e293b;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* Technology Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .tech-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0ea5e9;
+        }
+
+        .tech-card ul {
+            list-style: none;
+        }
+
+        .tech-card li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #334155;
+        }
+
+        .tech-card li::before {
+            content: '✓';
+            background: #10b981;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Fraunhofer Section */
+        .fraunhofer-section {
+            background: #f8fafc;
+            border-left: 5px solid #0ea5e9;
+            padding: 3rem;
+            margin: 3rem 0;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .fraunhofer-logo {
+            font-size: 2rem;
+            color: #0ea5e9;
+            margin-bottom: 1rem;
+        }
+
+        /* Process Visualization */
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border-radius: 15px;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .process-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0ea5e9, #10b981);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .process-arrow {
+            font-size: 2rem;
+            color: #0ea5e9;
+            margin: 0 1rem;
+        }
+
+        /* Meeting Section */
+        .meeting-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .meeting-time {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #10b981;
+            margin-bottom: 2rem;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f8fafc;
+            padding: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #e2e8f0;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .process-flow {
+                flex-direction: column;
+            }
+
+            .process-arrow {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #0ea5e9;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🌊 DESERTGREENER</a>
+            <ul class="nav-menu">
+                <li><a href="#technologie">🔬 Technologie</a></li>
+                <li><a href="#forschung">📊 Forschung</a></li>
+                <li><a href="#meeting">🎯 Meetings</a></li>
+                <li><a href="#bildung">📚 Bildung</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                🇩🇪 Deutschland | Fraunhofer IBP Zertifiziert
+            </div>
+            
+            <h1>Solare Meerwasser-Destillation für Deutschland</h1>
+            
+            <p class="hero-subtitle">
+                Vollständige Technologie-Information zur DESERTGREENER Destillationsanlage. 
+                Fraunhofer-validierte Innovation mit 90% Energie-Recycling für nachhaltige Wasseraufbereitung.
+            </p>
+            
+            <div class="hero-cta">
+                <a href="#technologie" class="btn-primary" onclick="trackTechInterest('german_tech_overview')">
+                    🔬 Technologie verstehen
+                </a>
+                <a href="#meeting" class="btn-secondary" onclick="trackTechInterest('german_meeting_interest')">
+                    🎯 Forschungs-Meeting besuchen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologie Section -->
+    <section id="technologie" class="section">
+        <div class="container">
+            <h2>🔬 DESERTGREENER Destillationstechnologie</h2>
+            
+            <div class="fraunhofer-section">
+                <div class="fraunhofer-logo">🏛️ Fraunhofer Institut IBP Partnership</div>
+                <h3>Wissenschaftlich validierte Destillationsverfahren</h3>
+                <p>
+                    Das Fraunhofer-Institut für Bauphysik IBP validiert die DESERTGREENER Technologie 
+                    für solare Meerwasser-Destillation. Die wissenschaftliche Partnerschaft garantiert 
+                    höchste Standards in der Forschung und Entwicklung nachhaltiger Wasseraufbereitungssysteme.
+                </p>
+                <a href="https://www.ibp.fraunhofer.de/de/projekte-referenzen/solare-wasserentsalzung.html" 
+                   target="_blank" class="btn-primary" onclick="trackTechInterest('fraunhofer_link')">
+                    🔗 Fraunhofer IBP Projekt ansehen
+                </a>
+            </div>
+            
+            <h3>Technische Spezifikationen</h3>
+            
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="process-icon">☀️</div>
+                    <h4>Solare Erhitzung</h4>
+                    <p>Heliotrope Spiegelsysteme konzentrieren Sonnenergie für optimale Verdampfungstemperatur</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-icon">💨</div>
+                    <h4>Meerwasser Verdampfung</h4>
+                    <p>Kontrollierte Verdampfung bei niedriger Temperatur für maximale Energieeffizienz</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-icon">🌡️</div>
+                    <h4>Kondensation</h4>
+                    <p>Effiziente Kondensation mit Wärmerückgewinnung für den Kreislaufprozess</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="process-icon">💧</div>
+                    <h4>Reinstes Destillat</h4>
+                    <p>99,9% Reinheitsgrad - höchste Wasserqualität durch Destillationsverfahren</p>
+                </div>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>🔋 Energieeffizienz</h3>
+                    <ul>
+                        <li>90% Energie-Recycling im geschlossenen Kreislauf</li>
+                        <li>Heliotrope Spiegelsysteme für maximale Solarausbeute</li>
+                        <li>Wärmetauscher für optimale Energienutzung</li>
+                        <li>Intelligente Temperaturregulierung</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>💧 Wasserqualität</h3>
+                    <ul>
+                        <li>99,9% Destillationsreinheit erreicht</li>
+                        <li>Vollständige Mineralien- und Salzentfernung</li>
+                        <li>Keine chemischen Zusätze erforderlich</li>
+                        <li>Medizinische Wasserqualität durch Destillation</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>🏗️ Modulares System</h3>
+                    <ul>
+                        <li>Skalierbare Bauweise ("Lego-Prinzip")</li>
+                        <li>Container-basierte Einheiten verfügbar</li>
+                        <li>Einfache Installation und Wartung</li>
+                        <li>Anpassung an lokale Gegebenheiten</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forschung Section -->
+    <section id="forschung" class="section" style="background: #f8fafc;">
+        <div class="container">
+            <h2>📊 Forschungsprojekt Zypern 2025</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin: 3rem 0;">
+                <div>
+                    <h3>🎯 Pilotanlage Pentacomo</h3>
+                    <p>
+                        Die erste DESERTGREENER Pilotanlage wird Q4 2025 in Pentacomo, Zypern in Betrieb genommen. 
+                        Diese Demonstrationsanlage dient der praktischen Validierung aller Technologiekomponenten 
+                        unter realen Bedingungen.
+                    </p>
+                    
+                    <h4 style="margin-top: 2rem; color: #0ea5e9;">📅 Projektmeilensteine</h4>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">✅ Q2 2024: Fraunhofer Validierung abgeschlossen</li>
+                        <li style="margin-bottom: 0.5rem;">🔄 Q3 2024: Komponenten-Engineering</li>
+                        <li style="margin-bottom: 0.5rem;">🔄 Q4 2024: Pilotanlage Konstruktion</li>
+                        <li style="margin-bottom: 0.5rem;">🎯 Q1 2025: Installation Zypern</li>
+                        <li style="margin-bottom: 0.5rem;">🚀 Q4 2025: Pilotbetrieb Start</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <h4 style="color: #0ea5e9; margin-bottom: 1rem;">🎯 Zypern Projekt</h4>
+                        <div style="font-size: 2rem; font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">Q4 2025</div>
+                        <p style="margin-bottom: 1rem;">Pilotanlage Inbetriebnahme</p>
+                        <div style="background: #f1f5f9; padding: 1rem; border-radius: 10px;">
+                            <strong>Standort:</strong> Pentacomo, Zypern<br>
+                            <strong>Kapazität:</strong> Demonstrationsanlage<br>
+                            <strong>Partner:</strong> Fraunhofer IBP
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>🔬 Wissenschaftliche Dokumentation</h3>
+            <p>
+                Umfassende Forschungsdokumentation zur DESERTGREENER Technologie steht für 
+                Bildungs- und Informationszwecke zur Verfügung. Technische Spezifikationen, 
+                Messergebnisse und Validierungsstudien dokumentieren die Leistungsfähigkeit 
+                der solaren Destillationstechnologie.
+            </p>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="mailto:info@weltwassertag.at?subject=Forschungsdokumentation%20Deutschland" 
+                   class="btn-primary" onclick="trackTechInterest('research_documentation_request')">
+                    📋 Forschungsdokumentation anfordern
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meeting Section -->
+    <section id="meeting" class="section meeting-section">
+        <div class="container">
+            <h2>🎯 Technologie-Meetings mit dem Erfinder</h2>
+            <div class="meeting-time">Jeden Donnerstag 20:15 Uhr (MEZ, Vienna)</div>
+            
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                Treffen Sie persönlich den Erfinder und Patentinhaber <strong>Karl Albrecht Waldstein</strong> 
+                in unseren wöchentlichen Live-Meetings. Stellen Sie direkte Fragen zur Destillationstechnologie, 
+                zu Forschungsergebnissen und zur Zukunft der solaren Wasseraufbereitung.
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
+                <h3 style="margin-bottom: 1rem;">📋 Meeting-Inhalte</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div>✅ Technologie-Erklärungen</div>
+                    <div>✅ Forschungsfortschritte</div>
+                    <div>✅ Pilotprojekt Updates</div>
+                    <div>✅ Q&A Sessions</div>
+                </div>
+            </div>
+            
+            <a href="https://www.movementmeeting.com" target="_blank" class="btn-primary" 
+               onclick="trackTechInterest('meeting_join_germany')">
+                🎥 Meeting-Raum betreten
+            </a>
+        </div>
+    </section>
+
+    <!-- Bildung Section -->
+    <section id="bildung" class="section">
+        <div class="container">
+            <h2>📚 Bildungsinhalte zur Destillationstechnologie</h2>
+            
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #64748b;">
+                Erweitern Sie Ihr Wissen über innovative solare Wasseraufbereitungstechnologie
+            </p>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>📋 Technische Dokumentation</h3>
+                    <p>Vollständige Spezifikationen der DESERTGREENER Destillationstechnologie, 
+                    einschließlich Fraunhofer Validierungsstudien und Leistungsdaten.</p>
+                    <a href="mailto:info@weltwassertag.at?subject=Technische%20Dokumentation%20Deutschland" 
+                       class="btn-primary" onclick="trackTechInterest('tech_docs_germany')">
+                        📄 PDF anfordern
+                    </a>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>🎥 Prozess-Visualisierung</h3>
+                    <p>Detaillierte Erklärvideos zum Destillationsprozess, Energie-Recycling 
+                    und modularen Aufbau der DESERTGREENER Anlagen.</p>
+                    <a href="mailto:info@weltwassertag.at?subject=Erklärvideo%20Deutschland" 
+                       class="btn-primary" onclick="trackTechInterest('process_video_germany')">
+                        🎬 Video ansehen
+                    </a>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>🔬 Fraunhofer Studien</h3>
+                    <p>Zusammenfassung der wissenschaftlichen Validierung durch das Fraunhofer IBP 
+                    und Forschungsergebnisse zur solaren Destillation.</p>
+                    <a href="mailto:info@weltwassertag.at?subject=Fraunhofer%20Studien%20Deutschland" 
+                       class="btn-primary" onclick="trackTechInterest('fraunhofer_studies_germany')">
+                        📊 Studien erhalten
+                    </a>
+                </div>
+            </div>
+            
+            <!-- FAQ Deutschland -->
+            <h3 style="text-align: center; margin-top: 3rem; margin-bottom: 2rem;">❓ Häufige Fragen zur Technologie</h3>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        💧 Wie rein ist das produzierte Destillat?
+                    </div>
+                    <div class="faq-answer">
+                        Die DESERTGREENER Destillationstechnologie erreicht einen Reinheitsgrad von 99,9%. 
+                        Durch den Destillationsprozess werden alle Salze, Mineralien und Verunreinigungen 
+                        vollständig entfernt, was zu medizinischer Wasserqualität führt.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ⚡ Wie funktioniert das 90% Energie-Recycling?
+                    </div>
+                    <div class="faq-answer">
+                        Das System nutzt intelligente Wärmetauscher zur Rückgewinnung der Kondensationswärme. 
+                        Diese Energie wird zur Vorerwärmung des einströmenden Meerwassers verwendet, 
+                        wodurch der Gesamtenergiebedarf um 90% reduziert wird.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        🏗️ Ist die Technologie für Deutschland geeignet?
+                    </div>
+                    <div class="faq-answer">
+                        Die modulare Bauweise ermöglicht Anpassungen an verschiedene klimatische Bedingungen. 
+                        Auch in Deutschland kann die Technologie für spezielle Anwendungen wie 
+                        Reinstwasserproduktion oder Notfall-Wasserversorgung eingesetzt werden.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        📅 Wann ist die Technologie verfügbar?
+                    </div>
+                    <div class="faq-answer">
+                        Die Pilotanlage in Zypern startet Q4 2025. Nach erfolgreicher Validierung 
+                        wird die Technologie für kommerzielle Anwendungen verfügbar. Die Meetings 
+                        jeden Donnerstag informieren über aktuelle Entwicklungen.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #0f172a; color: white; padding: 3rem 2rem; text-align: center;">
+        <div class="container">
+            <h3 style="margin-bottom: 1rem;">DESERTGREENER Deutschland - Technologie-Information</h3>
+            <p style="margin-bottom: 1rem; opacity: 0.8;">
+                <strong>Thomas Laggner</strong> - Technologie-Information | Independent Distributor der DGRX Sales GmbH
+            </p>
+            <p style="margin-bottom: 2rem; opacity: 0.8;">
+                📧 Kontakt: <a href="https://www.weltwassertag.at" style="color: #10b981;">www.weltwassertag.at</a> | 
+                🎯 Meetings: <a href="https://www.movementmeeting.com" style="color: #10b981;">movementmeeting.com</a>
+            </p>
+            
+            <div style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; flex-wrap: wrap;">
+                <a href="en.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇬🇧 English</a>
+                <a href="fr.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇫🇷 Français</a>
+                <a href="it.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇮🇹 Italiano</a>
+                <a href="es.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇪🇸 Español</a>
+            </div>
+            
+            <div style="font-size: 0.9rem; opacity: 0.7; border-top: 1px solid #334155; padding-top: 2rem;">
+                <p>Diese Informationen dienen ausschließlich der Technologie-Aufklärung und wissenschaftlichen Bildung.</p>
+                <p>Bei Geschäftsentscheidungen wird professionelle Beratung empfohlen. Alle Angaben ohne Gewähr.</p>
+                <p style="margin-top: 1rem;">Website erstellt von Thomas Laggner | DESERTGREENER Technologie 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#top" class="back-to-top" onclick="trackTechInterest('back_to_top')">↑</a>
+
+    <!-- Analytics Script -->
+    <script>
+        // Technology Interest Tracking (MiCA Compliant)
+        function trackTechInterest(eventName) {
+            // Google Analytics 4 Events (when implemented)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, {
+                    'event_category': 'technology_education',
+                    'event_label': 'desertgreener_germany',
+                    'language': 'de'
+                });
+            }
+            
+            // Console logging for development
+            console.log('Technology Interest:', eventName);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ Toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                
+                // Toggle current answer
+                answer.style.display = isOpen ? 'none' : 'block';
+                
+                trackTechInterest('faq_interaction_' + this.textContent.substring(0, 20));
+            });
+        });
+
+        // Page loaded event
+        document.addEventListener('DOMContentLoaded', function() {
+            trackTechInterest('germany_page_loaded');
+        });
+
+        // Engagement tracking
+        let engagementTracker = false;
+        window.addEventListener('scroll', function() {
+            if (!engagementTracker && window.scrollY > window.innerHeight * 2) {
+                trackTechInterest('deep_engagement_germany');
+                engagementTracker = true;
+            }
+        });
+    </script>
+</body>
+</html>

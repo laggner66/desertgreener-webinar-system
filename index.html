@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESERTGREENER Technologie - Meerwasser Destillation | Thomas Laggner</title>
+    
+    <!-- SEO Meta Tags - MiCA Konform -->
+    <meta name="description" content="DESERTGREENER - Innovative solare Meerwasser-Destillation zu reinstem Destillat. Fraunhofer-zertifizierte Technologie mit 90% Energie-Recycling. Forschungsprojekt Zypern 2025.">
+    <meta name="keywords" content="DESERTGREENER, Meerwasser Destillation, Solartechnologie, Fraunhofer IBP, Wasseraufbereitung, Destillationstechnologie, Thomas Laggner">
+    <meta name="author" content="Thomas Laggner - Technologie-Information | Independent Distributor der DGRX Sales GmbH">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DESERTGREENER Technologie - Solare Meerwasser-Destillation">
+    <meta property="og:description" content="Fraunhofer-zertifizierte Destillationstechnologie: Aus Meerwasser wird reinstes Destillat durch innovative Solarenergie-Nutzung">
+    <meta property="og:image" content="https://ihre-domain.netlify.app/og-desertgreener-tech.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="DESERTGREENER - Innovative Destillationstechnologie">
+    <meta property="twitter:description" content="Solare Meerwasser-Destillation mit 99,9% Reinheit - Forschungsprojekt mit Fraunhofer IBP">
+    <meta property="twitter:image" content="https://ihre-domain.netlify.app/og-desertgreener-tech.jpg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section - Above the Fold */
+        .hero {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 50%, #1e40af 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 2rem 1rem;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="water" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100%" height="100%" fill="url(%23water)"/></svg>') center/cover;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero-feature-icon {
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            max-width: 300px;
+        }
+
+        .cta-primary {
+            background: #10b981;
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-animation {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .distillation-process {
+            width: 80%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .process-step {
+            width: 100%;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .process-step::after {
+            content: '↓';
+            position: absolute;
+            bottom: -15px;
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .process-step:last-child::after {
+            content: '✓';
+            color: #10b981;
+            bottom: -5px;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: #f8fafc;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trust-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .trust-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .trust-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0ea5e9, #10b981);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .trust-metric {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0ea5e9;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Technology Explanation */
+        .tech-section {
+            background: white;
+            padding: 5rem 1rem;
+        }
+
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tech-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .tech-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .tech-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .tech-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #334155;
+        }
+
+        .tech-features li::before {
+            content: '✓';
+            background: #10b981;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .tech-visual {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        /* Meeting Section */
+        .meeting-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 5rem 1rem;
+            color: white;
+            text-align: center;
+        }
+
+        .meeting-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .meeting-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .meeting-time {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #10b981;
+            margin-bottom: 2rem;
+        }
+
+        .meeting-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        /* Lead Magnet Section */
+        .lead-section {
+            background: #f8fafc;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .lead-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .lead-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .lead-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .lead-magnet {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .lead-magnet:hover {
+            transform: translateY(-5px);
+        }
+
+        .lead-magnet h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .lead-magnet p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-container,
+            .tech-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                max-width: 100%;
+            }
+
+            .trust-title,
+            .tech-content h2,
+            .meeting-section h2,
+            .lead-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Floating Action Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn.whatsapp {
+            background: #25d366;
+        }
+
+        .floating-btn.email {
+            background: #0ea5e9;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Analytics & Tracking */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    🔬 Fraunhofer IBP zertifiziert
+                </div>
+                
+                <h1>Aus Meerwasser wird reinstes Destillat</h1>
+                
+                <p class="hero-subtitle">
+                    Innovative solare Destillationstechnologie mit 90% Energie-Recycling. 
+                    Forschungsprojekt für nachhaltige Wasseraufbereitung.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        99,9% Destillationsreinheit
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        90% Energie-Recycling
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">✓</span>
+                        Pilotanlage Q4 2025
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="/webinar-anmeldung.html" class="cta-primary" onclick="trackEvent('webinar_registration_click')">
+                        🚀 Exklusives Webinar - Jetzt anmelden
+                    </a>
+                    <a href="#lead-magnets" class="cta-secondary" onclick="trackEvent('tech_documentation_interest')">
+                        📋 Technologie-Dokumentation
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-animation">
+                    <div class="distillation-process">
+                        <div class="process-step">☀️ Solare Erhitzung</div>
+                        <div class="process-step">💨 Meerwasser Verdampfung</div>
+                        <div class="process-step">🌡️ Kondensation</div>
+                        <div class="process-step">💧 Reinstes Destillat</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Authority Section -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <h2 class="trust-title">Wissenschaftlich validierte Technologie</h2>
+            
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="trust-icon">🏛️</div>
+                    <div class="trust-metric">Fraunhofer IBP</div>
+                    <p>Partnership für wissenschaftliche Exzellenz in der Destillationsforschung</p>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">⚡</div>
+                    <div class="trust-metric">90%</div>
+                    <p>Energie-Recycling Rate im geschlossenen Kreislaufsystem</p>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">💧</div>
+                    <div class="trust-metric">99,9%</div>
+                    <p>Destillationsreinheit - Höchste Wasserqualität durch solare Aufbereitung</p>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">🔬</div>
+                    <div class="trust-metric">Q4 2025</div>
+                    <p>Pilotanlage Zypern - Live-Demonstration der Technologie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Explanation -->
+    <section class="tech-section">
+        <div class="tech-container">
+            <div class="tech-content">
+                <h2>Revolutionäre Destillationstechnologie</h2>
+                
+                <p>
+                    DESERTGREENER nutzt innovative solare Destillationsverfahren zur Aufbereitung von 
+                    Meerwasser zu reinstem Destillat. Die Fraunhofer-zertifizierte Technologie erreicht 
+                    durch intelligente Energie-Rückgewinnung eine einzigartige Effizienz.
+                </p>
+                
+                <ul class="tech-features">
+                    <li>Solare Destillation mit heliotropen Spiegelsystemen</li>
+                    <li>Geschlossener Kreislauf mit 90% Energie-Recycling</li>
+                    <li>Modulare Bauweise für skalierbare Anwendungen</li>
+                    <li>24/7 Betrieb durch duale Speicherlösungen</li>
+                    <li>Wartungsarme Technologie für extreme Umgebungen</li>
+                </ul>
+                
+                <a href="#lead-magnets" class="cta-primary" onclick="trackEvent('tech_details_interest')">
+                    Technische Details verstehen
+                </a>
+            </div>
+            
+            <div class="tech-visual">
+                <h3>🌊 Destillationsprozess</h3>
+                <p style="margin: 2rem 0; font-size: 1.1rem; color: #64748b;">
+                    Meerwasser → Solare Erhitzung → Verdampfung → Kondensation → Reinstes Destillat
+                </p>
+                <div style="background: #0ea5e9; color: white; padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                    <strong>99,9% Reinheitsgrad</strong><br>
+                    Höchste Wasserqualität durch Destillation
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meeting Section -->
+    <section id="meeting" class="meeting-section">
+        <div class="meeting-container">
+            <h2>🎯 Forschungs-Meetings mit dem Erfinder</h2>
+            <div class="meeting-time">Jeden Donnerstag 20:15 (MEZ, Vienna)</div>
+            
+            <p class="meeting-description">
+                Treffen Sie persönlich den Erfinder und Patentinhaber Karl Albrecht Waldstein 
+                in unseren wöchentlichen Live-Meetings. Stellen Sie direkte Fragen zur Technologie, 
+                zu Forschungsergebnissen und zur Zukunft des Projekts.
+            </p>
+            
+            <a href="https://www.movementmeeting.com" target="_blank" class="cta-primary" onclick="trackEvent('meeting_registration')">
+                🎥 Meeting-Raum betreten
+            </a>
+        </div>
+    </section>
+
+    <!-- Webinar CTA Section -->
+    <section id="webinar-cta" style="background: linear-gradient(135deg, #1e40af, #0369a1); color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden;">
+        <div style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
+            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 2rem; display: inline-block;">
+                🎯 EXKLUSIV: DONNERSTAG 20:15 UHR
+            </div>
+            
+            <h2 style="font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(45deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                DESERTGREENER Live-Webinar
+            </h2>
+            
+            <p style="font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Erfahren Sie direkt von Thomas Laggner alles über die Fraunhofer-zertifizierte Destillationstechnologie. Begrenzt auf 50 Teilnehmer für persönliche Betreuung.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin: 2rem 0; text-align: center;">
+                <div>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔬</div>
+                    <strong>Live-Demo</strong><br>
+                    <small style="opacity: 0.8;">Fraunhofer-Technologie</small>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">💧</div>
+                    <strong>99,9% Reinheit</strong><br>
+                    <small style="opacity: 0.8;">Aus Meerwasser</small>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌞</div>
+                    <strong>Solare Effizienz</strong><br>
+                    <small style="opacity: 0.8;">90% Energie-Recycling</small>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">❓</div>
+                    <strong>Q&A Session</strong><br>
+                    <small style="opacity: 0.8;">Persönliche Fragen</small>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 1.5rem; margin: 2rem 0; border: 1px solid rgba(255,255,255,0.2);">
+                <div style="font-size: 1.1rem; margin-bottom: 1rem;">
+                    <strong>🔗 Webinar-Link:</strong> <span style="color: #fbbf24; font-weight: 600;">www.movementmeeting.com</span>
+                </div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">
+                    Link erhalten Sie automatisch nach der Anmeldung per E-Mail
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/webinar-anmeldung.html" style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e40af; padding: 1.2rem 2.5rem; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);" onclick="trackEvent('webinar_main_cta_click')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(251, 191, 36, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(251, 191, 36, 0.3)'">
+                    🚀 Kostenlosen Platz sichern
+                </a>
+                
+                <a href="tel:+43123456789" style="background: rgba(255,255,255,0.1); color: white; padding: 1.2rem 2rem; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;" onclick="trackEvent('webinar_call_click')" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+                    📞 Direkt anrufen
+                </a>
+            </div>
+
+            <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+                ⚠️ Begrenzte Teilnehmerzahl - Anmeldung erforderlich | Jeden Donnerstag um 20:15 Uhr
+            </div>
+        </div>
+
+        <!-- Background Pattern -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 100 100\\"><defs><pattern id=\\"webinar-grid\\" width=\\"10\\" height=\\"10\\" patternUnits=\\"userSpaceOnUse\\"><path d=\\"M 10 0 L 0 0 0 10\\" fill=\\"none\\" stroke=\\"rgba(255,255,255,0.1)\\" stroke-width=\\"0.5\\"/></pattern></defs><rect width=\\"100\\" height=\\"100\\" fill=\\"url(%23webinar-grid)\\"/></svg>'); opacity: 0.3; z-index: 1;"></div>
+    </section>
+
+    <!-- Lead Magnets Section -->
+    <section id="lead-magnets" class="lead-section">
+        <div class="lead-container">
+            <h2>Kostenlose Bildungsinhalte zur DESERTGREENER Technologie</h2>
+            <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">
+                Vertiefen Sie Ihr Verständnis für innovative Destillationstechnologie
+            </p>
+            
+            <div class="lead-grid">
+                <div class="lead-magnet">
+                    <h3>📋 Technologie-Dokumentation</h3>
+                    <p>Vollständige technische Spezifikationen, Forschungsergebnisse und Fraunhofer-Validierung</p>
+                    <a href="mailto:info@weltwassertag.at?subject=Technologie-Dokumentation%20Anfrage" class="cta-primary" onclick="trackEvent('documentation_request')">
+                        PDF anfordern
+                    </a>
+                </div>
+                
+                <div class="lead-magnet">
+                    <h3>🎥 Prozess-Erklärvideo</h3>
+                    <p>Detaillierte Visualisierung des Destillationsprozesses und der Energie-Rückgewinnung</p>
+                    <a href="mailto:info@weltwassertag.at?subject=Erklärvideo%20Anfrage" class="cta-primary" onclick="trackEvent('video_request')">
+                        Video ansehen
+                    </a>
+                </div>
+                
+                <div class="lead-magnet">
+                    <h3>🔬 Forschungsbericht</h3>
+                    <p>Zusammenfassung der Fraunhofer IBP Studien und wissenschaftlichen Validierung</p>
+                    <a href="mailto:info@weltwassertag.at?subject=Forschungsbericht%20Anfrage" class="cta-primary" onclick="trackEvent('research_report_request')">
+                        Bericht erhalten
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <a href="https://wa.me/your-number" class="floating-btn whatsapp" title="WhatsApp Kontakt" onclick="trackEvent('whatsapp_contact')">
+            💬
+        </a>
+        <a href="mailto:info@weltwassertag.at" class="floating-btn email" title="E-Mail Kontakt" onclick="trackEvent('email_contact')">
+            ✉️
+        </a>
+    </div>
+
+    <!-- Multi-language Access -->
+    <div style="background: #1e293b; padding: 2rem; text-align: center; color: white;">
+        <h3 style="margin-bottom: 1rem;">🌍 International Technology Information</h3>
+        <p style="margin-bottom: 2rem;">DESERTGREENER Technology available in 15 languages</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+            <a href="de.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇩🇪 Deutsch</a>
+            <a href="en.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇬🇧 English</a>
+            <a href="fr.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇫🇷 Français</a>
+            <a href="it.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇮🇹 Italiano</a>
+            <a href="es.html" style="color: #10b981; text-decoration: none; padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">🇪🇸 Español</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #0f172a; color: white; padding: 3rem 1rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h3 style="margin-bottom: 1rem;">DESERTGREENER Technologie-Information</h3>
+            <p style="margin-bottom: 1rem; opacity: 0.8;">
+                <strong>Thomas Laggner</strong> - Technologie-Information | Independent Distributor der DGRX Sales GmbH
+            </p>
+            <p style="margin-bottom: 2rem; opacity: 0.8;">
+                📧 Kontakt: <a href="https://www.weltwassertag.at" style="color: #10b981;">www.weltwassertag.at</a> | 
+                🎯 Meetings: <a href="https://www.movementmeeting.com" style="color: #10b981;">movementmeeting.com</a>
+            </p>
+            <div style="font-size: 0.9rem; opacity: 0.7; border-top: 1px solid #334155; padding-top: 2rem;">
+                <p>Diese Informationen dienen ausschließlich der Technologie-Aufklärung und wissenschaftlichen Bildung.</p>
+                <p>Bei Geschäftsentscheidungen wird professionelle Beratung empfohlen. Alle Angaben ohne Gewähr.</p>
+                <p style="margin-top: 1rem;">Website erstellt von Thomas Laggner | DESERTGREENER Technologie 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Analytics & Tracking Script -->
+    <script>
+        // Interest Tracking (MiCA Compliant)
+        function trackEvent(eventName) {
+            // Google Analytics 4 Events (when implemented)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, {
+                    'event_category': 'technology_interest',
+                    'event_label': 'desertgreener_education'
+                });
+            }
+            
+            // Console logging for development
+            console.log('Interest Event:', eventName);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Page loaded event
+        document.addEventListener('DOMContentLoaded', function() {
+            trackEvent('page_loaded');
+            
+            // Add animation delays for better UX
+            const cards = document.querySelectorAll('.trust-card, .lead-magnet');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Scroll tracking for engagement
+        let scrollTracker = false;
+        window.addEventListener('scroll', function() {
+            if (!scrollTracker && window.scrollY > window.innerHeight) {
+                trackEvent('deep_scroll_engagement');
+                scrollTracker = true;
+            }
+        });
+    </script>
+</body>
+</html>

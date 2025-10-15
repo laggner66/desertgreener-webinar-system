@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Lead-Generation Dashboard - DESERTGREENER | Thomas Laggner</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="DESERTGREENER Lead-Generation Dashboard für Thomas Laggner - Webinar-Anmeldungen und Lead-Tracking für DGRX Sales GmbH">
+    <meta name="author" content="Thomas Laggner - Technologie-Information | Independent Distributor der DGRX Sales GmbH">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Netlify Identity -->
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e40af, #0369a1);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0ea5e9;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Leads Table */
+        .leads-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section-header h2 {
+            color: #1e40af;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .leads-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leads-table th,
+        .leads-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .leads-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .leads-table td {
+            font-size: 0.9rem;
+        }
+
+        .leads-table tr:hover {
+            background: #f8fafc;
+        }
+
+        /* Lead Status Badge */
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-new {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-contacted {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-converted {
+            background: #d1fae5;
+            color: #047857;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0ea5e9, #0369a1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .action-btn.secondary {
+            background: white;
+            color: #374151;
+            border: 2px solid #e5e7eb;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f9fafb;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Charts Section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .chart-card h3 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+
+        /* Export Section */
+        .export-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .export-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .export-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .export-card:hover {
+            border-color: #0ea5e9;
+            background: #f0f9ff;
+        }
+
+        .export-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .table-container {
+                font-size: 0.8rem;
+            }
+
+            .leads-table th,
+            .leads-table td {
+                padding: 0.5rem;
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: #64748b;
+        }
+
+        .spinner {
+            border: 2px solid #e2e8f0;
+            border-top: 2px solid #0ea5e9;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Authentication */
+        .auth-required {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #0ea5e9, #0369a1);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>📊 DESERTGREENER Lead-Dashboard</h1>
+        <p>Thomas Laggner - DGRX Sales GmbH | Webinar Lead-Generation System</p>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Authentication Check -->
+        <div id="authRequired" class="auth-required" style="display: none;">
+            <h2>🔐 Anmeldung erforderlich</h2>
+            <p>Bitte melden Sie sich an, um das Lead-Dashboard zu verwenden.</p>
+            <button class="login-btn" onclick="netlifyIdentity.open()">Anmelden</button>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div id="dashboardContent">
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalLeads">0</span>
+                    <div class="stat-label">Gesamt-Anmeldungen</div>
+                </div>
+                
+                <div class="stat-card">
+                    <span class="stat-number" id="todayLeads">0</span>
+                    <div class="stat-label">Heute angemeldet</div>
+                </div>
+                
+                <div class="stat-card">
+                    <span class="stat-number" id="weekLeads">0</span>
+                    <div class="stat-label">Diese Woche</div>
+                </div>
+                
+                <div class="stat-card">
+                    <span class="stat-number" id="conversionRate">0%</span>
+                    <div class="stat-label">Conversion Rate</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Leads Table -->
+                <div class="leads-section">
+                    <div class="section-header">
+                        <h2>📋 Aktuelle Webinar-Anmeldungen</h2>
+                        <p>Übersicht aller DESERTGREENER Webinar-Leads für DGRX Sales GmbH</p>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="leads-table">
+                            <thead>
+                                <tr>
+                                    <th>Datum</th>
+                                    <th>Name</th>
+                                    <th>E-Mail</th>
+                                    <th>Interesse</th>
+                                    <th>Quelle</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leadsTableBody">
+                                <tr>
+                                    <td colspan="6" class="loading">
+                                        <div class="spinner"></div>
+                                        Leads werden geladen...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <div class="section-header" style="padding: 0 0 1rem 0; border: none; background: none;">
+                        <h2>⚡ Schnelle Aktionen</h2>
+                        <p>Lead-Management Tools</p>
+                    </div>
+                    
+                    <button class="action-btn" onclick="exportLeads('csv')">
+                        📊 Leads als CSV exportieren
+                    </button>
+                    
+                    <button class="action-btn" onclick="sendWebinarReminder()">
+                        📧 Webinar-Erinnerung senden
+                    </button>
+                    
+                    <a href="/webinar-anmeldung.html" class="action-btn secondary" target="_blank">
+                        👁️ Anmeldeseite anzeigen
+                    </a>
+                    
+                    <button class="action-btn secondary" onclick="refreshData()">
+                        🔄 Daten aktualisieren
+                    </button>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-card">
+                    <h3>📈 Anmeldungen pro Tag (7 Tage)</h3>
+                    <div class="chart-container">
+                        <canvas id="dailyChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>🎯 Interessenverteilung</h3>
+                    <div class="chart-container">
+                        <canvas id="interestChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Section -->
+            <div class="export-section">
+                <div class="section-header" style="padding: 0 0 1.5rem 0; border: none; background: none;">
+                    <h2>📤 Lead-Export für DGRX Sales</h2>
+                    <p>Exportieren Sie Ihre Lead-Daten für das CRM-System</p>
+                </div>
+                
+                <div class="export-options">
+                    <div class="export-card" onclick="exportLeads('csv')">
+                        <span class="export-icon">📊</span>
+                        <strong>CSV Export</strong>
+                        <p>Für Excel & CRM-Import</p>
+                    </div>
+                    
+                    <div class="export-card" onclick="exportLeads('pdf')">
+                        <span class="export-icon">📄</span>
+                        <strong>PDF Report</strong>
+                        <p>Für Präsentationen</p>
+                    </div>
+                    
+                    <div class="export-card" onclick="exportLeads('json')">
+                        <span class="export-icon">⚙️</span>
+                        <strong>JSON Export</strong>
+                        <p>Für API-Integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Dashboard JavaScript -->
+    <script>
+        let currentUser = null;
+        let leadsData = [];
+
+        // Initialize Dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAuthentication();
+            loadDashboardData();
+            initializeCharts();
+        });
+
+        // Authentication with Netlify Identity
+        function initializeAuthentication() {
+            if (window.netlifyIdentity) {
+                netlifyIdentity.on('init', user => {
+                    currentUser = user;
+                    if (!user) {
+                        document.getElementById('authRequired').style.display = 'block';
+                        document.getElementById('dashboardContent').style.display = 'none';
+                    } else {
+                        document.getElementById('authRequired').style.display = 'none';
+                        document.getElementById('dashboardContent').style.display = 'block';
+                        loadDashboardData();
+                    }
+                });
+
+                netlifyIdentity.on('login', user => {
+                    currentUser = user;
+                    document.getElementById('authRequired').style.display = 'none';
+                    document.getElementById('dashboardContent').style.display = 'block';
+                    loadDashboardData();
+                });
+
+                netlifyIdentity.on('logout', () => {
+                    currentUser = null;
+                    document.getElementById('authRequired').style.display = 'block';
+                    document.getElementById('dashboardContent').style.display = 'none';
+                });
+            }
+        }
+
+        // Load Dashboard Data (using Netlify Forms API or Functions)
+        async function loadDashboardData() {
+            try {
+                // In einer realen Implementierung würden Sie hier die Netlify Forms API aufrufen
+                // oder eine serverless function für Lead-Daten
+                
+                // Simulation der Lead-Daten für Demonstration
+                leadsData = generateMockLeads();
+                
+                updateStatistics();
+                renderLeadsTable();
+                updateCharts();
+                
+            } catch (error) {
+                console.error('Fehler beim Laden der Dashboard-Daten:', error);
+                showError('Fehler beim Laden der Lead-Daten');
+            }
+        }
+
+        // Generate Mock Data for Demonstration
+        function generateMockLeads() {
+            const interests = ['technologie', 'umwelt', 'business', 'wissenschaft', 'sonstiges'];
+            const sources = ['direct', 'google', 'facebook', 'email'];
+            const leads = [];
+
+            for (let i = 0; i < 25; i++) {
+                const date = new Date();
+                date.setDate(date.getDate() - Math.floor(Math.random() * 30));
+                
+                leads.push({
+                    id: `TL-${Date.now()}-${i}`,
+                    date: date.toISOString(),
+                    firstName: `Max${i}`,
+                    lastName: `Mustermann${i}`,
+                    email: `max${i}@beispiel.de`,
+                    phone: `+49 123 ${i.toString().padStart(6, '0')}`,
+                    interest: interests[Math.floor(Math.random() * interests.length)],
+                    source: sources[Math.floor(Math.random() * sources.length)],
+                    newsletter: Math.random() > 0.5,
+                    status: ['new', 'contacted', 'converted'][Math.floor(Math.random() * 3)]
+                });
+            }
+
+            return leads.sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+
+        // Update Statistics
+        function updateStatistics() {
+            const today = new Date().toDateString();
+            const thisWeekStart = new Date();
+            thisWeekStart.setDate(thisWeekStart.getDate() - thisWeekStart.getDay());
+
+            const todayLeads = leadsData.filter(lead => 
+                new Date(lead.date).toDateString() === today
+            ).length;
+
+            const weekLeads = leadsData.filter(lead => 
+                new Date(lead.date) >= thisWeekStart
+            ).length;
+
+            const conversionRate = leadsData.length > 0 ? 
+                ((leadsData.filter(lead => lead.status === 'converted').length / leadsData.length) * 100).toFixed(1) : 0;
+
+            document.getElementById('totalLeads').textContent = leadsData.length;
+            document.getElementById('todayLeads').textContent = todayLeads;
+            document.getElementById('weekLeads').textContent = weekLeads;
+            document.getElementById('conversionRate').textContent = `${conversionRate}%`;
+        }
+
+        // Render Leads Table
+        function renderLeadsTable() {
+            const tbody = document.getElementById('leadsTableBody');
+            tbody.innerHTML = '';
+
+            leadsData.slice(0, 10).forEach(lead => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${new Date(lead.date).toLocaleDateString('de-DE')}</td>
+                    <td>${lead.firstName} ${lead.lastName}</td>
+                    <td>${lead.email}</td>
+                    <td>${getInterestLabel(lead.interest)}</td>
+                    <td>${lead.source}</td>
+                    <td><span class="status-badge status-${lead.status}">${getStatusLabel(lead.status)}</span></td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            if (leadsData.length > 10) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="6" style="text-align: center; font-style: italic; color: #64748b;">
+                        ... und ${leadsData.length - 10} weitere Leads
+                    </td>
+                `;
+                tbody.appendChild(row);
+            }
+        }
+
+        // Helper Functions
+        function getInterestLabel(interest) {
+            const labels = {
+                'technologie': 'Technologie',
+                'umwelt': 'Umwelt',
+                'business': 'Business',
+                'wissenschaft': 'Wissenschaft',
+                'sonstiges': 'Sonstiges'
+            };
+            return labels[interest] || interest;
+        }
+
+        function getStatusLabel(status) {
+            const labels = {
+                'new': 'Neu',
+                'contacted': 'Kontaktiert',
+                'converted': 'Konvertiert'
+            };
+            return labels[status] || status;
+        }
+
+        // Initialize Charts
+        function initializeCharts() {
+            // Daily Registrations Chart
+            const dailyCtx = document.getElementById('dailyChart').getContext('2d');
+            window.dailyChart = new Chart(dailyCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Anmeldungen',
+                        data: [],
+                        borderColor: '#0ea5e9',
+                        backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Interest Distribution Chart
+            const interestCtx = document.getElementById('interestChart').getContext('2d');
+            window.interestChart = new Chart(interestCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        data: [],
+                        backgroundColor: [
+                            '#0ea5e9',
+                            '#10b981',
+                            '#f59e0b',
+                            '#ef4444',
+                            '#8b5cf6'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        // Update Charts
+        function updateCharts() {
+            // Daily Chart
+            const last7Days = Array.from({length: 7}, (_, i) => {
+                const date = new Date();
+                date.setDate(date.getDate() - (6 - i));
+                return date;
+            });
+
+            const dailyData = last7Days.map(date => {
+                return leadsData.filter(lead => 
+                    new Date(lead.date).toDateString() === date.toDateString()
+                ).length;
+            });
+
+            window.dailyChart.data.labels = last7Days.map(date => 
+                date.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric' })
+            );
+            window.dailyChart.data.datasets[0].data = dailyData;
+            window.dailyChart.update();
+
+            // Interest Chart
+            const interestCounts = {};
+            leadsData.forEach(lead => {
+                interestCounts[lead.interest] = (interestCounts[lead.interest] || 0) + 1;
+            });
+
+            window.interestChart.data.labels = Object.keys(interestCounts).map(getInterestLabel);
+            window.interestChart.data.datasets[0].data = Object.values(interestCounts);
+            window.interestChart.update();
+        }
+
+        // Export Functions
+        function exportLeads(format) {
+            switch (format) {
+                case 'csv':
+                    exportCSV();
+                    break;
+                case 'pdf':
+                    exportPDF();
+                    break;
+                case 'json':
+                    exportJSON();
+                    break;
+            }
+        }
+
+        function exportCSV() {
+            const headers = ['Datum', 'Vorname', 'Nachname', 'E-Mail', 'Telefon', 'Interesse', 'Quelle', 'Newsletter', 'Status'];
+            const rows = leadsData.map(lead => [
+                new Date(lead.date).toLocaleDateString('de-DE'),
+                lead.firstName,
+                lead.lastName,
+                lead.email,
+                lead.phone,
+                getInterestLabel(lead.interest),
+                lead.source,
+                lead.newsletter ? 'Ja' : 'Nein',
+                getStatusLabel(lead.status)
+            ]);
+
+            const csvContent = [headers, ...rows]
+                .map(row => row.map(field => `"${field}"`).join(','))
+                .join('\n');
+
+            downloadFile(csvContent, 'desertgreener-leads.csv', 'text/csv');
+        }
+
+        function exportJSON() {
+            const jsonContent = JSON.stringify(leadsData, null, 2);
+            downloadFile(jsonContent, 'desertgreener-leads.json', 'application/json');
+        }
+
+        function exportPDF() {
+            // Hier würde eine PDF-Bibliothek wie jsPDF verwendet werden
+            alert('PDF-Export wird implementiert. Verwenden Sie vorerst den CSV-Export.');
+        }
+
+        function downloadFile(content, filename, contentType) {
+            const blob = new Blob([content], { type: contentType });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Utility Functions
+        function refreshData() {
+            loadDashboardData();
+        }
+
+        function sendWebinarReminder() {
+            alert('Webinar-Erinnerungen werden an alle aktuellen Leads gesendet.');
+        }
+
+        function showError(message) {
+            console.error(message);
+            // Hier könnte ein Toast oder Modal für Fehlermeldungen implementiert werden
+        }
+
+        // Auto-refresh every 5 minutes
+        setInterval(loadDashboardData, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
