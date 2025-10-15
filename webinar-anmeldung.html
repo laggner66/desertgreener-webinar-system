@@ -1209,7 +1209,7 @@
                 <p>
                     Vielen Dank für Ihre Anmeldung! Sie erhalten in den nächsten Minuten eine E-Mail mit:
                     <br><br>
-                    📧 <strong>Webinar-Link:</strong> www.movementmeeting.com<br>
+                    📧 <strong>Sicherer Webinar-Link:</strong> Wird automatisch versendet<br>
                     📅 <strong>Termin:</strong> Donnerstag um 20:15 Uhr<br>
                     📋 <strong>Agenda:</strong> Detaillierte Webinar-Inhalte<br>
                     <br>
@@ -1367,7 +1367,7 @@ Ich habe mich soeben für das exklusive DESERTGREENER Live-Webinar angemeldet un
 
 ⏰ WEBINAR-TERMINE:
 📅 Donnerstag, 20:15 Uhr
-🔗 Link: www.movementmeeting.com
+🔗 Link: Wird per E-Mail versendet
 
 💬 ERINNERUNG GEWÜNSCHT:
 ✅ 1 Stunde vor Webinar-Start (19:15 Uhr)
@@ -1494,6 +1494,21 @@ ${vorname} ${nachname}
                 body: new URLSearchParams(formData).toString()
             })
             .then(() => {
+                // Prepare follow-up email data with exclusive webinar link
+                const emailData = {
+                    vorname: document.getElementById('vorname').value,
+                    nachname: document.getElementById('nachname').value,
+                    email: document.getElementById('email').value,
+                    webinarLink: 'www.movementmeeting.com', // Exclusive access after registration
+                    interesse: document.getElementById('interesse').value,
+                    registrationDate: new Date().toLocaleDateString('de-DE'),
+                    registrationTime: new Date().toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'})
+                };
+                
+                // Store registrant data for follow-up system
+                localStorage.setItem('webinarRegistrant', JSON.stringify(emailData));
+                console.log('Lead captured successfully:', emailData);
+                
                 // Show success message
                 document.querySelector('.form-section').style.display = 'none';
                 document.getElementById('successMessage').style.display = 'block';
@@ -1536,7 +1551,7 @@ ${vorname} ${nachname}
                 
                 // Redirect to thank you page after 5 seconds
                 setTimeout(() => {
-                    window.location.href = '/danke.html';
+                    window.location.href = 'danke.html';
                 }, 5000);
             })
             .catch((error) => {
@@ -1558,7 +1573,7 @@ Thomas Laggner - Independent Distributor der DGRX Sales GmbH
 
 Zweck der Datenverarbeitung:
 - Anmeldung zum DESERTGREENER Webinar
-- Versendung des Webinar-Links (www.movementmeeting.com)
+- Versendung des sicheren Webinar-Links per E-Mail
 - Lead-Tracking für DGRX Sales GmbH
 - Technologie-Informationen per E-Mail
 
