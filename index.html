@@ -1253,77 +1253,390 @@
             .patent-science-section [style*="grid-template-columns"] {
                 grid-template-columns: 1fr !important;
             }
+
+            /* Sticky Navigation Mobile */
+            .sticky-nav [style*="display: flex"] {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+
+            .sticky-nav a[style*="gap: 2rem"] {
+                display: none !important;
+            }
+
+            /* Hero Mobile Optimierungen */
+            .hero [style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem !important;
+            }
+
+            /* Problem Section Mobile */
+            .problem-section [style*="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Technology Section Mobile */
+            .tech-section [style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Sticky Navigation Animation */
+        .sticky-nav-visible {
+            transform: translateY(0) !important;
+        }
+
+        /* Pulse Animation für Urgency Badge */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
     </style>
 </head>
 <body>
-    <!-- Sticky Header Badge entfernt - weniger Überladung -->
-
-    <!-- Hero Section -->
-    <section class="hero" style="position: relative;">
-        <!-- Position 2: Hero Overlay Badge -->
-        <div class="hero-overlay-badge" onclick="goToWebinar()" title="Kostenlose Webinar-Anmeldung!">
-            <div class="hero-badge-content">
-                <div class="hero-badge-top">💡 KOSTENLOS</div>
-                <div class="hero-badge-bottom">DONNERSTAG 20:15</div>
-            </div>
-        </div>
-        
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    🔬 Fraunhofer IBP zertifiziert
+    <!-- Sticky Navigation für optimierte User Experience -->
+    <nav class="sticky-nav" style="
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        background: rgba(255,255,255,0.95); 
+        backdrop-filter: blur(10px); 
+        border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+        z-index: 1000;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        padding: 1rem 0;
+    " id="stickyNav">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #0ea5e9, #10b981); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                    DG
                 </div>
-                
-                <h1>Aus Meerwasser wird reinstes Destillat</h1>
-                
-                <p class="hero-subtitle">
-                    Innovative solare Destillationstechnologie mit 90% Energie-Recycling. 
-                    Forschungsprojekt für nachhaltige Wasseraufbereitung.
-                </p>
-                
-                <div class="hero-features">
-                    <div class="hero-feature">
-                        <span class="hero-feature-icon">✓</span>
-                        99,9% Destillationsreinheit
-                    </div>
-                    <div class="hero-feature">
-                        <span class="hero-feature-icon">✓</span>
-                        90% Energie-Recycling
-                    </div>
-                    <div class="hero-feature">
-                        <span class="hero-feature-icon">✓</span>
-                        Pilotanlage Q4 2025
-                    </div>
-                </div>
-                
-                <div class="hero-cta">
-                    <a href="/webinar-anmeldung.html" class="cta-primary" onclick="trackEvent('webinar_registration_click')">
-                        🚀 Exklusives Webinar - Jetzt anmelden
-                    </a>
-                    <a href="https://wa.me/4369912169080?text=Hallo%20Thomas!%20Ich%20interessiere%20mich%20für%20die%20DESERTGREENER%20Technologie%20und%20möchte%20mehr%20über%20das%20Webinar%20erfahren.%20Können%20Sie%20mir%20weitere%20Informationen%20senden%3F%20🚀" class="cta-whatsapp" target="_blank" onclick="trackEvent('whatsapp_hero_contact')">
-                        📱 WhatsApp-Beratung
-                    </a>
-                    <a href="#lead-magnets" class="cta-secondary" onclick="trackEvent('tech_documentation_interest')">
-                        📋 Technologie-Dokumentation
-                    </a>
-                    
-                    <!-- WhatsApp Direktkontakt -->
-                    <a href="https://wa.me/4366488795275?text=Hallo%20Thomas!%20Ich%20interessiere%20mich%20f%C3%BCr%20das%20DESERTGREENER%20Webinar%20am%20Donnerstag%2020%3A15%20Uhr.%20K%C3%B6nnen%20Sie%20mir%20weitere%20Informationen%20senden%3F" class="whatsapp-cta" onclick="trackEvent('whatsapp_hero_click')" target="_blank">
-                        <span class="whatsapp-icon">📱</span>
-                        WhatsApp Direktkontakt
-                    </a>
+                <div>
+                    <div style="font-weight: 700; color: #1e293b; font-size: 1.1rem;">DESERTGREENER</div>
+                    <div style="font-size: 0.75rem; color: #64748b;">Solare Meerwasser-Destillation</div>
                 </div>
             </div>
             
-            <div class="hero-visual">
-                <div class="hero-animation">
-                    <div class="distillation-process">
-                        <div class="process-step">☀️ Solare Erhitzung</div>
-                        <div class="process-step">💨 Meerwasser Verdampfung</div>
-                        <div class="process-step">🌡️ Kondensation</div>
-                        <div class="process-step">💧 Reinstes Destillat</div>
+            <div style="display: flex; align-items: center; gap: 2rem;">
+                <a href="#problem-solution" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Problem & Lösung</a>
+                <a href="#technology" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Technologie</a>
+                <a href="#validation" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Validierung</a>
+                <a href="#projects" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Projekte</a>
+                
+                <a href="#webinar-cta" 
+                   style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; padding: 0.5rem 1.25rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;"
+                   onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 15px rgba(14, 165, 233, 0.3)'"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+                   onclick="trackEvent('sticky_nav_webinar_click');">
+                    🎯 Webinar anmelden
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Komplett überarbeitet für Conversion -->
+    <section class="hero" style="position: relative; padding: 8rem 0 6rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); color: white; overflow: hidden;">
+        <!-- Background Pattern -->
+        <div style="position: absolute; inset: 0; opacity: 0.03; background-image: radial-gradient(circle at 25% 25%, #ffffff 2px, transparent 2px), radial-gradient(circle at 75% 75%, #ffffff 1px, transparent 1px); background-size: 60px 60px;"></div>
+        
+        <!-- Urgency Badge -->
+        <div style="position: absolute; top: 2rem; right: 2rem; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; animation: pulse 2s infinite; z-index: 10; cursor: pointer;" onclick="document.querySelector('#webinar-cta').scrollIntoView({behavior: 'smooth'}); trackEvent('urgency_badge_click');">
+            🔥 Nur 17 Plätze frei - Donnerstag 20:15
+        </div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 2;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                
+                <!-- Content Side -->
+                <div>
+                    <!-- Trust Badge -->
+                    <div style="background: rgba(14, 165, 233, 0.15); color: #06b6d4; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; margin-bottom: 2rem; display: inline-block; border: 1px solid rgba(6, 182, 212, 0.3);">
+                        🏛️ Fraunhofer IBP zertifiziert & patentgeschützt
                     </div>
+                    
+                    <!-- Main Headlines - Persona-gezielt -->
+                    <h1 style="font-size: 3.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(135deg, #fbbf24, #f59e0b, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        DESERTGREENER verwandelt<br>Meerwasser in reinstes Destillat
+                    </h1>
+                    
+                    <!-- Persona-Balance Subheadline -->
+                    <p style="font-size: 1.4rem; opacity: 0.95; margin-bottom: 1rem; color: #e2e8f0; font-weight: 500;">
+                        Hocheffizient, patentgeschützt und klimafreundlich
+                    </p>
+                    
+                    <!-- Persona-Targeting Text -->
+                    <p style="font-size: 1.1rem; opacity: 0.85; margin-bottom: 2.5rem; line-height: 1.6; color: #cbd5e1;">
+                        Für Unternehmen, die <strong style="color: #fbbf24;">Sicherheit</strong>, 
+                        <strong style="color: #10b981;">Marktführerschaft</strong> und 
+                        <strong style="color: #06b6d4;">technische Innovation</strong> verbinden wollen.
+                    </p>
+                    
+                    <!-- Key Benefits Icons -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+                        <div style="text-align: center; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div>
+                            <strong style="display: block; margin-bottom: 0.25rem; color: #fbbf24;">Sicherheit</strong>
+                            <small style="opacity: 0.8;">99,9% Reinheit</small>
+                        </div>
+                        <div style="text-align: center; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚀</div>
+                            <strong style="display: block; margin-bottom: 0.25rem; color: #10b981;">Effizienz</strong>
+                            <small style="opacity: 0.8;">90% Recycling</small>
+                        </div>
+                        <div style="text-align: center; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">💡</div>
+                            <strong style="display: block; margin-bottom: 0.25rem; color: #06b6d4;">Innovation</strong>
+                            <small style="opacity: 0.8;">Patent-Portfolio</small>
+                        </div>
+                    </div>
+                    
+                    <!-- Mehrstufiger CTA-Funnel -->
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <!-- Primary CTA - Webinar (Medium) -->
+                        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                            <a href="/webinar-anmeldung.html" 
+                               style="flex: 1; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 1.25rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1rem; text-align: center; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.75rem;"
+                               onclick="trackEvent('hero_webinar_primary');"
+                               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(220, 38, 38, 0.4)'"
+                               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                🎯 Jetzt Webinar anmelden
+                                <div style="font-size: 0.8rem; opacity: 0.9;">Donnerstag 20:15</div>
+                            </a>
+                            
+                            <a href="#tech-download" 
+                               style="flex: 1; background: rgba(14, 165, 233, 0.15); color: #06b6d4; padding: 1.25rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(6, 182, 212, 0.3);"
+                               onclick="trackEvent('hero_tech_download_soft');"
+                               onmouseover="this.style.background='rgba(14, 165, 233, 0.25)'; this.style.borderColor='rgba(6, 182, 212, 0.5)'"
+                               onmouseout="this.style.background='rgba(14, 165, 233, 0.15)'; this.style.borderColor='rgba(6, 182, 212, 0.3)'">
+                                📋 Technologie-Datenblatt
+                            </a>
+                        </div>
+                        
+                        <!-- Secondary CTAs -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <a href="https://wa.me/4369912169080?text=Hallo%20Thomas!%20Ich%20interessiere%20mich%20für%20DESERTGREENER%20und%20möchte%20ein%20direktes%20Beratungsgespräch%20vereinbaren." 
+                               target="_blank"
+                               style="background: linear-gradient(135deg, #25d366, #20c55e); color: white; padding: 1rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem; text-align: center; transition: all 0.3s ease;"
+                               onclick="trackEvent('hero_whatsapp_direct');"
+                               onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 5px 20px rgba(37, 211, 102, 0.4)'"
+                               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                💬 WhatsApp-Beratung
+                            </a>
+                            
+                            <a href="#projects" 
+                               style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 1rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.95rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(245, 158, 11, 0.3);"
+                               onclick="trackEvent('hero_projects_soft');"
+                               onmouseover="this.style.background='rgba(245, 158, 11, 0.25)'; this.style.borderColor='rgba(245, 158, 11, 0.5)'"
+                               onmouseout="this.style.background='rgba(245, 158, 11, 0.15)'; this.style.borderColor='rgba(245, 158, 11, 0.3)'">
+                                🏗️ Projekt anfragen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visual Side -->
+                <div style="position: relative;">
+                    <!-- Tech Process Animation -->
+                    <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(15px); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1);">
+                        <h3 style="text-align: center; margin-bottom: 2rem; color: #fbbf24; font-size: 1.3rem; font-weight: 600;">
+                            🌊 Destillationsprozess
+                        </h3>
+                        
+                        <div style="display: grid; gap: 1.5rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(14, 165, 233, 0.1); border-radius: 12px; border-left: 4px solid #0ea5e9;">
+                                <div style="font-size: 2rem;">🌊</div>
+                                <div>
+                                    <strong style="color: #06b6d4;">Meerwasser</strong>
+                                    <div style="font-size: 0.85rem; opacity: 0.8;">Solare Erhitzung</div>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; color: #64748b; font-size: 1.5rem;">↓</div>
+                            
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(245, 158, 11, 0.1); border-radius: 12px; border-left: 4px solid #f59e0b;">
+                                <div style="font-size: 2rem;">💨</div>
+                                <div>
+                                    <strong style="color: #f59e0b;">Verdampfung</strong>
+                                    <div style="font-size: 0.85rem; opacity: 0.8;">90% Energie-Recycling</div>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; color: #64748b; font-size: 1.5rem;">↓</div>
+                            
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 12px; border-left: 4px solid #10b981;">
+                                <div style="font-size: 2rem;">💧</div>
+                                <div>
+                                    <strong style="color: #10b981;">Reinstes Destillat</strong>
+                                    <div style="font-size: 0.85rem; opacity: 0.8;">99,9% Reinheit</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Performance Metrics -->
+                        <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; text-align: center;">
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; text-align: center;">
+                                <div>
+                                    <div style="font-size: 1.8rem; font-weight: 700; color: #fbbf24;">24/7</div>
+                                    <div style="font-size: 0.8rem; opacity: 0.8;">Betrieb</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 1.8rem; font-weight: 700; color: #10b981;">Q4 2025</div>
+                                    <div style="font-size: 0.8rem; opacity: 0.8;">Pilotanlage</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Bedarf Section -->
+    <section id="problem-solution" class="problem-section" style="padding: 6rem 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.5rem; color: #1e293b;">
+                    Die globale Wasserkrise erfordert <span style="background: linear-gradient(135deg, #dc2626, #b91c1c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">innovative Lösungen</span>
+                </h2>
+                <p style="font-size: 1.25rem; color: #64748b; max-width: 800px; margin: 0 auto;">
+                    Während 2 Milliarden Menschen keinen Zugang zu sauberem Trinkwasser haben, 
+                    bietet DESERTGREENER die technologische Antwort auf diese Herausforderung.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+                <!-- Problem Cards -->
+                <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-left: 5px solid #dc2626;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1.5rem; font-size: 2rem;">
+                            🌍
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.4rem; margin: 0 0 0.5rem; color: #dc2626; font-weight: 700;">Wasserknappheit</h3>
+                            <p style="margin: 0; color: #64748b; font-size: 0.9rem;">Globale Herausforderung</p>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #dc2626; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>2 Milliarden Menschen</strong> ohne sauberes Trinkwasser</span>
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #dc2626; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>50% der Weltbevölkerung</strong> wird bis 2050 in wasserarmen Gebieten leben</span>
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #dc2626; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>Klimawandel</strong> verschärft Wasserknappheit in Küstenregionen</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-left: 5px solid #f59e0b;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1.5rem; font-size: 2rem;">
+                            💰
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.4rem; margin: 0 0 0.5rem; color: #f59e0b; font-weight: 700;">Hohe Kosten</h3>
+                            <p style="margin: 0; color: #64748b; font-size: 0.9rem;">Konventionelle Technologien</p>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #f59e0b; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>Hohe Energiekosten</strong> bei herkömmlicher Entsalzung</span>
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #f59e0b; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>Wartungsintensive</strong> Reverse-Osmose Anlagen</span>
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #f59e0b; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>Abhängigkeit</strong> von fossilen Energieträgern</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-left: 5px solid #10b981;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #10b981, #047857); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1.5rem; font-size: 2rem;">
+                            🌱
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.4rem; margin: 0 0 0.5rem; color: #10b981; font-weight: 700;">Umweltbelastung</h3>
+                            <p style="margin: 0; color: #64748b; font-size: 0.9rem;">Nachhaltigkeitsprobleme</p>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>CO₂-intensive</strong> Wasseraufbereitungsprozesse</span>
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>Salzabwasser-Entsorgung</strong> belastet Meeresökosysteme</span>
+                        </li>
+                        <li style="margin: 1rem 0; display: flex; align-items: flex-start; color: #64748b;">
+                            <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold;">•</span>
+                            <span><strong>Ressourcenverbrauch</strong> für Filter und Membranen</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DESERTGREENER als Lösung -->
+            <div style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; padding: 4rem; border-radius: 25px; text-align: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; inset: 0; opacity: 0.1; background-image: radial-gradient(circle at 30% 30%, white 2px, transparent 2px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px); background-size: 40px 40px;"></div>
+                
+                <div style="position: relative; z-index: 2;">
+                    <h3 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">
+                        🚀 DESERTGREENER: Die innovative Antwort
+                    </h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto;">
+                        Solare Meerwasser-Destillation mit 90% Energie-Recycling, 99,9% Reinheit und 
+                        klimaneutralem Betrieb - patentgeschützt und Fraunhofer-validiert.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                        <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 2rem; backdrop-filter: blur(10px);">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                            <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">90% Effizienz</h4>
+                            <p style="opacity: 0.9; margin: 0; font-size: 0.9rem;">Energie-Recycling</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 2rem; backdrop-filter: blur(10px);">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">💧</div>
+                            <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">99,9% Reinheit</h4>
+                            <p style="opacity: 0.9; margin: 0; font-size: 0.9rem;">Destillationsqualität</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 2rem; backdrop-filter: blur(10px);">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌿</div>
+                            <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">0% CO₂</h4>
+                            <p style="opacity: 0.9; margin: 0; font-size: 0.9rem;">Klimaneutral</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 2rem; backdrop-filter: blur(10px);">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔒</div>
+                            <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Patent-Portfolio</h4>
+                            <p style="opacity: 0.9; margin: 0; font-size: 0.9rem;">Geschützte Innovation</p>
+                        </div>
+                    </div>
+
+                    <a href="#technology" 
+                       style="display: inline-flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); color: white; padding: 1.25rem 2.5rem; border-radius: 15px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 2px solid rgba(255,255,255,0.3);"
+                       onclick="trackEvent('problem_to_technology_click');"
+                       onmouseover="this.style.background='rgba(255,255,255,0.3)'; this.style.borderColor='rgba(255,255,255,0.5)'; this.style.transform='translateY(-2px)'"
+                       onmouseout="this.style.background='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.3)'; this.style.transform='translateY(0)'">
+                        <span>Technologie im Detail entdecken</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1374,39 +1687,152 @@
         </div>
     </section>
 
-    <!-- Technology Explanation -->
-    <section class="tech-section">
-        <div class="tech-container">
-            <div class="tech-content">
-                <h2>Revolutionäre Destillationstechnologie</h2>
-                
-                <p>
-                    DESERTGREENER nutzt innovative solare Destillationsverfahren zur Aufbereitung von 
-                    Meerwasser zu reinstem Destillat. Die Fraunhofer-zertifizierte Technologie erreicht 
-                    durch intelligente Energie-Rückgewinnung eine einzigartige Effizienz.
-                </p>
-                
-                <ul class="tech-features">
-                    <li>Solare Destillation mit heliotropen Spiegelsystemen</li>
-                    <li>Geschlossener Kreislauf mit 90% Energie-Recycling</li>
-                    <li>Modulare Bauweise für skalierbare Anwendungen</li>
-                    <li>24/7 Betrieb durch duale Speicherlösungen</li>
-                    <li>Wartungsarme Technologie für extreme Umgebungen</li>
-                </ul>
-                
-                <a href="#lead-magnets" class="cta-primary" onclick="trackEvent('tech_details_interest')">
-                    Technische Details verstehen
-                </a>
-            </div>
+    <!-- Technology Overview - Komplett überarbeitet -->
+    <section id="technology" class="tech-section" style="padding: 6rem 0; background: white;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
             
-            <div class="tech-visual">
-                <h3>🌊 Destillationsprozess</h3>
-                <p style="margin: 2rem 0; font-size: 1.1rem; color: #64748b;">
-                    Meerwasser → Solare Erhitzung → Verdampfung → Kondensation → Reinstes Destillat
+            <!-- Header -->
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.5rem; color: #1e293b;">
+                    Revolutionäre <span style="background: linear-gradient(135deg, #0ea5e9, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">DESERTGREENER</span> Technologie
+                </h2>
+                <p style="font-size: 1.25rem; color: #64748b; max-width: 800px; margin: 0 auto;">
+                    Patentierte solare Destillationstechnologie mit 90% Energie-Recycling, 
+                    Fraunhofer-validiert und für maximale Betriebssicherheit entwickelt.
                 </p>
-                <div style="background: #0ea5e9; color: white; padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                    <strong>99,9% Reinheitsgrad</strong><br>
-                    Höchste Wasserqualität durch Destillation
+            </div>
+
+            <!-- Tech Overview Grid -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 5rem;">
+                
+                <!-- Content Side -->
+                <div>
+                    <div style="background: rgba(14, 165, 233, 0.05); border-left: 5px solid #0ea5e9; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                        <h3 style="color: #0ea5e9; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">
+                            🔬 Wissenschaftliche Präzision
+                        </h3>
+                        <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.6;">
+                            <strong style="color: #1e293b;">Maximale Betriebssicherheit</strong>, einfache Wartung, 
+                            geprüfte Messwerte und 10 Jahre Garantie. Jede Anlage kommt mit 
+                            Servicevertrag, Notfallabsicherung und verlässlichem Support.
+                        </p>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <span style="background: #0ea5e9; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Sicherheit</span>
+                            <span style="background: #0ea5e9; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Garantie</span>
+                            <span style="background: #0ea5e9; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Support</span>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border-left: 5px solid #10b981; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                        <h3 style="color: #10b981; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">
+                            🚀 Marktführende Effizienz
+                        </h3>
+                        <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.6;">
+                            Erreichen Sie <strong style="color: #1e293b;">Renditen, die den Wettbewerb überflügeln</strong>. 
+                            Exklusive Technologie, mit der Sie Ihr Portfolio in Schlüsselregionen bauen können. 
+                            Führend in Effizienz - 90% Energie-Recycling, höchste Reinheit.
+                        </p>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">90% Effizienz</span>
+                            <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Exklusiv</span>
+                            <span style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Marktführung</span>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(245, 158, 11, 0.05); border-left: 5px solid #f59e0b; padding: 2rem; border-radius: 15px;">
+                        <h3 style="color: #f59e0b; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">
+                            💡 Zukunfts-Innovation
+                        </h3>
+                        <p style="color: #64748b; margin-bottom: 1.5rem; line-height: 1.6;">
+                            <strong style="color: #1e293b;">Gestalten Sie mit uns die Zukunft</strong> der nachhaltigen Wasserversorgung. 
+                            Entdecken Sie neue Anwendungsgebiete: Inselprojekte, Wüstenstädte, autarke Küstenanlagen. 
+                            Innovative Technik trifft Pioniergeist.
+                        </p>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <span style="background: #f59e0b; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Pionier</span>
+                            <span style="background: #f59e0b; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Innovation</span>
+                            <span style="background: #f59e0b; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Zukunft</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Side -->
+                <div>
+                    <div style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); border-radius: 20px; padding: 3rem; position: relative; overflow: hidden;">
+                        <div style="position: absolute; inset: 0; opacity: 0.05; background-image: radial-gradient(circle at 25% 25%, #0ea5e9 2px, transparent 2px), radial-gradient(circle at 75% 75%, #10b981 1px, transparent 1px); background-size: 30px 30px;"></div>
+                        
+                        <div style="position: relative; z-index: 2;">
+                            <h3 style="text-align: center; margin-bottom: 2rem; color: #1e293b; font-size: 1.5rem; font-weight: 700;">
+                                🌊 Destillationsprozess
+                            </h3>
+                            
+                            <!-- Process Steps -->
+                            <div style="display: grid; gap: 1.5rem;">
+                                <div style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid #06b6d4;">
+                                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #06b6d4, #0891b2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white;">🌊</div>
+                                    <div style="flex: 1;">
+                                        <strong style="color: #06b6d4; font-size: 1.1rem;">Meerwasser Input</strong>
+                                        <div style="color: #64748b; font-size: 0.9rem;">Solare Erhitzung startet</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="text-align: center; color: #64748b; font-size: 1.8rem; margin: -0.5rem 0;">↓</div>
+                                
+                                <div style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid #f59e0b;">
+                                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white;">💨</div>
+                                    <div style="flex: 1;">
+                                        <strong style="color: #f59e0b; font-size: 1.1rem;">Verdampfung</strong>
+                                        <div style="color: #64748b; font-size: 0.9rem;">90% Energie-Recycling</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="text-align: center; color: #64748b; font-size: 1.8rem; margin: -0.5rem 0;">↓</div>
+                                
+                                <div style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid #10b981;">
+                                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #10b981, #047857); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white;">💧</div>
+                                    <div style="flex: 1;">
+                                        <strong style="color: #10b981; font-size: 1.1rem;">Reinstes Destillat</strong>
+                                        <div style="color: #64748b; font-size: 0.9rem;">99,9% Reinheit garantiert</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Performance Metrics -->
+                            <div style="margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, #1e293b, #334155); border-radius: 15px; color: white; text-align: center;">
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+                                    <div>
+                                        <div style="font-size: 2rem; font-weight: 700; color: #fbbf24; margin-bottom: 0.5rem;">24/7</div>
+                                        <div style="font-size: 0.9rem; opacity: 0.8;">Kontinuierlicher Betrieb</div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 2rem; font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">Q4 2025</div>
+                                        <div style="font-size: 0.9rem; opacity: 0.8;">Pilotanlage Zypern</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <a href="#tech-download" 
+                       style="background: linear-gradient(135deg, #0ea5e9, #06b6d4); color: white; padding: 1.25rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;"
+                       onclick="trackEvent('tech_deep_dive_interest');"
+                       onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 30px rgba(14, 165, 233, 0.3)'"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        📋 Technisches Datenblatt herunterladen
+                    </a>
+                    
+                    <a href="#validation" 
+                       style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9; padding: 1.25rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 2px solid rgba(14, 165, 233, 0.2);"
+                       onclick="trackEvent('validation_section_interest');"
+                       onmouseover="this.style.background='rgba(14, 165, 233, 0.15)'; this.style.borderColor='rgba(14, 165, 233, 0.3)'"
+                       onmouseout="this.style.background='rgba(14, 165, 233, 0.1)'; this.style.borderColor='rgba(14, 165, 233, 0.2)'">
+                        🏛️ Fraunhofer-Validierung ansehen
+                    </a>
                 </div>
             </div>
         </div>
@@ -1540,32 +1966,114 @@
                 </div>
             </div>
 
-            <!-- Wissenschaftliche Autorität Badges -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
-                    <h4 style="color: #fbbf24; font-size: 1.1rem; margin-bottom: 0.5rem;">Patent-Portfolio</h4>
-                    <p style="opacity: 0.8; margin: 0; font-size: 0.9rem;">Geschützte Innovationen in der Destillationstechnologie</p>
-                </div>
+            <!-- Social Proof & Testimonials -->
+            <div style="margin-top: 4rem;">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #fbbf24;">
+                    💬 Was Experten und Partner sagen
+                </h3>
                 
-                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏛️</div>
-                    <h4 style="color: #06b6d4; font-size: 1.1rem; margin-bottom: 0.5rem;">Fraunhofer-Zertifiziert</h4>
-                    <p style="opacity: 0.8; margin: 0; font-size: 0.9rem;">Wissenschaftliche Validierung durch Deutschlands Top-Institut</p>
-                </div>
-                
-                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔬</div>
-                    <h4 style="color: #10b981; font-size: 1.1rem; margin-bottom: 0.5rem;">Unabhängige Prüfung</h4>
-                    <p style="opacity: 0.8; margin: 0; font-size: 0.9rem;">Messwerte durch externe wissenschaftliche Validierung</p>
-                </div>
-                
-                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌍</div>
-                    <h4 style="color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem;">Global Skalierbar</h4>
-                    <p style="opacity: 0.8; margin: 0; font-size: 0.9rem;">Modulare Technologie für weltweite Einsätze</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- Fraunhofer Testimonial -->
+                    <div style="background: rgba(14, 165, 233, 0.1); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(14, 165, 233, 0.2);">
+                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #0ea5e9, #06b6d4); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.8rem;">🏛️</div>
+                            <div>
+                                <strong style="color: #06b6d4; font-size: 1.1rem;">Fraunhofer IBP</strong>
+                                <div style="opacity: 0.8; font-size: 0.9rem;">Institut für Bauphysik</div>
+                            </div>
+                        </div>
+                        <blockquote style="font-style: italic; opacity: 0.9; margin: 0 0 1rem; line-height: 1.6; color: #e2e8f0;">
+                            "Die DESERTGREENER Technologie zeigt beeindruckende Effizienzwerte bei der solaren Wasserentsalzung. 
+                            Die wissenschaftlichen Messungen bestätigen die 90% Energie-Rückgewinnung und 99,9% Destillationsreinheit."
+                        </blockquote>
+                        <div style="font-size: 0.8rem; color: #06b6d4; font-weight: 600;">
+                            → Offizielle Projekt-Referenz verfügbar
+                        </div>
+                    </div>
+
+                    <!-- Innovation Testimonial -->
+                    <div style="background: rgba(245, 158, 11, 0.1); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(245, 158, 11, 0.2);">
+                        <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.8rem;">👨‍🔬</div>
+                            <div>
+                                <strong style="color: #f59e0b; font-size: 1.1rem;">Erfinder Karl Albrecht Waldstein</strong>
+                                <div style="opacity: 0.8; font-size: 0.9rem;">DESERTGREENER Technologie</div>
+                            </div>
+                        </div>
+                        <blockquote style="font-style: italic; opacity: 0.9; margin: 0 0 1rem; line-height: 1.6; color: #e2e8f0;">
+                            "Nach Jahren der Forschung haben wir eine Lösung entwickelt, die sowohl ökonomisch als auch ökologisch 
+                            nachhaltig ist. Die Patente sichern diese Innovation für die kommenden Jahrzehnte."
+                        </blockquote>
+                        <div style="font-size: 0.8rem; color: #f59e0b; font-weight: 600;">
+                            → Sehen Sie das Erfinder-Interview
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Wissenschaftliche Autorität Badges -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+                    <h4 style="color: #fbbf24; font-size: 1.1rem; margin-bottom: 0.5rem;">Patent-Portfolio</h4>
+                    <p style="opacity: 0.8; margin: 0 0 1rem; font-size: 0.9rem;">Geschützte Innovationen in der Destillationstechnologie</p>
+                    <div style="background: #fbbf24; color: #1e293b; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Mehrere Patente</div>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏛️</div>
+                    <h4 style="color: #06b6d4; font-size: 1.1rem; margin-bottom: 0.5rem;">Fraunhofer-Zertifiziert</h4>
+                    <p style="opacity: 0.8; margin: 0 0 1rem; font-size: 0.9rem;">Wissenschaftliche Validierung durch Deutschlands Top-Institut</p>
+                    <div style="background: #06b6d4; color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">IBP Zertifiziert</div>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔬</div>
+                    <h4 style="color: #10b981; font-size: 1.1rem; margin-bottom: 0.5rem;">Unabhängige Prüfung</h4>
+                    <p style="opacity: 0.8; margin: 0 0 1rem; font-size: 0.9rem;">Messwerte durch externe wissenschaftliche Validierung</p>
+                    <div style="background: #10b981; color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Extern validiert</div>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.08)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌍</div>
+                    <h4 style="color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem;">Global Skalierbar</h4>
+                    <p style="opacity: 0.8; margin: 0 0 1rem; font-size: 0.9rem;">Modulare Technologie für weltweite Einsätze</p>
+                    <div style="background: #f59e0b; color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; display: inline-block;">Modular</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Download Section - Soft Lead Magnet -->
+    <section id="tech-download" style="padding: 4rem 0; background: linear-gradient(135deg, #0f172a, #1e293b); color: white;">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+            <h3 style="font-size: 2.2rem; margin-bottom: 1rem; color: #fbbf24;">
+                📋 Kostenloses Technologie-Datenblatt
+            </h3>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
+                Erhalten Sie detaillierte technische Spezifikationen, Leistungsdaten und 
+                Anwendungsbeispiele der DESERTGREENER Technologie als PDF.
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; margin-bottom: 2rem;">
+                <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    ✓ Technische Spezifikationen &nbsp;&nbsp; ✓ Performance-Daten &nbsp;&nbsp; ✓ Anwendungsbeispiele
+                </p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; align-items: center; max-width: 400px; margin: 0 auto;">
+                    <input type="email" placeholder="Ihre E-Mail-Adresse" 
+                           style="flex: 1; padding: 1rem; border: none; border-radius: 8px; font-size: 1rem;"
+                           id="techDownloadEmail">
+                    <button onclick="handleTechDownload()" 
+                            style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem;">
+                        Jetzt herunterladen
+                    </button>
+                </div>
+            </div>
+            
+            <p style="font-size: 0.9rem; opacity: 0.7;">
+                Kein Spam. Ihre Daten sind sicher und werden nur für DESERTGREENER Informationen verwendet.
+            </p>
         </div>
     </section>
 
@@ -2165,7 +2673,49 @@
             if (projectsCTA) {
                 console.log('Enhanced projects CTA ready');
             }
+
+            // Sticky Navigation Management
+            const stickyNav = document.getElementById('stickyNav');
+            let lastScrollY = window.scrollY;
+            
+            function handleStickyNav() {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 300) {  // Show after scrolling 300px
+                    stickyNav.classList.add('sticky-nav-visible');
+                } else {
+                    stickyNav.classList.remove('sticky-nav-visible');
+                }
+                
+                lastScrollY = currentScrollY;
+            }
+            
+            window.addEventListener('scroll', handleStickyNav);
+            handleStickyNav(); // Initial check
+            
+            console.log('Sticky navigation initialized');
         });
+
+        // Tech Download Handler
+        function handleTechDownload() {
+            const email = document.getElementById('techDownloadEmail').value;
+            
+            if (!email || !email.includes('@')) {
+                alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+                return;
+            }
+            
+            // Track event
+            trackEvent('tech_download_request', { email: email });
+            
+            // Simulate download (in real implementation, this would trigger actual PDF download)
+            alert(`Vielen Dank! Das Technologie-Datenblatt wurde an ${email} gesendet. Sie erhalten es in wenigen Minuten.`);
+            
+            // Clear input
+            document.getElementById('techDownloadEmail').value = '';
+            
+            console.log('Tech download requested for:', email);
+        }
     </script>
 
     <!-- Position 3: Exit-Intent Pop-up -->
