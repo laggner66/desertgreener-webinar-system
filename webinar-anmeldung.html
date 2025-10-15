@@ -543,6 +543,103 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* YouTube Modal Styles */
+        .youtube-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .youtube-modal-content {
+            position: relative;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 900px;
+            height: 80vh;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .youtube-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-close:hover {
+            background: rgba(255, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        .youtube-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .youtube-modal-content {
+                margin: 10% auto;
+                width: 95%;
+                height: 70vh;
+            }
+            
+            .youtube-close {
+                top: 10px;
+                right: 15px;
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Loading animation for YouTube modal */
+        .youtube-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .youtube-spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #ff0000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes youtube-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -611,9 +708,9 @@
                     <h3>Karl Albrecht Waldstein</h3>
                     <p>Hören Sie die inspirierenden Worte des DESERTGREENER-Erfinders persönlich. Erfahren Sie aus erster Hand, welche Vision hinter dieser revolutionären Wassertechnologie steht und wie sie die Zukunft der globalen Wasserversorgung verändern wird.</p>
                     
-                    <a href="https://youtu.be/mIZth_IhTZY?si=m4KYn0WPh8Cm-7TM" target="_blank" class="erfinder-video-link">
+                    <button onclick="openYouTubeModal('mIZth_IhTZY');" class="erfinder-video-link">
                         ▶️ Erfinder-Video ansehen
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -628,17 +725,17 @@
                     <div class="video-item">
                         <h4>🔬 Technologie-Dokumentation</h4>
                         <p>Ausführliche wissenschaftliche Erklärung der solaren Meerwasser-Destillation. Verstehen Sie die physikalischen Prinzipien und technischen Details, die 99,9% Reinheit ermöglichen.</p>
-                        <a href="https://www.youtube.com/watch?v=nXpra-6F5JA" target="_blank" class="video-link">
+                        <button onclick="openYouTubeModal('nXpra-6F5JA');" class="video-link">
                             ▶️ Dokumentation ansehen
-                        </a>
+                        </button>
                     </div>
                     
                     <div class="video-item">
                         <h4>🏭 Serienanlage-Demonstration</h4>
                         <p>Live-Demo der DESERTGREENER Serienanlage im Betrieb. Sehen Sie, wie aus Meerwasser kontinuierlich reinstes Destillat produziert wird - mit 90% Energie-Recycling durch Solartechnik.</p>
-                        <a href="https://www.youtube.com/watch?v=KNC6G8LcBbQ" target="_blank" class="video-link">
+                        <button onclick="openYouTubeModal('KNC6G8LcBbQ');" class="video-link">
                             ▶️ Live-Demo ansehen
-                        </a>
+                        </button>
                     </div>
                 </div>
                 
@@ -849,5 +946,72 @@ Kontakt: Über die angegebenen Kontaktdaten auf der Website.`);
             });
         }
     </script>
+
+    <!-- YouTube Modal -->
+    <div id="youtubeModal" class="youtube-modal">
+        <div class="youtube-modal-content">
+            <span class="youtube-close" onclick="closeYouTubeModal()">&times;</span>
+            <div class="youtube-loading" id="youtubeLoading">
+                <div class="youtube-spinner"></div>
+                Video wird geladen...
+            </div>
+            <iframe id="youtubeIframe" class="youtube-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- YouTube Modal JavaScript -->
+    <script>
+        function openYouTubeModal(videoId) {
+            const modal = document.getElementById('youtubeModal');
+            const iframe = document.getElementById('youtubeIframe');
+            const loading = document.getElementById('youtubeLoading');
+            
+            // Show modal and loading
+            modal.style.display = 'block';
+            loading.style.display = 'block';
+            iframe.style.display = 'none';
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+            
+            // Load video with autoplay
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0`;
+            
+            // Hide loading after iframe loads
+            iframe.onload = function() {
+                loading.style.display = 'none';
+                iframe.style.display = 'block';
+            };
+        }
+        
+        function closeYouTubeModal() {
+            const modal = document.getElementById('youtubeModal');
+            const iframe = document.getElementById('youtubeIframe');
+            
+            // Hide modal
+            modal.style.display = 'none';
+            
+            // Stop video by removing src
+            iframe.src = '';
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('youtubeModal').onclick = function(event) {
+            if (event.target === this) {
+                closeYouTubeModal();
+            }
+        };
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeYouTubeModal();
+            }
+        });
+    </script>
+
 </body>
 </html>
