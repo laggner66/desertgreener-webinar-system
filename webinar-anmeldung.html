@@ -6,15 +6,23 @@
     <title>🚀 DESERTGREENER Webinar - Exklusive Technologie-Präsentation | Thomas Laggner</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Exklusives DESERTGREENER Webinar: Erfahren Sie alles über die revolutionäre solare Meerwasser-Destillation. Donnerstag 20:15 Uhr - Kostenlose Anmeldung">
-    <meta name="keywords" content="DESERTGREENER Webinar, Meerwasser Destillation, Solartechnologie, Fraunhofer IBP, Thomas Laggner, Technologie Präsentation">
+    <meta name="description" content="Exklusives DESERTGREENER Webinar: Erfahren Sie alles über die revolutionäre solare Meerwasser-Destillation von Erfinder Karl Albrecht Waldstein. Donnerstag 20:15 Uhr - Kostenlose Anmeldung">
+    <meta name="keywords" content="DESERTGREENER Webinar, Meerwasser Destillation, Solartechnologie, Karl Albrecht Waldstein, Thomas Laggner, Technologie Präsentation, Erfinder">
     <meta name="author" content="Thomas Laggner - Technologie-Information | Independent Distributor der DGRX Sales GmbH">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="🚀 DESERTGREENER Webinar - Exklusive Technologie-Präsentation">
-    <meta property="og:description" content="Erfahren Sie alles über die Fraunhofer-zertifizierte Destillationstechnologie. Kostenlose Anmeldung für Donnerstag 20:15 Uhr">
-    <meta property="og:image" content="https://ihre-domain.netlify.app/webinar-og.jpg">
+    <meta property="og:description" content="Erfahren Sie alles über die innovative Destillationstechnologie von Erfinder Karl Albrecht Waldstein. Kostenlose Anmeldung für Donnerstag 20:15 Uhr">
+    <meta property="og:image" content="/og-webinar-desertgreener.jpg">
+    <meta property="og:image:width" content="1365">
+    <meta property="og:image:height" content="768">
+    <meta property="og:image:alt" content="DESERTGREENER Live-Webinar - Kostenlose Anmeldung für Donnerstag 20:15 Uhr">
     
     <!-- Netlify Identity -->
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -273,6 +281,151 @@
             font-size: 0.9rem;
         }
 
+        /* Video Documentation Section */
+        .video-documentation {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 5px solid #0ea5e9;
+        }
+
+        .video-documentation h3 {
+            color: #0369a1;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .video-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .video-item h4 {
+            color: #374151;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-link:hover {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Erfinder Section - Prominent */
+        .erfinder-section {
+            background: linear-gradient(135deg, #1e40af, #0369a1);
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .erfinder-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="erfinder-pattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23erfinder-pattern)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .erfinder-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .erfinder-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .erfinder-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .erfinder-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .erfinder-video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #1e40af;
+            padding: 1.2rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+        }
+
+        .erfinder-video-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
         /* Urgency Section */
         .urgency {
             background: linear-gradient(135deg, #fef3c7, #fbbf24);
@@ -353,6 +506,27 @@
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .erfinder-section {
+                padding: 2rem 1rem;
+            }
+
+            .erfinder-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .erfinder-video-link {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .video-documentation {
+                padding: 1.5rem;
+            }
         }
 
         /* Loading Animation */
@@ -378,7 +552,7 @@
             <div class="header-content">
                 <div class="webinar-badge">🎯 EXKLUSIVES TECHNOLOGIE-WEBINAR</div>
                 <h1>DESERTGREENER Live-Präsentation</h1>
-                <p>Entdecken Sie die revolutionäre Fraunhofer-zertifizierte Meerwasser-Destillationstechnologie</p>
+                <p>Entdecken Sie die revolutionäre solare Meerwasser-Destillationstechnologie von Erfinder Karl Albrecht Waldstein</p>
                 
                 <div class="webinar-info">
                     <div class="info-item">
@@ -410,8 +584,8 @@
                 <div class="benefits-grid">
                     <div class="benefit-item">
                         <div class="benefit-icon">🔬</div>
-                        <h4>Fraunhofer-Technologie</h4>
-                        <p>Live-Demonstration der wissenschaftlich validierten Destillationsanlage</p>
+                        <h4>Erfinder-Technologie</h4>
+                        <p>Live-Demonstration der von Karl Albrecht Waldstein entwickelten Destillationsanlage</p>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon">💧</div>
@@ -427,6 +601,54 @@
                         <div class="benefit-icon">🏝️</div>
                         <p>Exklusive Einblicke in das Zypern-Forschungsprojekt 2025</p>
                     </div>
+                </div>
+            </div>
+
+            <!-- Erfinder Karl Albrecht Waldstein - Prominent -->
+            <div class="erfinder-section">
+                <div class="erfinder-content">
+                    <div class="erfinder-badge">🎓 EXKLUSIV: WORTE DES ERFINDERS</div>
+                    <h3>Karl Albrecht Waldstein</h3>
+                    <p>Hören Sie die inspirierenden Worte des DESERTGREENER-Erfinders persönlich. Erfahren Sie aus erster Hand, welche Vision hinter dieser revolutionären Wassertechnologie steht und wie sie die Zukunft der globalen Wasserversorgung verändern wird.</p>
+                    
+                    <a href="https://youtu.be/mIZth_IhTZY?si=m4KYn0WPh8Cm-7TM" target="_blank" class="erfinder-video-link">
+                        ▶️ Erfinder-Video ansehen
+                    </a>
+                </div>
+            </div>
+
+            <!-- Technologie Dokumentation -->
+            <div class="video-documentation">
+                <h3>📹 Technologie-Dokumentation & Live-Demos</h3>
+                <p style="text-align: center; color: #64748b; margin-bottom: 2rem;">
+                    Sehen Sie die DESERTGREENER-Technologie in Aktion und verstehen Sie die wissenschaftlichen Grundlagen
+                </p>
+                
+                <div class="video-grid">
+                    <div class="video-item">
+                        <h4>🔬 Technologie-Dokumentation</h4>
+                        <p>Ausführliche wissenschaftliche Erklärung der solaren Meerwasser-Destillation. Verstehen Sie die physikalischen Prinzipien und technischen Details, die 99,9% Reinheit ermöglichen.</p>
+                        <a href="https://www.youtube.com/watch?v=nXpra-6F5JA" target="_blank" class="video-link">
+                            ▶️ Dokumentation ansehen
+                        </a>
+                    </div>
+                    
+                    <div class="video-item">
+                        <h4>🏭 Serienanlage-Demonstration</h4>
+                        <p>Live-Demo der DESERTGREENER Serienanlage im Betrieb. Sehen Sie, wie aus Meerwasser kontinuierlich reinstes Destillat produziert wird - mit 90% Energie-Recycling durch Solartechnik.</p>
+                        <a href="https://www.youtube.com/watch?v=KNC6G8LcBbQ" target="_blank" class="video-link">
+                            ▶️ Live-Demo ansehen
+                        </a>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 10px; margin-top: 1rem;">
+                    <p style="color: #374151; font-weight: 600; margin-bottom: 0.5rem;">
+                        💡 Im Live-Webinar erhalten Sie zusätzlich:
+                    </p>
+                    <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">
+                        ✓ Persönliche Q&A mit Thomas Laggner &nbsp;•&nbsp; ✓ Exklusive Cyprus-Projekt Updates &nbsp;•&nbsp; ✓ Technische Tiefenanalyse
+                    </p>
                 </div>
             </div>
 
