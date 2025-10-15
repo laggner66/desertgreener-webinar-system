@@ -183,6 +183,33 @@
             border-color: rgba(255, 255, 255, 0.5);
         }
 
+        /* WhatsApp CTA Button */
+        .cta-whatsapp {
+            background: linear-gradient(135deg, #25d366 0%, #20c55e 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: linear-gradient(135deg, #20c55e 0%, #1ea454 100%);
+        }
+
+        .cta-whatsapp:active {
+            transform: translateY(-1px);
+        }
+
         .hero-visual {
             position: relative;
             display: flex;
@@ -620,11 +647,628 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Marketing Badge System - 4 Strategic Positions */
+        
+        /* Sticky Header Badge entfernt für weniger Überladung */
+
+        /* SlideDown-Animation entfernt */
+
+        /* Position 2: Hero Section Overlay Badge */
+        .hero-overlay-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            padding: 12px 16px;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            color: white;
+            transition: all 0.3s ease;
+            min-width: 140px;
+        }
+
+        .hero-overlay-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(245, 158, 11, 0.6);
+        }
+
+        .hero-badge-content {
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .hero-badge-top {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .hero-badge-bottom {
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Position 3: Exit Intent Pop-up */
+        .exit-intent-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10500;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .exit-popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .exit-popup-badge {
+            margin: 20px 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            padding: 15px 20px;
+            border-radius: 12px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .exit-popup-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.5);
+        }
+
+        .exit-badge-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .exit-badge-icon {
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .exit-badge-text {
+            flex: 1;
+            line-height: 1.3;
+        }
+
+        .exit-badge-text strong {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .exit-badge-text small {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .exit-popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .exit-popup-text {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .exit-popup-cta {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .exit-popup-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Position 4: Mobile Floating Button */
+        .floating-mobile-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9998;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+            padding: 12px 18px;
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.4);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .floating-mobile-badge:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.6);
+        }
+
+        .mobile-badge-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .mobile-badge-icon {
+            font-size: 1.3rem;
+            animation: pulse 2s infinite;
+        }
+
+        .mobile-badge-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .mobile-badge-text small {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Mobile Responsiveness for Badges */
+        @media (max-width: 768px) {
+
+            .hero-overlay-badge {
+                top: 15px;
+                right: 15px;
+                padding: 10px 12px;
+                min-width: 120px;
+            }
+
+            .hero-badge-top {
+                font-size: 0.9rem;
+            }
+
+            .hero-badge-bottom {
+                font-size: 0.75rem;
+            }
+
+            .floating-mobile-badge {
+                padding: 10px 15px;
+            }
+
+            .mobile-badge-icon {
+                font-size: 1.1rem;
+            }
+
+            .mobile-badge-text {
+                font-size: 0.75rem;
+            }
+
+            .exit-popup-content {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .exit-badge-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .exit-badge-icon {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Desktop: Hide floating badge, Mobile: Show it */
+        @media (min-width: 769px) {
+            .floating-mobile-badge {
+                display: none;
+            }
+        }
+
+        /* Custom Video Thumbnails */
+        .video-thumbnail {
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .video-thumbnail:hover {
+            transform: translateY(-5px);
+        }
+
+        .thumbnail-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail-container:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .thumbnail-image {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .tech-thumb {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+
+        .demo-thumb {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+
+        .inventor-thumb {
+            background: linear-gradient(135deg, #7c2d12 0%, #a16207 100%);
+        }
+
+        .thumbnail-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .thumb-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .thumb-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .thumb-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            z-index: 3;
+        }
+
+        .video-thumbnail:hover .play-button {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(255, 0, 0, 0.9);
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .video-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .video-description {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        /* Mobile Responsiveness for Video Thumbnails */
+        @media (max-width: 768px) {
+            .thumbnail-image {
+                height: 140px;
+            }
+            
+            .thumb-icon {
+                font-size: 2.5rem;
+            }
+            
+            .thumb-title {
+                font-size: 1.2rem;
+            }
+            
+            .thumb-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .play-button svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* WhatsApp Integration Styles */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            z-index: 9997;
+            background: #25d366;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: whatsappPulse 3s infinite;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .whatsapp-float:hover {
+            background: #128c7e;
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            color: white;
+            text-decoration: none;
+        }
+
+        .whatsapp-icon {
+            font-size: 18px;
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .whatsapp-cta {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .whatsapp-cta:hover {
+            background: linear-gradient(135deg, #128c7e 0%, #0d7377 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .whatsapp-checkbox-group {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #25d366;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-checkbox-group::before {
+            content: "💬";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            opacity: 0.3;
+        }
+
+        .whatsapp-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #15803d;
+        }
+
+        .whatsapp-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #25d366;
+        }
+
+        .whatsapp-benefit {
+            font-size: 0.9rem;
+            color: #166534;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Projekte-Sektion Styling */
+        .projects-section {
+            scroll-margin-top: 80px; /* Für smooth scrolling */
+        }
+
+        /* Patent & Wissenschafts-Sektion */
+        .patent-science-section {
+            scroll-margin-top: 80px;
+        }
+
+        .patent-card, .fraunhofer-card {
+            transition: all 0.3s ease;
+        }
+
+        .patent-card:hover, .fraunhofer-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.12) !important;
+            border-color: rgba(255,255,255,0.2) !important;
+        }
+
+        /* Trust-Cards mit Klick-Funktion */
+        .trust-card[onclick] {
+            transition: all 0.3s ease;
+        }
+
+        .trust-card[onclick]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+            background: rgba(14, 165, 233, 0.05) !important;
+        }
+
+        .iframe-wrapper {
+            transition: all 0.3s ease;
+        }
+
+        .iframe-wrapper:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        }
+
+        .highlight-card {
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 140px;
+                left: 15px;
+                font-size: 12px;
+                padding: 10px 14px;
+            }
+
+            .whatsapp-cta {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+
+            /* Mobile optimierung für Projekte-Sektion */
+            .projects-section h2 {
+                font-size: 2rem !important;
+            }
+
+            .iframe-wrapper {
+                height: 400px !important;
+            }
+
+            .iframe-header {
+                flex-direction: column !important;
+                text-align: center;
+            }
+
+            .tech-highlights-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Mobile Optimierung für Patent-Sektion */
+            .patent-science-section h2 {
+                font-size: 2rem !important;
+            }
+
+            .patent-card, .fraunhofer-card {
+                min-width: auto !important;
+                padding: 2rem 1.5rem !important;
+            }
+
+            .patent-science-section [style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Sticky Header Badge entfernt - weniger Überladung -->
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="position: relative;">
+        <!-- Position 2: Hero Overlay Badge -->
+        <div class="hero-overlay-badge" onclick="goToWebinar()" title="Kostenlose Webinar-Anmeldung!">
+            <div class="hero-badge-content">
+                <div class="hero-badge-top">💡 KOSTENLOS</div>
+                <div class="hero-badge-bottom">DONNERSTAG 20:15</div>
+            </div>
+        </div>
+        
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
@@ -657,8 +1301,17 @@
                     <a href="/webinar-anmeldung.html" class="cta-primary" onclick="trackEvent('webinar_registration_click')">
                         🚀 Exklusives Webinar - Jetzt anmelden
                     </a>
+                    <a href="https://wa.me/4369912169080?text=Hallo%20Thomas!%20Ich%20interessiere%20mich%20für%20die%20DESERTGREENER%20Technologie%20und%20möchte%20mehr%20über%20das%20Webinar%20erfahren.%20Können%20Sie%20mir%20weitere%20Informationen%20senden%3F%20🚀" class="cta-whatsapp" target="_blank" onclick="trackEvent('whatsapp_hero_contact')">
+                        📱 WhatsApp-Beratung
+                    </a>
                     <a href="#lead-magnets" class="cta-secondary" onclick="trackEvent('tech_documentation_interest')">
                         📋 Technologie-Dokumentation
+                    </a>
+                    
+                    <!-- WhatsApp Direktkontakt -->
+                    <a href="https://wa.me/4366488795275?text=Hallo%20Thomas!%20Ich%20interessiere%20mich%20f%C3%BCr%20das%20DESERTGREENER%20Webinar%20am%20Donnerstag%2020%3A15%20Uhr.%20K%C3%B6nnen%20Sie%20mir%20weitere%20Informationen%20senden%3F" class="whatsapp-cta" onclick="trackEvent('whatsapp_hero_click')" target="_blank">
+                        <span class="whatsapp-icon">📱</span>
+                        WhatsApp Direktkontakt
                     </a>
                 </div>
             </div>
@@ -682,10 +1335,13 @@
             <h2 class="trust-title">Wissenschaftlich validierte Technologie</h2>
             
             <div class="trust-grid">
-                <div class="trust-card">
+                <div class="trust-card" onclick="document.querySelector('.patent-science-section').scrollIntoView({behavior: 'smooth'}); trackEvent('fraunhofer_trust_click');" style="cursor: pointer; transition: all 0.3s ease;">
                     <div class="trust-icon">🏛️</div>
                     <div class="trust-metric">Fraunhofer IBP</div>
                     <p>Partnership für wissenschaftliche Exzellenz in der Destillationsforschung</p>
+                    <div style="margin-top: 1rem; font-size: 0.8rem; color: #0ea5e9; font-weight: 500;">
+                        → Zur Projekt-Referenz
+                    </div>
                 </div>
                 
                 <div class="trust-card">
@@ -704,6 +1360,15 @@
                     <div class="trust-icon">🔬</div>
                     <div class="trust-metric">Q4 2025</div>
                     <p>Pilotanlage Zypern - Live-Demonstration der Technologie</p>
+                </div>
+
+                <div class="trust-card" onclick="document.querySelector('.patent-science-section').scrollIntoView({behavior: 'smooth'}); trackEvent('patent_trust_click');" style="cursor: pointer; transition: all 0.3s ease;">
+                    <div class="trust-icon">📜</div>
+                    <div class="trust-metric">Patent-Portfolio</div>
+                    <p>Geschützte Innovation in der solaren Destillationstechnologie</p>
+                    <div style="margin-top: 1rem; font-size: 0.8rem; color: #f59e0b; font-weight: 500;">
+                        → Zu Patent-Details
+                    </div>
                 </div>
             </div>
         </div>
@@ -747,6 +1412,267 @@
         </div>
     </section>
 
+    <!-- Patent & Wissenschaftliche Validierung Section -->
+    <section class="patent-science-section" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; padding: 6rem 0; position: relative; overflow: hidden;">
+        <!-- Background Pattern -->
+        <div style="position: absolute; inset: 0; opacity: 0.05; background-image: radial-gradient(circle at 25% 25%, #ffffff 1px, transparent 1px), radial-gradient(circle at 75% 75%, #ffffff 1px, transparent 1px); background-size: 50px 50px;"></div>
+        
+        <div class="tech-container" style="position: relative; z-index: 2;">
+            <div class="patent-header" style="text-align: center; margin-bottom: 4rem;">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 0.75rem 2rem; border-radius: 50px; font-size: 0.95rem; font-weight: 600; margin-bottom: 2rem; display: inline-block; border: 1px solid rgba(255,255,255,0.2);">
+                    🏆 WISSENSCHAFTLICH VALIDIERT & PATENTGESCHÜTZT
+                </div>
+                
+                <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 1.5rem; background: linear-gradient(45deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    Patent & Fraunhofer-Zertifizierung
+                </h2>
+                
+                <p style="font-size: 1.25rem; opacity: 0.9; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                    DESERTGREENER vereint patentierte Innovation mit wissenschaftlicher Exzellenz durch das renommierte Fraunhofer-Institut für Bauphysik IBP.
+                </p>
+            </div>
+
+            <!-- Patent-Informationen & Fraunhofer Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+                
+                <!-- Patent-Sektion -->
+                <div class="patent-card" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;">
+                    <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1.5rem; font-size: 1.8rem;">
+                            📜
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin: 0 0 0.5rem; color: #fbbf24; font-weight: 600;">
+                                Patent-Portfolio
+                            </h3>
+                            <p style="margin: 0; opacity: 0.8; font-size: 0.95rem;">
+                                Geschützte Innovation der Destillationstechnologie
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="patent-details" style="margin-bottom: 2rem;">
+                        <h4 style="color: #fbbf24; font-size: 1.1rem; margin-bottom: 1rem;">🔬 Patentierte Technologien:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin: 0.75rem 0; display: flex; align-items: flex-start; opacity: 0.9;">
+                                <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold; margin-top: 2px;">•</span>
+                                <span><strong>Solare Destillationsverfahren</strong> mit heliotroper Nachführung</span>
+                            </li>
+                            <li style="margin: 0.75rem 0; display: flex; align-items: flex-start; opacity: 0.9;">
+                                <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold; margin-top: 2px;">•</span>
+                                <span><strong>Energie-Rückgewinnungssystem</strong> für 90% Effizienzsteigerung</span>
+                            </li>
+                            <li style="margin: 0.75rem 0; display: flex; align-items: flex-start; opacity: 0.9;">
+                                <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold; margin-top: 2px;">•</span>
+                                <span><strong>Modulare Anlagenkonfiguration</strong> für skalierbare Einsätze</span>
+                            </li>
+                            <li style="margin: 0.75rem 0; display: flex; align-items: flex-start; opacity: 0.9;">
+                                <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold; margin-top: 2px;">•</span>
+                                <span><strong>Geschlossenes Kreislaufsystem</strong> mit minimaler Wartung</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://www.desertgreener.info/ueber-uns/faq/" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #f59e0b, #fbbf24); color: #1e293b; padding: 1rem 1.75rem; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; font-size: 0.95rem;"
+                       onclick="trackEvent('patent_faq_visit');"
+                       onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(245, 158, 11, 0.4)'"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                        </svg>
+                        Patent-Details FAQ
+                    </a>
+                </div>
+
+                <!-- Fraunhofer-Sektion -->
+                <div class="fraunhofer-card" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease;">
+                    <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #0ea5e9, #06b6d4); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 1.5rem; font-size: 1.8rem;">
+                            🏛️
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin: 0 0 0.5rem; color: #06b6d4; font-weight: 600;">
+                                Fraunhofer IBP
+                            </h3>
+                            <p style="margin: 0; opacity: 0.8; font-size: 0.95rem;">
+                                Wissenschaftliche Validierung & Forschungspartnerschaft
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="fraunhofer-details" style="margin-bottom: 2rem;">
+                        <h4 style="color: #06b6d4; font-size: 1.1rem; margin-bottom: 1rem;">🔬 Validierte Leistungsdaten:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin: 0.75rem 0; display: flex; align-items: flex-start; opacity: 0.9;">
+                                <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold; margin-top: 2px;">✓</span>
+                                <span><strong>99,9% Destillationsreinheit</strong> wissenschaftlich gemessen</span>
+                            </li>
+                            <li style="margin: 0.75rem 0; display: flex; align-items: flex-start; opacity: 0.9;">
+                                <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold; margin-top: 2px;">✓</span>
+                                <span><strong>90% Energie-Recycling</strong> im geschlossenen Kreislauf</span>
+                            </li>
+                            <li style="margin: 0.75rem 0; display: flex; align-items: flex-start; opacity: 0.9;">
+                                <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold; margin-top: 2px;">✓</span>
+                                <span><strong>Solare Wasserentsalzung</strong> mit heliotroper Steuerung</span>
+                            </li>
+                            <li style="margin: 0.75rem 0; display: flex; align-items: flex-start; opacity: 0.9;">
+                                <span style="color: #10b981; margin-right: 0.75rem; font-weight: bold; margin-top: 2px;">✓</span>
+                                <span><strong>Unabhängige Prüfung</strong> durch Deutschlands Top-Institut</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://www.ibp.fraunhofer.de/de/projekte-referenzen/solare-wasserentsalzung.html" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #0ea5e9, #06b6d4); color: white; padding: 1rem 1.75rem; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; font-size: 0.95rem;"
+                       onclick="trackEvent('fraunhofer_project_visit');"
+                       onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(14, 165, 233, 0.4)'"
+                       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                        </svg>
+                        Fraunhofer Projekt-Referenz
+                    </a>
+                </div>
+            </div>
+
+            <!-- Wissenschaftliche Autorität Badges -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+                    <h4 style="color: #fbbf24; font-size: 1.1rem; margin-bottom: 0.5rem;">Patent-Portfolio</h4>
+                    <p style="opacity: 0.8; margin: 0; font-size: 0.9rem;">Geschützte Innovationen in der Destillationstechnologie</p>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏛️</div>
+                    <h4 style="color: #06b6d4; font-size: 1.1rem; margin-bottom: 0.5rem;">Fraunhofer-Zertifiziert</h4>
+                    <p style="opacity: 0.8; margin: 0; font-size: 0.9rem;">Wissenschaftliche Validierung durch Deutschlands Top-Institut</p>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔬</div>
+                    <h4 style="color: #10b981; font-size: 1.1rem; margin-bottom: 0.5rem;">Unabhängige Prüfung</h4>
+                    <p style="opacity: 0.8; margin: 0; font-size: 0.9rem;">Messwerte durch externe wissenschaftliche Validierung</p>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255,255,255,0.05); border-radius: 15px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌍</div>
+                    <h4 style="color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem;">Global Skalierbar</h4>
+                    <p style="opacity: 0.8; margin: 0; font-size: 0.9rem;">Modulare Technologie für weltweite Einsätze</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detaillierte Projektinformationen Section -->
+    <section class="projects-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 5rem 0;">
+        <div class="tech-container">
+            <div class="projects-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, #0ea5e9, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    🏗️ DESERTGREENER Projekte & Technologie-Details
+                </h2>
+                <p style="font-size: 1.2rem; color: #64748b; max-width: 800px; margin: 0 auto;">
+                    Erfahren Sie mehr über die konkreten Projekte, Standorte und technischen Umsetzungen 
+                    der DESERTGREENER Meerwasser-Destillationstechnologie weltweit.
+                </p>
+            </div>
+
+            <!-- Iframe für externe Projekte-Seite -->
+            <div class="project-iframe-container" style="margin-bottom: 3rem; background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                <div class="iframe-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #1e293b;">
+                            📊 Offizielle Projektübersicht
+                        </h3>
+                        <p style="color: #64748b; margin: 0;">
+                            Live-Daten von der offiziellen DESERTGREENER Projekte-Seite
+                        </p>
+                    </div>
+                    <a href="https://www.desertgreener.info/projekte/" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       style="background: #0ea5e9; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 0.5rem;"
+                       onclick="trackEvent('external_projects_visit');">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                        </svg>
+                        Externe Seite öffnen
+                    </a>
+                </div>
+
+                <!-- Responsive iframe -->
+                <div class="iframe-wrapper" style="position: relative; width: 100%; height: 600px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <iframe 
+                        src="https://www.desertgreener.info/projekte/" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0"
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                        loading="lazy"
+                        title="DESERTGREENER Projekte - Detaillierte Übersicht"
+                        style="border: none; border-radius: 10px;">
+                    </iframe>
+                    
+                    <!-- Fallback für iframe-Probleme -->
+                    <div class="iframe-fallback" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; background: rgba(248, 250, 252, 0.95); padding: 2rem; border-radius: 10px; display: none;">
+                        <h4 style="margin-bottom: 1rem; color: #1e293b;">Projekte-Seite laden</h4>
+                        <p style="margin-bottom: 2rem; color: #64748b;">Falls die eingebettete Ansicht nicht lädt:</p>
+                        <a href="https://www.desertgreener.info/projekte/" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           style="background: #10b981; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 500;">
+                            Direkt zur Projekte-Seite →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zusätzliche Technologie-Highlights -->
+            <div class="tech-highlights-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="highlight-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 4px solid #0ea5e9;">
+                    <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: #0ea5e9;">🌍 Globale Standorte</h4>
+                    <p style="color: #64748b; margin-bottom: 1rem;">
+                        DESERTGREENER Projekte in verschiedenen Klimazonen weltweit - von Wüstenregionen bis zu Küstengebieten.
+                    </p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0; color: #64748b;">• Pilotanlage Zypern (Q4 2025)</li>
+                        <li style="margin: 0.5rem 0; color: #64748b;">• Forschungskooperationen MENA-Region</li>
+                        <li style="margin: 0.5rem 0; color: #64748b;">• Europäische Teststandorte</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 4px solid #10b981;">
+                    <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: #10b981;">⚡ Energieeffizienz</h4>
+                    <p style="color: #64748b; margin-bottom: 1rem;">
+                        Revolutionäre Energie-Rückgewinnung macht DESERTGREENER zur effizientesten Destillationstechnologie.
+                    </p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0; color: #64748b;">• 90% Energie-Recycling</li>
+                        <li style="margin: 0.5rem 0; color: #64748b;">• Solare Primärenergie</li>
+                        <li style="margin: 0.5rem 0; color: #64748b;">• 24/7 Betrieb durch Speicher</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-card" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 4px solid #f59e0b;">
+                    <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: #f59e0b;">🔬 Fraunhofer Validierung</h4>
+                    <p style="color: #64748b; margin-bottom: 1rem;">
+                        Wissenschaftliche Validierung durch das renommierte Fraunhofer-Institut für Bauphysik IBP.
+                    </p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 0.5rem 0; color: #64748b;">• Unabhängige Prüfung</li>
+                        <li style="margin: 0.5rem 0; color: #64748b;">• Zertifizierte Messwerte</li>
+                        <li style="margin: 0.5rem 0; color: #64748b;">• Wissenschaftliche Publikation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Meeting Section -->
     <section id="meeting" class="meeting-section">
         <div class="meeting-container">
@@ -777,7 +1703,7 @@
             </h2>
             
             <p style="font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Erfahren Sie direkt von Thomas Laggner und Erfinder Karl Albrecht Waldstein alles über die innovative Destillationstechnologie. Begrenzt auf 50 Teilnehmer für persönliche Betreuung.
+                Erfahren Sie direkt von Thomas Pfeifer CSO und Erfinder Karl Albrecht Waldstein alles über die innovative Destillationstechnologie. Begrenzt auf 50 Teilnehmer für persönliche Betreuung.
             </p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin: 2rem 0; text-align: center;">
@@ -827,8 +1753,8 @@
             </div>
         </div>
 
-        <!-- Background Pattern -->
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 100 100\\"><defs><pattern id=\\"webinar-grid\\" width=\\"10\\" height=\\"10\\" patternUnits=\\"userSpaceOnUse\\"><path d=\\"M 10 0 L 0 0 0 10\\" fill=\\"none\\" stroke=\\"rgba(255,255,255,0.1)\\" stroke-width=\\"0.5\\"/></pattern></defs><rect width=\\"100\\" height=\\"100\\" fill=\\"url(%23webinar-grid)\\"/></svg>'); opacity: 0.3; z-index: 1;"></div>
+
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 100 100\\"><defs><pattern id=\\"webinar-grid\\" width=\\"10\\" height=\\"10\\" patternUnits=\\"userSpaceOnUse\\"><path d=\\"M 10 0 L 0 0 0 10\\" fill=\\"none\\" stroke=\\"rgba(255,255,255,0.1)\\" stroke-width=\\"0.5\\"/></pattern></defs><rect width=\\"100\\" height=\\"100\\" fill=\\"url(%23webinar-grid)\\"/></svg>)"></div>
     </section>
 
     <!-- Lead Magnets Section -->
@@ -843,25 +1769,145 @@
                 <div class="lead-magnet">
                     <h3>📋 Technologie-Dokumentation</h3>
                     <p>Vollständige technische Spezifikationen und wissenschaftliche Erklärung der solaren Destillationstechnologie</p>
-                    <button onclick="openYouTubeModal('nXpra-6F5JA'); trackEvent('tech_documentation_video');" class="cta-primary">
-                        📹 Video ansehen
-                    </button>
+                    
+                    <!-- Custom Video Thumbnail -->
+                    <div class="video-thumbnail" onclick="openYouTubeModal('nXpra-6F5JA'); trackEvent('tech_documentation_video');">
+                        <div class="thumbnail-container">
+                            <div class="thumbnail-image tech-thumb">
+                                <div class="thumbnail-content">
+                                    <div class="thumb-icon">🔬</div>
+                                    <div class="thumb-title">TECHNOLOGIE</div>
+                                    <div class="thumb-subtitle">Wissenschaftliche Details</div>
+                                </div>
+                                <div class="play-button">
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="white">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">6:42</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">📹 Technologie im Detail</div>
+                                <div class="video-description">Solare Meerwasser-Destillation erklärt</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="lead-magnet">
                     <h3>🏭 Serienanlage Live-Demo</h3>
                     <p>Sehen Sie die DESERTGREENER Serienanlage in Aktion und erleben Sie die Meerwasser-Destillation live</p>
-                    <button onclick="openYouTubeModal('KNC6G8LcBbQ'); trackEvent('serienanlage_demo');" class="cta-primary">
-                        🎬 Live-Demo ansehen
-                    </button>
+                    
+                    <!-- Erweiterte Technologie-Details zur Live-Demo -->
+                    <div style="background: #f8fafc; border-radius: 10px; padding: 1.5rem; margin: 1rem 0; border-left: 4px solid #0ea5e9;">
+                        <h4 style="color: #0ea5e9; margin-bottom: 1rem; font-size: 1.1rem;">
+                            🔬 Was Sie in der Live-Demo sehen werden:
+                        </h4>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin: 0.75rem 0; color: #64748b; display: flex; align-items: flex-start;">
+                                <span style="color: #10b981; margin-right: 0.5rem; font-weight: bold;">✓</span>
+                                <strong>Echtzeit-Destillation:</strong> Meerwasser wird vor Ihren Augen zu reinstem Destillat
+                            </li>
+                            <li style="margin: 0.75rem 0; color: #64748b; display: flex; align-items: flex-start;">
+                                <span style="color: #10b981; margin-right: 0.5rem; font-weight: bold;">✓</span>
+                                <strong>Energie-Kreislauf:</strong> 90% der Wärmeenergie wird im System zurückgewonnen
+                            </li>
+                            <li style="margin: 0.75rem 0; color: #64748b; display: flex; align-items: flex-start;">
+                                <span style="color: #10b981; margin-right: 0.5rem; font-weight: bold;">✓</span>
+                                <strong>Solare Integration:</strong> Heliotrope Spiegel folgen automatisch der Sonne
+                            </li>
+                            <li style="margin: 0.75rem 0; color: #64748b; display: flex; align-items: flex-start;">
+                                <span style="color: #10b981; margin-right: 0.5rem; font-weight: bold;">✓</span>
+                                <strong>Qualitätsmessung:</strong> Live-Monitoring der 99,9% Destillationsreinheit
+                            </li>
+                            <li style="margin: 0.75rem 0; color: #64748b; display: flex; align-items: flex-start;">
+                                <span style="color: #10b981; margin-right: 0.5rem; font-weight: bold;">✓</span>
+                                <strong>Modulares System:</strong> Skalierbare Bauweise für verschiedene Kapazitäten
+                            </li>
+                        </ul>
+                        
+                        <!-- Technische Kennzahlen der Demo -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                            <div style="text-align: center; background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: #0ea5e9;">4:18</div>
+                                <div style="font-size: 0.85rem; color: #64748b;">Videolänge</div>
+                            </div>
+                            <div style="text-align: center; background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: #10b981;">24/7</div>
+                                <div style="font-size: 0.85rem; color: #64748b;">Betriebszeit</div>
+                            </div>
+                            <div style="text-align: center; background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: #f59e0b;">~35°C</div>
+                                <div style="font-size: 0.85rem; color: #64748b;">Min. Temperatur</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Custom Video Thumbnail -->
+                    <div class="video-thumbnail" onclick="openYouTubeModal('KNC6G8LcBbQ'); trackEvent('serienanlage_demo');">
+                        <div class="thumbnail-container">
+                            <div class="thumbnail-image demo-thumb">
+                                <div class="thumbnail-content">
+                                    <div class="thumb-icon">🏭</div>
+                                    <div class="thumb-title">LIVE-DEMO</div>
+                                    <div class="thumb-subtitle">Serienanlage in Aktion</div>
+                                </div>
+                                <div class="play-button">
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="white">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">4:18</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">🎬 Live-Demonstration</div>
+                                <div class="video-description">Serienanlage produziert reinstes Wasser aus Meerwasser</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Link zu detaillierten Projektinformationen -->
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: linear-gradient(135deg, #0ea5e9, #10b981); border-radius: 10px; color: white; text-align: center;">
+                        <p style="margin: 0 0 1rem; font-weight: 500;">
+                            🌍 Mehr Details zu allen DESERTGREENER Projekten weltweit
+                        </p>
+                        <a href="#projects-section" 
+                           style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 500; backdrop-filter: blur(10px);"
+                           onclick="trackEvent('projects_section_interest'); document.querySelector('.projects-section').scrollIntoView({behavior: 'smooth'});">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+                            </svg>
+                            Zu den Projekten scrollen
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="lead-magnet">
                     <h3>👨‍🔬 Erfinder Karl Albrecht Waldstein</h3>
                     <p>Hören Sie die inspirierenden Worte des DESERTGREENER-Erfinders und erfahren Sie die Vision hinter der Technologie</p>
-                    <button onclick="openYouTubeModal('mIZth_IhTZY'); trackEvent('erfinder_video');" class="cta-primary">
-                        🎯 Erfinder-Video
-                    </button>
+                    
+                    <!-- Custom Video Thumbnail -->
+                    <div class="video-thumbnail" onclick="openYouTubeModal('mIZth_IhTZY'); trackEvent('erfinder_video');">
+                        <div class="thumbnail-container">
+                            <div class="thumbnail-image inventor-thumb">
+                                <div class="thumbnail-content">
+                                    <div class="thumb-icon">👨‍🔬</div>
+                                    <div class="thumb-title">ERFINDER</div>
+                                    <div class="thumb-subtitle">Karl Albrecht Waldstein</div>
+                                </div>
+                                <div class="play-button">
+                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="white">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="video-duration">8:56</div>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-title">🎯 Erfinder-Interview</div>
+                                <div class="video-description">Vision und Inspiration direkt vom Schöpfer</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             
             <!-- Webinar & Kostenlose Registrierung -->
@@ -941,13 +1987,52 @@
             <p style="margin-bottom: 1rem; opacity: 0.8;">
                 <strong>Thomas Laggner</strong> - Technologie-Information | Independent Distributor der DGRX Sales GmbH
             </p>
-            <p style="margin-bottom: 2rem; opacity: 0.8;">
+            <p style="margin-bottom: 1rem; opacity: 0.8;">
                 📧 Kontakt: <a href="https://www.weltwassertag.at" style="color: #10b981;">www.weltwassertag.at</a> | 
                 🎯 Meetings: <a href="https://www.movementmeeting.com" style="color: #10b981;">movementmeeting.com</a>
             </p>
+            
+            <!-- WhatsApp Contact CTA -->
+            <div style="margin-bottom: 2rem;">
+                <a href="https://wa.me/4369912169080?text=Hallo%20Thomas!%20Ich%20interessiere%20mich%20für%20die%20DESERTGREENER%20Technologie%20und%20möchte%20gerne%20mehr%20erfahren.%20Vielen%20Dank!%20🌊" 
+                   target="_blank" 
+                   onclick="trackEvent('whatsapp_footer_contact')"
+                   style="
+                        background: linear-gradient(135deg, #25d366 0%, #20c55e 100%);
+                        color: white;
+                        text-decoration: none;
+                        padding: 12px 25px;
+                        border-radius: 10px;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+                   "
+                   onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 211, 102, 0.4)'"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(37, 211, 102, 0.3)'">
+                    <span style="font-size: 1.2rem;">📱</span>
+                    Direkte WhatsApp-Beratung mit Thomas Laggner
+                    <span style="font-size: 1rem;">🚀</span>
+                </a>
+                <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7; font-style: italic;">
+                    💡 Schnelle Antworten • Persönliche Beratung • 98% Öffnungsrate
+                </p>
+            </div>
             <div style="font-size: 0.9rem; opacity: 0.7; border-top: 1px solid #334155; padding-top: 2rem;">
                 <p>Diese Informationen dienen ausschließlich der Technologie-Aufklärung und wissenschaftlichen Bildung.</p>
                 <p>Bei Geschäftsentscheidungen wird professionelle Beratung empfohlen. Alle Angaben ohne Gewähr.</p>
+                
+                <!-- Legal Links -->
+                <div style="margin: 1.5rem 0; text-align: center;">
+                    <a href="/impressum.html" style="color: #10b981; text-decoration: none; margin: 0 15px; font-size: 0.9rem;" onclick="trackEvent('impressum_footer_click')">📋 Impressum</a>
+                    <span style="color: #64748b; margin: 0 5px;">|</span>
+                    <a href="/datenschutz.html" style="color: #10b981; text-decoration: none; margin: 0 15px; font-size: 0.9rem;">🔒 Datenschutz</a>
+                    <span style="color: #64748b; margin: 0 5px;">|</span>
+                    <a href="mailto:office@thomaslaggner.at" style="color: #10b981; text-decoration: none; margin: 0 15px; font-size: 0.9rem;">📧 Kontakt</a>
+                </div>
+                
                 <p style="margin-top: 1rem;">Website erstellt von Thomas Laggner | DESERTGREENER Technologie 2025</p>
             </div>
         </div>
@@ -1002,7 +2087,92 @@
                 scrollTracker = true;
             }
         });
+
+        // iframe-Fallback-Management
+        function handleIframeError() {
+            const iframe = document.querySelector('.iframe-wrapper iframe');
+            const fallback = document.querySelector('.iframe-fallback');
+            
+            if (iframe && fallback) {
+                iframe.style.display = 'none';
+                fallback.style.display = 'block';
+                trackEvent('iframe_fallback_shown');
+            }
+        }
+
+        // iframe Load-Überwachung
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.querySelector('.iframe-wrapper iframe');
+            if (iframe) {
+                // Timeout für iframe-Loading
+                let iframeTimeout = setTimeout(() => {
+                    handleIframeError();
+                }, 10000); // 10 Sekunden Timeout
+
+                iframe.addEventListener('load', function() {
+                    clearTimeout(iframeTimeout);
+                    trackEvent('projects_iframe_loaded');
+                    console.log('Projekte-iframe erfolgreich geladen');
+                });
+
+                iframe.addEventListener('error', function() {
+                    clearTimeout(iframeTimeout);
+                    handleIframeError();
+                });
+            }
+
+            // Smooth scroll für Projekte-Navigation
+            const projectsLinks = document.querySelectorAll('[href="#projects-section"]');
+            projectsLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const projectsSection = document.querySelector('.projects-section');
+                    if (projectsSection) {
+                        projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        trackEvent('projects_section_navigation');
+                    }
+                });
+            });
+        });
     </script>
+
+    <!-- Position 3: Exit-Intent Pop-up -->
+    <div id="exitIntentPopup" class="exit-intent-popup">
+        <div class="exit-popup-content">
+            <span class="exit-popup-close" onclick="closeExitPopup()">&times;</span>
+            <h2 style="color: #1e40af; margin-bottom: 20px;">⚠️ Verpassen Sie nicht das EXKLUSIVE Webinar!</h2>
+            <p class="exit-popup-text">
+                Nur noch wenige Plätze verfügbar für das Live-Webinar mit Erfinder Karl Albrecht Waldstein
+            </p>
+            <div class="exit-popup-badge" onclick="goToWebinar()">
+                <div class="exit-badge-content">
+                    <div class="exit-badge-icon">⏰</div>
+                    <div class="exit-badge-text">
+                        <strong>WEBINAR: DONNERSTAG 20:15 UHR</strong><br>
+                        <small>Noch 12 Plätze verfügbar - Jetzt sichern!</small>
+                    </div>
+                </div>
+            </div>
+            <p style="color: #666; font-size: 0.9rem;">Kostenlose Anmeldung • Limitierte Teilnehmerzahl</p>
+            <button class="exit-popup-cta" onclick="goToWebinar()">
+                🚀 JETZT KOSTENFREI ANMELDEN
+            </button>
+        </div>
+    </div>
+
+    <!-- Position 4: Mobile Floating Badge -->
+    <div class="floating-mobile-badge" onclick="goToWebinar()" title="Webinar-Anmeldung">
+        <div class="mobile-badge-content">
+            <span class="mobile-badge-icon">📅</span>
+            <span class="mobile-badge-text">ANMELDEN<br><small>DO 20:15</small></span>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/4366488795275?text=Hallo%20Thomas!%20Ich%20habe%20Interesse%20am%20DESERTGREENER%20Webinar%20%F0%9F%9A%80%20K%C3%B6nnen%20Sie%20mir%20den%20Anmelde-Link%20senden%3F" class="whatsapp-float" onclick="trackEvent('whatsapp_float_click')" target="_blank">
+        <span class="whatsapp-icon">📱</span>
+        <span>Webinar-Info per WhatsApp</span>
+    </a>
 
     <!-- YouTube Modal -->
     <div id="youtubeModal" class="youtube-modal">
@@ -1066,6 +2236,87 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeYouTubeModal();
+            }
+        });
+
+        // Marketing Badge Functions
+        function goToWebinar() {
+            // Track conversion event
+            if (typeof trackEvent === 'function') {
+                trackEvent('webinar_badge_click');
+            }
+            
+            // Redirect to webinar registration
+            window.location.href = '/webinar-anmeldung.html';
+        }
+
+        // Exit-Intent Detection
+        let exitIntentShown = false;
+        let mouseLeaveTimer;
+
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0 && !exitIntentShown) {
+                // Small delay to avoid false triggers
+                mouseLeaveTimer = setTimeout(function() {
+                    showExitIntent();
+                }, 300);
+            }
+        });
+
+        document.addEventListener('mouseenter', function() {
+            clearTimeout(mouseLeaveTimer);
+        });
+
+        function showExitIntent() {
+            if (!exitIntentShown) {
+                document.getElementById('exitIntentPopup').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                exitIntentShown = true;
+                
+                // Track exit intent event
+                if (typeof trackEvent === 'function') {
+                    trackEvent('exit_intent_triggered');
+                }
+            }
+        }
+
+        function closeExitPopup() {
+            document.getElementById('exitIntentPopup').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close exit popup when clicking outside
+        document.getElementById('exitIntentPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeExitPopup();
+            }
+        });
+
+        // Badge visibility animations
+        window.addEventListener('scroll', function() {
+            const scrolled = window.scrollY;
+            const stickyBadge = document.querySelector('.sticky-header-badge');
+            
+            // Show sticky badge after some scroll
+            if (scrolled > 100) {
+                stickyBadge.style.opacity = '1';
+            } else {
+                stickyBadge.style.opacity = '0.9';
+            }
+        });
+
+        // Mobile floating badge pulse on scroll
+        let pulseTimer;
+        window.addEventListener('scroll', function() {
+            clearTimeout(pulseTimer);
+            const floatingBadge = document.querySelector('.floating-mobile-badge');
+            
+            if (window.innerWidth <= 768) {
+                floatingBadge.style.transform = 'scale(1.1)';
+                
+                pulseTimer = setTimeout(function() {
+                    floatingBadge.style.transform = 'scale(1)';
+                }, 200);
             }
         });
     </script>

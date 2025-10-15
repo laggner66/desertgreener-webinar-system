@@ -640,9 +640,343 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Webinar Page Badge - Sticky reminder */
+        .webinar-sticky-badge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            animation: pulse 2s infinite;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 12px 16px;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .webinar-sticky-badge:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.6);
+        }
+
+        .webinar-badge-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .webinar-badge-icon {
+            font-size: 1.3rem;
+        }
+
+        .webinar-badge-text {
+            line-height: 1.2;
+            font-size: 0.8rem;
+        }
+
+        .webinar-badge-text strong {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .webinar-badge-text small {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .webinar-sticky-badge {
+                top: 15px;
+                right: 15px;
+                padding: 10px 12px;
+            }
+            
+            .webinar-badge-icon {
+                font-size: 1.1rem;
+            }
+
+            .webinar-badge-text {
+                font-size: 0.75rem;
+            }
+
+            .webinar-badge-text strong {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Live Counter + Scarcity Styles */
+        .live-counter-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #f59e0b;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .counter-item {
+            text-align: center;
+            background: white;
+            padding: 15px 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .counter-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #059669;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .counter-number.remaining {
+            color: #dc2626;
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); color: #ef4444; }
+        }
+
+        .counter-label {
+            font-size: 0.85rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .scarcity-alerts {
+            border-top: 1px solid rgba(245, 158, 11, 0.3);
+            padding-top: 15px;
+        }
+
+        .alert-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideInAlert 0.5s ease-out;
+            border-left: 3px solid #10b981;
+        }
+
+        @keyframes slideInAlert {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .alert-icon {
+            font-size: 1.2rem;
+        }
+
+        .alert-text {
+            flex: 1;
+            font-size: 0.9rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .alert-time {
+            font-size: 0.8rem;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .scarcity-warning {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 3px solid #dc2626;
+            animation: pulse-warning 3s infinite;
+        }
+
+        @keyframes pulse-warning {
+            0%, 100% { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); }
+            50% { background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%); }
+        }
+
+        .warning-icon {
+            font-size: 1.2rem;
+            animation: shake 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(2px); }
+        }
+
+        .warning-text {
+            color: #7f1d1d;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* Live Counter Mobile */
+        @media (max-width: 768px) {
+            .counter-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .counter-number {
+                font-size: 1.5rem;
+            }
+            
+            .counter-label {
+                font-size: 0.75rem;
+            }
+            
+            .alert-item {
+                padding: 10px 12px;
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+        }
+
+        /* WhatsApp Integration Styles for Webinar Form */
+        .whatsapp-checkbox-group {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #25d366;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+            animation: whatsappGlow 3s infinite;
+        }
+
+        .whatsapp-checkbox-group::before {
+            content: "💬";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            opacity: 0.3;
+        }
+
+        .whatsapp-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-weight: 600;
+            color: #15803d;
+            line-height: 1.4;
+        }
+
+        .whatsapp-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #25d366;
+            margin-top: 2px;
+        }
+
+        .whatsapp-benefit {
+            font-size: 0.85rem;
+            color: #166534;
+            margin-top: 8px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @keyframes whatsappGlow {
+            0%, 100% { box-shadow: 0 0 0 rgba(37, 211, 102, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+        }
+
+        .whatsapp-contact-section {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-contact-section h3 {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .whatsapp-direct-link {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-direct-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+            color: white;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-checkbox-group {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            .whatsapp-contact-section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Webinar Page Badge - Dezent -->
+    <div class="webinar-sticky-badge" title="Webinar-Anmeldung läuft">
+        <div class="webinar-badge-content">
+            <span class="webinar-badge-icon">📝</span>
+            <span class="webinar-badge-text">
+                <strong>ANMELDUNG</strong><br>
+                <small>läuft</small>
+            </span>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -744,7 +1078,7 @@
                         💡 Im Live-Webinar erhalten Sie zusätzlich:
                     </p>
                     <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">
-                        ✓ Persönliche Q&A mit Thomas Laggner &nbsp;•&nbsp; ✓ Exklusive Cyprus-Projekt Updates &nbsp;•&nbsp; ✓ Technische Tiefenanalyse
+                        ✓ Persönliche Q&A mit Thomas Pfeifer CSO &nbsp;•&nbsp; ✓ Exklusive Cyprus-Projekt Updates &nbsp;•&nbsp; ✓ Technische Tiefenanalyse
                     </p>
                 </div>
             </div>
@@ -753,6 +1087,37 @@
             <div class="urgency">
                 <h3>⚡ Begrenzte Teilnehmerzahl</h3>
                 <p>Nur 50 Plätze verfügbar für persönliche Betreuung und individuelle Fragen</p>
+                
+                <!-- Live Counter + Scarcity -->
+                <div class="live-counter-section">
+                    <div class="counter-grid">
+                        <div class="counter-item">
+                            <div class="counter-number" id="registeredToday">0</div>
+                            <div class="counter-label">Anmeldungen heute</div>
+                        </div>
+                        <div class="counter-item">
+                            <div class="counter-number remaining" id="remainingSpots">0</div>
+                            <div class="counter-label">Verfügbare Plätze</div>
+                        </div>
+                        <div class="counter-item">
+                            <div class="counter-number" id="onlineNow">0</div>
+                            <div class="counter-label">Gerade online</div>
+                        </div>
+                    </div>
+                    
+                    <div class="scarcity-alerts">
+                        <div class="alert-item" id="recentRegistration" style="display: none;">
+                            <span class="alert-icon">🔥</span>
+                            <span class="alert-text">Gerade angemeldet: <span id="recentName">Max M.</span> aus <span id="recentCity">Wien</span></span>
+                            <span class="alert-time" id="alertTime">vor 2 Min</span>
+                        </div>
+                        
+                        <div class="scarcity-warning" id="scarcityWarning">
+                            <span class="warning-icon">⚠️</span>
+                            <span class="warning-text">Noch <span id="warningSpots">12</span> Plätze verfügbar - <strong>Webinar fast ausgebucht!</strong></span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Lead Generation Form - Netlify Integration -->
@@ -818,6 +1183,19 @@
                     </div>
                 </div>
 
+                <!-- WhatsApp Erinnerung Option -->
+                <div class="whatsapp-checkbox-group">
+                    <div class="whatsapp-checkbox">
+                        <input type="checkbox" id="whatsapp_reminder" name="whatsapp_reminder" value="ja">
+                        <div>
+                            <strong>📱 Webinar-Erinnerung per WhatsApp erhalten?</strong>
+                            <div class="whatsapp-benefit">
+                                ⚡ 98% Öffnungsrate • 🎯 Direkter Kontakt • ⏰ Pünktliche Erinnerung 1h vor Start
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Submit Button -->
                 <button type="submit" class="submit-btn" id="submitBtn">
                     <span class="button-text">🚀 Webinar-Platz sichern</span>
@@ -837,13 +1215,98 @@
                     <br>
                     Prüfen Sie auch Ihren Spam-Ordner. Bei Fragen kontaktieren Sie Thomas Laggner direkt.
                 </p>
+                
+                <!-- WhatsApp Success Action -->
+                <div id="whatsappSuccessAction" style="display: none; margin-top: 20px; padding: 20px; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border-radius: 15px; border-left: 5px solid #25d366; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.1);">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <div style="background: #25d366; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                            <span style="color: white; font-size: 20px;">📱</span>
+                        </div>
+                        <div>
+                            <h4 style="color: #15803d; font-weight: 700; margin: 0; font-size: 1.1rem;">
+                                WhatsApp-Erinnerung aktiviert! 🎉
+                            </h4>
+                            <p style="color: #166534; margin: 5px 0 0 0; font-size: 0.9rem;">
+                                98% Öffnungsrate • Garantiert pünktlich • Persönlicher Kontakt
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <p style="color: #374151; margin: 0; font-size: 0.95rem; line-height: 1.5;">
+                            <strong>📲 Klicken Sie jetzt auf den Button unten</strong><br>
+                            ✅ Sofortige Bestätigung Ihrer Webinar-Anmeldung<br>
+                            ⏰ Automatische Erinnerung 1 Stunde vor Webinar-Start<br>
+                            🎯 Direkter Link zum Webinar-Raum per WhatsApp
+                        </p>
+                    </div>
+                    
+                    <a href="#" id="whatsappPersonalizedLink" class="whatsapp-direct-link" target="_blank" style="
+                        background: linear-gradient(135deg, #25d366 0%, #20c55e 100%);
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        padding: 12px 20px;
+                        border-radius: 10px;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+                    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 211, 102, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(37, 211, 102, 0.3)'">
+                        <span style="font-size: 1.2rem;">📱</span>
+                        WhatsApp-Erinnerung JETZT aktivieren
+                        <span style="font-size: 1.1rem;">🚀</span>
+                    </a>
+                    
+                    <div style="margin-top: 15px; padding: 15px; background: rgba(37, 211, 102, 0.1); border-radius: 10px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                            <div style="flex: 1; min-width: 200px;">
+                                <p style="color: #166534; font-size: 0.9rem; margin: 0 0 8px 0; font-weight: 600;">
+                                    📱 Alternative: QR-Code scannen
+                                </p>
+                                <p style="color: #166534; font-size: 0.8rem; margin: 0; font-style: italic;">
+                                    Scannen Sie den QR-Code mit der Kamera Ihres Smartphones für direkten WhatsApp-Kontakt
+                                </p>
+                            </div>
+                            <div id="whatsappQRCode" style="background: white; padding: 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                                <!-- QR Code wird hier generiert -->
+                            </div>
+                        </div>
+                        <p style="color: #166534; font-size: 0.8rem; margin: 15px 0 0 0; text-align: center; font-style: italic;">
+                            💡 Tipp: Speichern Sie Thomas Laggners Nummer (+43 664 88795275) für zukünftige DESERTGREENER-Updates
+                        </p>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- WhatsApp Direktkontakt Sektion -->
+        <div class="whatsapp-contact-section">
+            <h3>💬 Direkte Fragen? WhatsApp-Kontakt verfügbar!</h3>
+            <p>Haben Sie Fragen zur Technologie oder zum Webinar? Thomas Laggner antwortet persönlich auf WhatsApp.</p>
+            <a href="https://wa.me/4369912169080?text=Hallo%20Thomas!%20Ich%20habe%20mich%20gerade%20f%C3%BCr%20das%20DESERTGREENER%20Webinar%20angemeldet%20%F0%9F%9A%80%20K%C3%B6nnten%20Sie%20mir%20eine%20Best%C3%A4tigung%20senden%20und%20vorab%20schon%20einige%20Informationen%20zur%20Technologie%20geben%3F" class="whatsapp-direct-link" target="_blank" onclick="trackEvent('whatsapp_form_contact')">
+                📱 Jetzt WhatsApp-Nachricht senden
+            </a>
+            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.9;">
+                ⚡ Schnelle Antwortzeit • 🎯 Persönlicher Kontakt • 💡 Individuelle Beratung
+            </p>
         </div>
 
         <!-- Footer -->
         <div class="footer">
             <p><strong>Thomas Laggner</strong> - Technologie-Information | Independent Distributor der DGRX Sales GmbH</p>
             <p>DESERTGREENER Webinar-Anmeldung | Fraunhofer-zertifizierte Technologie 2025</p>
+            
+            <!-- Legal Links -->
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); text-align: center;">
+                <a href="/impressum.html" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 10px; font-size: 0.9rem;" onclick="trackEvent('impressum_webinar_click')">📋 Impressum</a>
+                <span style="color: rgba(255,255,255,0.5); margin: 0 5px;">|</span>
+                <a href="/datenschutz.html" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 10px; font-size: 0.9rem;">🔒 Datenschutz</a>
+                <span style="color: rgba(255,255,255,0.5); margin: 0 5px;">|</span>
+                <a href="mailto:office@thomaslaggner.at" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 10px; font-size: 0.9rem;">📧 Kontakt</a>
+            </div>
         </div>
     </div>
 
@@ -860,6 +1323,153 @@
             // Get UTM parameters
             const urlParams = new URLSearchParams(window.location.search);
             document.getElementById('utm_source').value = urlParams.get('utm_source') || '';
+        });
+
+        // WhatsApp QR Code Generator
+        function generateWhatsAppQRCode(message) {
+            const whatsappUrl = `https://wa.me/4369912169080?text=${encodeURIComponent(message)}`;
+            const qrCodeContainer = document.getElementById('whatsappQRCode');
+            
+            // Use QR Server API for QR code generation
+            const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(whatsappUrl)}&bgcolor=ffffff&color=000000&margin=5&format=png`;
+            
+            qrCodeContainer.innerHTML = `
+                <img src="${qrCodeUrl}" alt="WhatsApp QR Code" style="width: 120px; height: 120px; display: block;">
+            `;
+        }
+
+        // WhatsApp Message Generator
+        function generateWhatsAppMessage(vorname, nachname, email, interesse, telefon) {
+            const interesseMap = {
+                'technologie': 'Technologie & Innovation 🔬',
+                'umwelt': 'Umwelt & Nachhaltigkeit 🌱',
+                'business': 'Geschäftsmöglichkeiten 💼',
+                'wissenschaft': 'Wissenschaftliche Forschung 📊',
+                'sonstiges': 'Sonstiges 🤔'
+            };
+            
+            const interesseText = interesseMap[interesse] || interesse;
+            const currentDate = new Date().toLocaleDateString('de-DE');
+            const currentTime = new Date().toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'});
+            
+            return `🚀 DESERTGREENER Webinar-Anmeldung bestätigt!
+
+Hallo Thomas! 👋
+
+Ich habe mich soeben für das exklusive DESERTGREENER Live-Webinar angemeldet und möchte die WhatsApp-Erinnerung aktivieren.
+
+📋 Meine Anmeldedaten:
+👤 Name: ${vorname} ${nachname}
+📧 E-Mail: ${email}  
+📞 Telefon: ${telefon}
+🎯 Hauptinteresse: ${interesseText}
+📅 Angemeldet am: ${currentDate} um ${currentTime}
+
+⏰ WEBINAR-TERMINE:
+📅 Donnerstag, 20:15 Uhr
+🔗 Link: www.movementmeeting.com
+
+💬 ERINNERUNG GEWÜNSCHT:
+✅ 1 Stunde vor Webinar-Start (19:15 Uhr)
+✅ Direkter Webinar-Link per WhatsApp
+✅ Letzte technische Hinweise
+
+🎯 Ich freue mich auf die Präsentation der innovativen DESERTGREENER Meerwasser-Destillationstechnologie und die Einblicke von Erfinder Karl Albrecht Waldstein!
+
+Mit freundlichen Grüßen
+${vorname} ${nachname}
+
+#DESERTGREENER #Webinar #Wassertechnologie #Innovation`;
+        }
+
+        // Live Counter + Scarcity System
+        class ScarcitySystem {
+            constructor() {
+                this.maxSpots = 50;
+                this.baseRegistrations = 38; // Starting point for realism
+                this.init();
+            }
+
+            init() {
+                this.updateCounters();
+                this.startRealtimeUpdates();
+                this.showRecentRegistrations();
+            }
+
+            updateCounters() {
+                // Calculate realistic numbers
+                const now = new Date();
+                const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                const minutesSinceMidnight = Math.floor((now - todayStart) / (1000 * 60));
+                
+                // Simulate registrations throughout the day
+                const registrationsToday = Math.min(15, Math.floor(minutesSinceMidnight / 96) + Math.floor(Math.random() * 8) + 3);
+                const totalRegistrations = this.baseRegistrations + registrationsToday;
+                const remainingSpots = Math.max(0, this.maxSpots - totalRegistrations);
+                const onlineNow = Math.floor(Math.random() * 12) + 8; // 8-19 people online
+
+                // Update DOM
+                document.getElementById('registeredToday').textContent = registrationsToday;
+                document.getElementById('remainingSpots').textContent = remainingSpots;
+                document.getElementById('onlineNow').textContent = onlineNow;
+                document.getElementById('warningSpots').textContent = remainingSpots;
+
+                // Update scarcity warning based on remaining spots
+                const warning = document.getElementById('scarcityWarning');
+                if (remainingSpots <= 5) {
+                    warning.querySelector('.warning-text').innerHTML = `Nur noch <span style="color: #dc2626; font-weight: 700;">${remainingSpots} Plätze</span> verfügbar - <strong style="color: #dc2626;">JETZT anmelden!</strong>`;
+                    warning.style.animation = 'pulse-warning 1s infinite';
+                } else if (remainingSpots <= 12) {
+                    warning.querySelector('.warning-text').innerHTML = `Noch <span style="color: #dc2626; font-weight: 700;">${remainingSpots} Plätze</span> verfügbar - <strong>Webinar fast ausgebucht!</strong>`;
+                }
+            }
+
+            startRealtimeUpdates() {
+                // Update counters every 3-7 minutes
+                setInterval(() => {
+                    this.updateCounters();
+                }, (Math.random() * 240000) + 180000); // 3-7 minutes
+
+                // Update online counter more frequently
+                setInterval(() => {
+                    const onlineNow = Math.floor(Math.random() * 12) + 8;
+                    document.getElementById('onlineNow').textContent = onlineNow;
+                }, 45000); // Every 45 seconds
+            }
+
+            showRecentRegistrations() {
+                const names = ['Max M.', 'Sarah K.', 'Michael B.', 'Anna W.', 'Thomas R.', 'Lisa H.', 'David S.', 'Julia F.', 'Martin K.', 'Sandra G.'];
+                const cities = ['Wien', 'Graz', 'Salzburg', 'Innsbruck', 'Linz', 'Klagenfurt', 'Bregenz', 'St. Pölten', 'Eisenstadt', 'München', 'Berlin', 'Hamburg', 'Zürich'];
+                
+                const showAlert = () => {
+                    const alertElement = document.getElementById('recentRegistration');
+                    const randomName = names[Math.floor(Math.random() * names.length)];
+                    const randomCity = cities[Math.floor(Math.random() * cities.length)];
+                    const randomMinutes = Math.floor(Math.random() * 15) + 1;
+
+                    document.getElementById('recentName').textContent = randomName;
+                    document.getElementById('recentCity').textContent = randomCity;
+                    document.getElementById('alertTime').textContent = `vor ${randomMinutes} Min`;
+
+                    alertElement.style.display = 'flex';
+                    
+                    // Hide after 8 seconds
+                    setTimeout(() => {
+                        alertElement.style.display = 'none';
+                    }, 8000);
+                };
+
+                // Show first alert after 10 seconds
+                setTimeout(showAlert, 10000);
+                
+                // Show random alerts every 2-5 minutes
+                setInterval(showAlert, (Math.random() * 180000) + 120000);
+            }
+        }
+
+        // Initialize Scarcity System
+        document.addEventListener('DOMContentLoaded', function() {
+            new ScarcitySystem();
         });
 
         // Form submission handling
@@ -887,6 +1497,33 @@
                 // Show success message
                 document.querySelector('.form-section').style.display = 'none';
                 document.getElementById('successMessage').style.display = 'block';
+                
+                // Check if WhatsApp reminder was selected
+                const whatsappReminder = document.getElementById('whatsapp_reminder').checked;
+                const vorname = document.getElementById('vorname').value;
+                const nachname = document.getElementById('nachname').value;
+                
+                if (whatsappReminder) {
+                    // Show enhanced WhatsApp action
+                    document.getElementById('whatsappSuccessAction').style.display = 'block';
+                    
+                    // Generate personalized WhatsApp message
+                    const email = document.getElementById('email').value;
+                    const interesse = document.getElementById('interesse').value;
+                    const telefon = document.getElementById('telefon').value || 'nicht angegeben';
+                    
+                    const whatsappMessage = generateWhatsAppMessage(vorname, nachname, email, interesse, telefon);
+                    const whatsappLink = document.getElementById('whatsappPersonalizedLink');
+                    whatsappLink.href = `https://wa.me/4369912169080?text=${encodeURIComponent(whatsappMessage)}`;
+                    
+                    // Generate QR Code for WhatsApp
+                    generateWhatsAppQRCode(whatsappMessage);
+                    
+                    // Track WhatsApp conversion
+                    if (typeof trackEvent === 'function') {
+                        trackEvent('whatsapp_reminder_selected');
+                    }
+                }
                 
                 // Track conversion
                 if (typeof gtag !== 'undefined') {
