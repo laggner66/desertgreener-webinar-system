@@ -1,3 +1,15 @@
-# Minimal configuration for static site
+# Netlify configuration with form notifications
 [build]
   publish = "."
+
+# Form notifications for webinar registrations
+[[forms]]
+  name = "webinar-anmeldung"
+  
+  # E-Mail notification to Thomas Laggner
+  [[forms.notifications]]
+    type = "email"
+    event = "submission"
+    to = "office@thomaslaggner.at"
+    subject = "🚀 Neue DESERTGREENER Webinar-Anmeldung"
+    template = "webinar-notification"

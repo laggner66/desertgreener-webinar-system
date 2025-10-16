@@ -192,6 +192,9 @@
             }
         }
     </style>
+    
+    <!-- GDPR Cookie Consent System -->
+    <script src="cookie-consent.js"></script>
 </head>
 <body>
     <div class="container">
@@ -314,5 +317,14 @@
             trackEvent('impressum_page_view');
         }
     </script>
+
+    <!-- Initialize Cookie Consent System -->
+    <script>
+        // Initialisiere das DESERTGREENER Cookie Consent System
+        document.addEventListener('DOMContentLoaded', function() {
+            window.cookieConsent = new DesertgreenerCookieConsent();
+        });
+    </script>
+
 </body>
 </html>

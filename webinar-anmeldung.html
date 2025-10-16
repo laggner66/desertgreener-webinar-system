@@ -824,6 +824,11 @@
             50% { background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%); }
         }
 
+        @keyframes pulse-success {
+            0%, 100% { background: linear-gradient(135deg, #dcfdf7 0%, #a7f3d0 100%); }
+            50% { background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%); }
+        }
+
         .warning-icon {
             font-size: 1.2rem;
             animation: shake 0.5s ease-in-out infinite alternate;
@@ -964,6 +969,9 @@
             }
         }
     </style>
+    
+    <!-- GDPR Cookie Consent System -->
+    <script src="cookie-consent.js"></script>
 </head>
 <body>
     <!-- Webinar Page Badge - Dezent -->
@@ -1085,8 +1093,8 @@
 
             <!-- Urgency -->
             <div class="urgency">
-                <h3>⚡ Begrenzte Teilnehmerzahl</h3>
-                <p>Nur 50 Plätze verfügbar für persönliche Betreuung und individuelle Fragen</p>
+                <h3>⚡ Exklusives Live-Webinar</h3>
+                <p>Kostenlose Teilnahme mit persönlicher Betreuung und individuellen Fragen - offen für alle Interessenten</p>
                 
                 <!-- Live Counter + Scarcity -->
                 <div class="live-counter-section">
@@ -1097,7 +1105,7 @@
                         </div>
                         <div class="counter-item">
                             <div class="counter-number remaining" id="remainingSpots">0</div>
-                            <div class="counter-label">Verfügbare Plätze</div>
+                            <div class="counter-label">Aktive Teilnehmer</div>
                         </div>
                         <div class="counter-item">
                             <div class="counter-number" id="onlineNow">0</div>
@@ -1113,8 +1121,8 @@
                         </div>
                         
                         <div class="scarcity-warning" id="scarcityWarning">
-                            <span class="warning-icon">⚠️</span>
-                            <span class="warning-text">Noch <span id="warningSpots">12</span> Plätze verfügbar - <strong>Webinar fast ausgebucht!</strong></span>
+                            <span class="warning-icon">🎆</span>
+                            <span class="warning-text">Bereits <span id="warningSpots">12</span> Teilnehmer angemeldet - <strong>Werden auch Sie Teil der Community!</strong></span>
                         </div>
                     </div>
                 </div>
@@ -1382,10 +1390,10 @@ ${vorname} ${nachname}
 #DESERTGREENER #Webinar #Wassertechnologie #Innovation`;
         }
 
-        // Live Counter + Scarcity System
-        class ScarcitySystem {
+        // Live Counter + Community System
+        class CommunitySystem {
             constructor() {
-                this.maxSpots = 50;
+                this.totalMembers = 150; // Growing community base
                 this.baseRegistrations = 38; // Starting point for realism
                 this.init();
             }
@@ -1405,22 +1413,22 @@ ${vorname} ${nachname}
                 // Simulate registrations throughout the day
                 const registrationsToday = Math.min(15, Math.floor(minutesSinceMidnight / 96) + Math.floor(Math.random() * 8) + 3);
                 const totalRegistrations = this.baseRegistrations + registrationsToday;
-                const remainingSpots = Math.max(0, this.maxSpots - totalRegistrations);
+                const activeTeilnehmer = Math.min(this.totalMembers, totalRegistrations + Math.floor(Math.random() * 20) + 10);
                 const onlineNow = Math.floor(Math.random() * 12) + 8; // 8-19 people online
 
                 // Update DOM
                 document.getElementById('registeredToday').textContent = registrationsToday;
-                document.getElementById('remainingSpots').textContent = remainingSpots;
+                document.getElementById('remainingSpots').textContent = activeTeilnehmer;
                 document.getElementById('onlineNow').textContent = onlineNow;
-                document.getElementById('warningSpots').textContent = remainingSpots;
+                document.getElementById('warningSpots').textContent = activeTeilnehmer;
 
-                // Update scarcity warning based on remaining spots
+                // Update community message based on active members
                 const warning = document.getElementById('scarcityWarning');
-                if (remainingSpots <= 5) {
-                    warning.querySelector('.warning-text').innerHTML = `Nur noch <span style="color: #dc2626; font-weight: 700;">${remainingSpots} Plätze</span> verfügbar - <strong style="color: #dc2626;">JETZT anmelden!</strong>`;
-                    warning.style.animation = 'pulse-warning 1s infinite';
-                } else if (remainingSpots <= 12) {
-                    warning.querySelector('.warning-text').innerHTML = `Noch <span style="color: #dc2626; font-weight: 700;">${remainingSpots} Plätze</span> verfügbar - <strong>Webinar fast ausgebucht!</strong>`;
+                if (activeTeilnehmer >= 100) {
+                    warning.querySelector('.warning-text').innerHTML = `Bereits <span style="color: #10b981; font-weight: 700;">${activeTeilnehmer} Mitglieder</span> in der Community - <strong style="color: #10b981;">Jetzt auch dabei sein!</strong>`;
+                    warning.style.animation = 'pulse-success 2s infinite';
+                } else {
+                    warning.querySelector('.warning-text').innerHTML = `Bereits <span style="color: #10b981; font-weight: 700;">${activeTeilnehmer} Teilnehmer</span> angemeldet - <strong>Werden auch Sie Teil der Community!</strong>`;
                 }
             }
 
@@ -1469,7 +1477,7 @@ ${vorname} ${nachname}
 
         // Initialize Scarcity System
         document.addEventListener('DOMContentLoaded', function() {
-            new ScarcitySystem();
+            new CommunitySystem();
         });
 
         // Form submission handling
@@ -1508,6 +1516,21 @@ ${vorname} ${nachname}
                 // Store registrant data for follow-up system
                 localStorage.setItem('webinarRegistrant', JSON.stringify(emailData));
                 console.log('Lead captured successfully:', emailData);
+                
+                // Send additional notification email to Thomas Laggner
+                sendNotificationEmail(emailData);
+                
+                // Call Netlify Function for backup notification
+                callNotificationFunction(formData);
+                
+                // Track successful lead capture
+                if (typeof trackEvent === 'function') {
+                    trackEvent('lead_captured_successfully', {
+                        email: emailData.email,
+                        interesse: emailData.interesse,
+                        timestamp: new Date().toISOString()
+                    });
+                }
                 
                 // Show success message
                 document.querySelector('.form-section').style.display = 'none';
@@ -1587,6 +1610,97 @@ Ihre Rechte:
 Kontakt: Über die angegebenen Kontaktdaten auf der Website.`);
         }
 
+        // Send notification email to Thomas Laggner
+        function sendNotificationEmail(emailData) {
+            // Prepare notification email content
+            const notificationData = {
+                to: 'office@thomaslaggner.at',
+                subject: '🚀 Neue DESERTGREENER Webinar-Anmeldung - ' + emailData.vorname + ' ' + emailData.nachname,
+                html: generateNotificationEmailHTML(emailData)
+            };
+
+            // Log for tracking (in production, this would trigger actual email)
+            console.log('Notification email prepared for:', notificationData);
+            
+            // Track notification attempt
+            if (typeof trackEvent === 'function') {
+                trackEvent('notification_email_sent', {
+                    recipient: 'office@thomaslaggner.at',
+                    lead_email: emailData.email,
+                    timestamp: new Date().toISOString()
+                });
+            }
+            
+            // Note: In production, you would integrate with email service like:
+            // - Netlify Functions with SendGrid
+            // - Zapier webhook
+            // - EmailJS
+            // - Or custom email API
+        }
+
+        // Call Netlify Function for notification
+        async function callNotificationFunction(formData) {
+            try {
+                const response = await fetch('/.netlify/functions/send-notification', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(formData).toString()
+                });
+                
+                const result = await response.json();
+                console.log('Netlify Function notification result:', result);
+                
+                if (typeof trackEvent === 'function') {
+                    trackEvent('netlify_function_notification', {
+                        success: response.ok,
+                        status: response.status
+                    });
+                }
+                
+            } catch (error) {
+                console.error('Error calling notification function:', error);
+                
+                if (typeof trackEvent === 'function') {
+                    trackEvent('netlify_function_error', {
+                        error: error.message
+                    });
+                }
+            }
+        }
+
+        // Generate notification email HTML
+        function generateNotificationEmailHTML(data) {
+            return `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <div style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; padding: 2rem; text-align: center;">
+                        <h1 style="margin: 0;">🚀 Neue DESERTGREENER Webinar-Anmeldung</h1>
+                    </div>
+                    
+                    <div style="padding: 2rem; background: white;">
+                        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #0ea5e9; margin: 1rem 0;">
+                            <h3 style="color: #0ea5e9; margin: 0 0 1rem;">👤 Neuer Lead erfasst</h3>
+                            <p><strong>Name:</strong> ${data.vorname} ${data.nachname}</p>
+                            <p><strong>E-Mail:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
+                            <p><strong>Interesse:</strong> ${data.interesse}</p>
+                            <p><strong>Anmeldung:</strong> ${data.registrationDate} um ${data.registrationTime}</p>
+                        </div>
+                        
+                        <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                            <p style="margin: 0; color: #92400e;"><strong>⚡ AKTION ERFORDERLICH:</strong> Follow-up innerhalb 24h empfohlen!</p>
+                        </div>
+                        
+                        <div style="background: #e0f2fe; padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="color: #0369a1; margin: 0 0 1rem;">🎯 Webinar-Details</h4>
+                            <p>Termin: Donnerstag 20:15 Uhr<br>
+                            Link: www.movementmeeting.com</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         // Netlify Identity Integration (if needed for advanced features)
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
@@ -1662,6 +1776,14 @@ Kontakt: Über die angegebenen Kontaktdaten auf der Website.`);
             if (event.key === 'Escape') {
                 closeYouTubeModal();
             }
+        });
+    </script>
+
+    <!-- Initialize Cookie Consent System -->
+    <script>
+        // Initialisiere das DESERTGREENER Cookie Consent System
+        document.addEventListener('DOMContentLoaded', function() {
+            window.cookieConsent = new DesertgreenerCookieConsent();
         });
     </script>
 

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESERTGREENER Cookie-Banner Test</title>
+    
+    <!-- GDPR Cookie Consent System -->
+    <script src="cookie-consent.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+        }
+        
+        button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+        
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        
+        .status.success { background: #d1fae5; color: #065f46; }
+        .status.warning { background: #fef3c7; color: #92400e; }
+        .status.error { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🍪 DESERTGREENER Cookie-Banner Test</h1>
+        <p>Diese Seite testet das GDPR-konforme Cookie-Consent-System der DESERTGREENER Website.</p>
+        
+        <div class="test-section">
+            <h3>🎯 Cookie-Banner Steuerung</h3>
+            <button onclick="forceShowBanner()">Cookie-Banner anzeigen</button>
+            <button onclick="clearConsent()">Consent zurücksetzen</button>
+            <button onclick="checkConsent()">Consent-Status prüfen</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>📊 Cookie-Kategorien testen</h3>
+            <button onclick="testAnalytics()">Analytics aktivieren</button>
+            <button onclick="testMarketing()">Marketing aktivieren</button>
+            <button onclick="clearAllCookies()">Alle Cookies löschen</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>📋 Status & Ergebnisse</h3>
+            <div id="testResults"></div>
+        </div>
+    </div>
+
+    <script>
+        let cookieConsent;
+        
+        // Initialize Cookie Consent System
+        document.addEventListener('DOMContentLoaded', function() {
+            cookieConsent = new DesertgreenerCookieConsent();
+            updateStatus('✅ Cookie-Consent-System erfolgreich initialisiert', 'success');
+        });
+        
+        function updateStatus(message, type = 'success') {
+            const resultsDiv = document.getElementById('testResults');
+            const statusDiv = document.createElement('div');
+            statusDiv.className = `status ${type}`;
+            statusDiv.innerHTML = message;
+            resultsDiv.appendChild(statusDiv);
+            
+            // Auto-scroll to latest status
+            statusDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function forceShowBanner() {
+            if (cookieConsent) {
+                // Clear consent to force banner display
+                localStorage.removeItem('dg_cookie_consent');
+                cookieConsent.showBanner();
+                updateStatus('🍪 Cookie-Banner wurde angezeigt', 'success');
+            } else {
+                updateStatus('❌ Cookie-Consent-System nicht verfügbar', 'error');
+            }
+        }
+        
+        function clearConsent() {
+            localStorage.removeItem('dg_cookie_consent');
+            updateStatus('🗑️ Cookie-Consent wurde zurückgesetzt', 'warning');
+        }
+        
+        function checkConsent() {
+            const consent = localStorage.getItem('dg_cookie_consent');
+            if (consent) {
+                const consentData = JSON.parse(consent);
+                updateStatus(`📋 Consent-Status: ${JSON.stringify(consentData, null, 2)}`, 'success');
+            } else {
+                updateStatus('📋 Kein Cookie-Consent gefunden', 'warning');
+            }
+        }
+        
+        function testAnalytics() {
+            if (cookieConsent && cookieConsent.hasConsent('analytics')) {
+                updateStatus('📊 Analytics-Cookies sind aktiviert', 'success');
+            } else {
+                updateStatus('📊 Analytics-Cookies sind NICHT aktiviert', 'warning');
+            }
+        }
+        
+        function testMarketing() {
+            if (cookieConsent && cookieConsent.hasConsent('marketing')) {
+                updateStatus('📢 Marketing-Cookies sind aktiviert', 'success');
+            } else {
+                updateStatus('📢 Marketing-Cookies sind NICHT aktiviert', 'warning');
+            }
+        }
+        
+        function clearAllCookies() {
+            // Clear all cookies
+            document.cookie.split(";").forEach(function(c) { 
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+            });
+            localStorage.clear();
+            updateStatus('🗑️ Alle Cookies und LocalStorage wurden gelöscht', 'warning');
+        }
+    </script>
+</body>
+</html>
