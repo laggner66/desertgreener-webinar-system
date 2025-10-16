@@ -54,7 +54,10 @@ class DesertgreenerCookieConsent {
     checkExistingConsent() {
         const consent = this.getCookieConsent();
         if (!consent || this.isConsentExpired(consent)) {
-            this.showBanner();
+                    // Mini-Variante: Nur bei Bedarf dezenten Hinweis anzeigen
+            if (this.hasActiveCookies()) {
+                this.showMiniIndicator();
+            }
         } else {
             this.applyConsent(consent);
         }
@@ -190,6 +193,58 @@ class DesertgreenerCookieConsent {
         document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.${window.location.hostname}`;
     }
     
+    // Dezente Mini-Variante anstatt aufdringliches Banner
+    showMiniIndicator() {
+        // Prüfe ob Mini-Indicator bereits existiert
+        if (document.getElementById('dg-mini-cookie-indicator')) return;
+        
+        const indicator = document.createElement('div');
+        indicator.id = 'dg-mini-cookie-indicator';
+        indicator.innerHTML = `
+            <div style="
+                position: fixed; 
+                bottom: 20px; 
+                right: 20px; 
+                background: rgba(16, 185, 129, 0.9); 
+                color: white; 
+                padding: 8px 16px; 
+                border-radius: 20px; 
+                font-size: 13px; 
+                z-index: 9999; 
+                cursor: pointer; 
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.2);
+                transition: all 0.3s ease;
+            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                🍪 Cookie-Einstellungen
+            </div>
+        `;
+        
+        document.body.appendChild(indicator);
+        
+        // Bei Klick auf Mini-Indicator das vollständige Banner zeigen
+        indicator.addEventListener('click', () => {
+            this.showBanner();
+            indicator.remove();
+        });
+        
+        // Mini-Indicator nach 15 Sekunden dezent ausblenden (optional anklickbar)
+        setTimeout(() => {
+            if (document.getElementById('dg-mini-cookie-indicator')) {
+                indicator.style.opacity = '0.7';
+                indicator.style.transform = 'scale(0.9)';
+            }
+        }, 15000);
+        
+        // Komplett entfernen nach 30 Sekunden
+        setTimeout(() => {
+            if (document.getElementById('dg-mini-cookie-indicator')) {
+                indicator.remove();
+            }
+        }, 30000);
+    }
+    
     createBannerHTML() {
         const banner = document.createElement('div');
         banner.id = 'dg-cookie-banner';
@@ -307,7 +362,15 @@ class DesertgreenerCookieConsent {
         this.deleteCookie(this.cookieName);
         this.disableAnalytics();
         this.disableMarketing();
-        this.showBanner();
+        this.showMiniIndicator(); // Zurück zur dezenten Variante
+    }
+    
+    // Neue Hilfsfunktion: Prüft ob Cookies überhaupt benötigt werden
+    hasActiveCookies() {
+        // Prüft ob Analytics/Marketing aktiviert sind
+        return (typeof gtag !== 'undefined') || 
+               (document.querySelector('[data-analytics]')) ||
+               (document.querySelector('[data-marketing]'));
     }
 }
 

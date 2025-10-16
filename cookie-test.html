@@ -70,7 +70,8 @@
         
         <div class="test-section">
             <h3>🎯 Cookie-Banner Steuerung</h3>
-            <button onclick="forceShowBanner()">Cookie-Banner anzeigen</button>
+            <button onclick="showMiniIndicator()">Mini-Indicator anzeigen (dezent)</button>
+            <button onclick="forceShowBanner()">Vollständiges Banner anzeigen</button>
             <button onclick="clearConsent()">Consent zurücksetzen</button>
             <button onclick="checkConsent()">Consent-Status prüfen</button>
         </div>
@@ -113,7 +114,18 @@
                 // Clear consent to force banner display
                 localStorage.removeItem('dg_cookie_consent');
                 cookieConsent.showBanner();
-                updateStatus('🍪 Cookie-Banner wurde angezeigt', 'success');
+                updateStatus('🍪 Vollständiges Cookie-Banner wurde angezeigt', 'success');
+            } else {
+                updateStatus('❌ Cookie-Consent-System nicht verfügbar', 'error');
+            }
+        }
+        
+        function showMiniIndicator() {
+            if (cookieConsent) {
+                // Remove existing consent to trigger mini indicator
+                localStorage.removeItem('dg_cookie_consent');
+                cookieConsent.showMiniIndicator();
+                updateStatus('🟡 Mini-Cookie-Indicator wurde angezeigt (dezent)', 'success');
             } else {
                 updateStatus('❌ Cookie-Consent-System nicht verfügbar', 'error');
             }
