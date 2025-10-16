@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESERTGREENER Technology - Patented Tower Solution | Technical Specifications</title>
+    
+    <!-- SEO Meta Tags - Science focused -->
+    <meta name="description" content="Detailed technical documentation of the patented DESERTGREENER tower solution: Solar thermal seawater desalination with multi-stage heat recovery and Fraunhofer validation.">
+    <meta name="keywords" content="DESERTGREENER Technology, Tower Solution, Solar Thermal Desalination, Fraunhofer IBP, Patent, Multi-stage Evaporation, Scalable Water Production">
+    <meta name="author" content="Thomas Laggner - Technology Documentation | DESERTGREENER Research Project">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="DESERTGREENER Tower Solution - Patented Solar Technology">
+    <meta property="og:description" content="Scientific documentation of the revolutionary multi-stage seawater desalination with natural convection and modular design">
+    <meta property="og:image" content="/og-desertgreener-tech.jpg">
+    <meta property="og:type" content="article">
+    
+    <!-- GDPR Cookie Consent System -->
+    <script src="cookie-consent.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+
+        /* Header Section */
+        .tech-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: radial-gradient(circle at 25% 25%, #ffffff 2px, transparent 2px), radial-gradient(circle at 75% 75%, #ffffff 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .tech-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        .tech-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            color: #e2e8f0;
+        }
+        
+        /* Navigation Breadcrumb */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        .breadcrumb-nav a {
+            color: #10b981;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-nav a:hover {
+            color: #059669;
+        }
+        
+        /* Main Content */
+        .tech-content {
+            padding: 4rem 0;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0ea5e9, #10b981);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+        }
+        
+        .section-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+            margin: 0;
+        }
+        
+        /* Tech Specification Cards */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .tech-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-card-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .tech-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .tech-specs {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tech-specs li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .tech-specs li:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-label {
+            font-weight: 500;
+            color: #64748b;
+        }
+        
+        .spec-value {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        /* Patent Information */
+        .patent-box {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .patent-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="white" opacity="0.1"/></svg>');
+            background-size: 50px 50px;
+        }
+        
+        .patent-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .patent-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        /* Fraunhofer Partnership */
+        .fraunhofer-section {
+            background: #f8fafc;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .fraunhofer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .fraunhofer-badge {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Process Flow Diagram */
+        .process-flow {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .flow-step {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .flow-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .flow-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .flow-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tech-title {
+                font-size: 2.2rem;
+            }
+            
+            .tech-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .flow-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-step::after {
+                content: '↓';
+                right: 50%;
+                top: 100%;
+                transform: translateX(50%);
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="tech-header">
+        <div class="container">
+            <h1 class="tech-title">DESERTGREENER Tower Solution</h1>
+            <p class="tech-subtitle">Patented solar thermal seawater desalination with multi-stage heat recovery</p>
+            
+            <!-- Key Performance Indicators -->
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #fbbf24;">< 1 kWh/m³</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Energy consumption</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #06b6d4;">99.9%</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Purity</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #10b981;">100%</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Solar powered</div>
+                </div>
+            </div>
+            
+            <!-- Official Source Reference -->
+            <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">
+                    📋 <strong>Official Source:</strong> All technical data based on 
+                    <a href="https://www.desertgreener.info/technologie/" target="_blank" rel="noopener" 
+                       style="color: #fbbf24; text-decoration: none; font-weight: 600; border-bottom: 1px solid #fbbf24;"
+                       onclick="trackEvent('header_official_tech_link_en')">
+                        official DESERTGREENER technology documentation
+                    </a>
+                </p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="en.html">🏠 Home</a>
+                <span>›</span>
+                <span>Technology Details</span>
+                <span style="margin-left: 2rem; color: #64748b;">|</span>
+                <a href="https://www.desertgreener.info/technologie/" target="_blank" rel="noopener" onclick="trackEvent('breadcrumb_official_link_en')">🔗 Official Source</a>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="tech-content">
+        <div class="container">
+            
+            <!-- Karl Albrecht Waldstein - The Inventor -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">👨‍🔬</div>
+                    <div>
+                        <h2 class="section-title">Karl Albrecht Waldstein - The Inventor</h2>
+                        <p class="section-subtitle">How the natural water cycle was reinvented</p>
+                    </div>
+                </div>
+                
+                <!-- Video Integration -->
+                <div style="background: #f8fafc; padding: 2rem; border-radius: 16px; margin: 2rem 0; text-align: center;">
+                    <h3 style="color: #1e293b; margin-bottom: 1.5rem;">🎥 DESERTGREENER Technology Demonstration (Symbolic Video)</h3>
+                    <div style="position: relative; max-width: 800px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <video 
+                            controls 
+                            playsinline 
+                            webkit-playsinline 
+                            style="width: 100%; height: auto; display: block;"
+                            poster="/og-desertgreener-tech.jpg">
+                            <source src="https://page.gensparksite.com/get_upload_url/92024c7d11fb0cd399cd815b1fff9744788a6c417c7babd5b3dfcedc1935c60d/default/c749a464-0f83-4d8d-aca0-fcb726376d42" type="video/mp4">
+                            <p>Your browser does not support the video element. <a href="https://page.gensparksite.com/get_upload_url/92024c7d11fb0cd399cd815b1fff9744788a6c417c7babd5b3dfcedc1935c60d/default/c749a464-0f83-4d8d-aca0-fcb726376d42" target="_blank">Watch video directly</a></p>
+                        </video>
+                    </div>
+                    <p style="color: #64748b; margin-top: 1rem; font-size: 0.9rem;">
+                        <strong>Symbolic Video:</strong> Demonstration of DESERTGREENER technology principles
+                    </p>
+                </div>
+                
+                <!-- Inventor Story -->
+                <div class="tech-grid">
+                    <div class="tech-card" style="grid-column: span 2;">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🌊</div>
+                            <h3 class="tech-card-title">The Vision: Recreating Nature's Water Cycle</h3>
+                        </div>
+                        <blockquote style="border-left: 4px solid #10b981; padding-left: 1.5rem; margin: 1.5rem 0; font-style: italic; color: #64748b;">
+                            "The sea is inexhaustible, the inland areas are drying up – so we must build the bridge between them."
+                            <footer style="margin-top: 0.5rem; font-weight: 600; color: #1e293b;">— Karl Albrecht Waldstein</footer>
+                        </blockquote>
+                        <p>Desert Greener is <strong>not a classic seawater desalination project</strong>. It is the consistent implementation of an ancient idea: recreating the natural cycle of sun, evaporation and rain – locally, controlled and sustainably.</p>
+                        <p>On the coast of Spain, this idea became a movement: a group of enthusiasts, not a large industry, but people with the vision to technically understand and harness the processes of nature.</p>
+                    </div>
+                </div>
+                
+                <!-- Water Cycle Recreation -->
+                <div style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; padding: 3rem 2rem; border-radius: 16px; margin: 2rem 0;">
+                    <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem;">🌊 From Sunbeam to Drop</h3>
+                    <div class="flow-steps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">☀️</div>
+                            <strong>Solar Energy</strong><br>
+                            <span style="opacity: 0.9;">Parabolic mirror focuses sunlight</span>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔥</div>
+                            <strong>Evaporation</strong><br>
+                            <span style="opacity: 0.9;">Seawater evaporates through concentrated heat</span>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">☁️</div>
+                            <strong>Condensation</strong><br>
+                            <span style="opacity: 0.9;">Steam becomes pure fresh water</span>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">💧</div>
+                            <strong>Pure Water</strong><br>
+                            <span style="opacity: 0.9;">Distillate quality like rainwater</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <blockquote style="font-style: italic; font-size: 1.1rem;">
+                            "We bring nature's water cycle into a small, controlled framework – and can thus carry it to every corner of the earth."
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Revolutionary Energy Efficiency -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">🔄</div>
+                    <div>
+                        <h2 class="section-title">Physics Instead of Chemistry - 90% Energy Recycling</h2>
+                        <p class="section-subtitle">Energy efficiency through resonance with nature</p>
+                    </div>
+                </div>
+                
+                <div style="background: white; border: 2px solid #fbbf24; border-radius: 16px; padding: 2rem; margin: 2rem 0;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h3 style="color: #f59e0b; margin-bottom: 1rem;">⚡ Fraunhofer-Confirmed Efficiency</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem; font-weight: 700; color: #10b981;">90%</div>
+                                <div style="font-size: 0.9rem; color: #64748b;">Heat reused</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem; font-weight: 700; color: #0ea5e9;">2500%</div>
+                                <div style="font-size: 0.9rem; color: #64748b;">Solar energy utilization</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem; font-weight: 700; color: #dc2626;">24h</div>
+                                <div style="font-size: 0.9rem; color: #64748b;">Operation day & night</div>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote style="text-align: center; border-left: none; font-style: italic; color: #64748b; margin: 2rem 0;">
+                        "We only need to feed in ten percent energy to keep the process alive. Everything else is done by the sun – day and night."
+                        <footer style="margin-top: 0.5rem; font-weight: 600; color: #1e293b;">— Karl Albrecht Waldstein</footer>
+                    </blockquote>
+                    <p><strong>The Fraunhofer Institute confirmed:</strong> Through the patent for thermal energy recycling, energy input can be multiplied by 25 times. While photovoltaics only converts about 20% of solar radiation into electricity, Desert Greener uses up to <strong>2500% of solar energy</strong> through heat reuse.</p>
+                </div>
+            </section>
+            
+            <!-- Vision and Outlook -->
+            <section class="section">
+                <div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 3rem; border-radius: 16px;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; background: linear-gradient(135deg, #fbbf24, #f59e0b, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            DESERTGREENER is more than technology
+                        </h3>
+                        <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">
+                            It is a <strong>system innovation in service of life</strong>
+                        </p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
+                            <strong style="display: block; margin-bottom: 0.5rem;">Energy-autonomous water production</strong>
+                            <span style="opacity: 0.8; font-size: 0.9rem;">100% Solar, 24/7 operation</span>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">♻️</div>
+                            <strong style="display: block; margin-bottom: 0.5rem;">New circular economy standards</strong>
+                            <span style="opacity: 0.8; font-size: 0.9rem;">Zero Waste, Zero Emission</span>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
+                            <strong style="display: block; margin-bottom: 0.5rem;">Synergy of research & nature</strong>
+                            <span style="opacity: 0.8; font-size: 0.9rem;">Fraunhofer-validated, nature-inspired</span>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌍</div>
+                            <strong style="display: block; margin-bottom: 0.5rem;">120+ Patent-protected countries</strong>
+                            <span style="opacity: 0.8; font-size: 0.9rem;">Global applicability</span>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <blockquote style="font-size: 1.4rem; font-style: italic; margin-bottom: 2rem;">
+                            "We are just at the beginning. But the beginning has been made – and the sun will never run out on us."
+                            <footer style="margin-top: 1rem; font-weight: 600;">— Karl Albrecht Waldstein</footer>
+                        </blockquote>
+                        <a href="en.html" style="display: inline-block; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 1rem; margin-bottom: 0.5rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                            🏠 Back to Homepage
+                        </a>
+                        <a href="webinar-anmeldung.html" style="display: inline-block; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 0.5rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                            🎯 Register for Webinar
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">↑</a>
+    
+    <!-- Initialize Cookie Consent System -->
+    <script>
+        // Initialize DESERTGREENER Cookie Consent System
+        document.addEventListener('DOMContentLoaded', function() {
+            window.cookieConsent = new DesertgreenerCookieConsent();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
