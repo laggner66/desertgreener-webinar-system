@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESERTGREENER Technologie - Patentierte Turmlösung | Detailspezifikationen</title>
+    
+    <!-- SEO Meta Tags - Wissenschaftlich fokussiert -->
+    <meta name="description" content="Detaillierte technische Dokumentation der patentierten DESERTGREENER Turmlösung: Solarthermische Meerwasserentsalzung mit mehrstufiger Wärmerückgewinnung und Fraunhofer-Validierung.">
+    <meta name="keywords" content="DESERTGREENER Technologie, Turmlösung, Solarthermische Entsalzung, Fraunhofer IBP, Patent, Mehrstufenverdunstung, Skalierbare Wasserproduktion">
+    <meta name="author" content="Thomas Laggner - Technologie-Dokumentation | DESERTGREENER Forschungsprojekt">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="DESERTGREENER Turmlösung - Patentierte Solartechnologie">
+    <meta property="og:description" content="Wissenschaftliche Dokumentation der revolutionären mehrstufigen Meerwasserentsalzung mit natürlicher Konvektion und modularem Aufbau">
+    <meta property="og:image" content="/og-desertgreener-tech.jpg">
+    <meta property="og:type" content="article">
+    
+    <!-- GDPR Cookie Consent System -->
+    <script src="cookie-consent.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+
+        /* Header Section */
+        .tech-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: radial-gradient(circle at 25% 25%, #ffffff 2px, transparent 2px), radial-gradient(circle at 75% 75%, #ffffff 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .tech-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        .tech-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            color: #e2e8f0;
+        }
+        
+        /* Navigation Breadcrumb */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        .breadcrumb-nav a {
+            color: #10b981;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-nav a:hover {
+            color: #059669;
+        }
+        
+        /* Main Content */
+        .tech-content {
+            padding: 4rem 0;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0ea5e9, #10b981);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+        }
+        
+        .section-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+            margin: 0;
+        }
+        
+        /* Tech Specification Cards */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .tech-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-card-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .tech-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .tech-specs {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tech-specs li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .tech-specs li:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-label {
+            font-weight: 500;
+            color: #64748b;
+        }
+        
+        .spec-value {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        /* Patent Information */
+        .patent-box {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .patent-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="white" opacity="0.1"/></svg>');
+            background-size: 50px 50px;
+        }
+        
+        .patent-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .patent-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        /* Fraunhofer Partnership */
+        .fraunhofer-section {
+            background: #f8fafc;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .fraunhofer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .fraunhofer-badge {
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Process Flow Diagram */
+        .process-flow {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .flow-step {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #10b981;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .flow-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .flow-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .flow-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tech-title {
+                font-size: 2.2rem;
+            }
+            
+            .tech-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .flow-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-step::after {
+                content: '↓';
+                right: 50%;
+                top: 100%;
+                transform: translateX(50%);
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="tech-header">
+        <div class="container">
+            <h1 class="tech-title">DESERTGREENER Turmlösung</h1>
+            <p class="tech-subtitle">Patentierte solarthermische Meerwasserentsalzung mit mehrstufiger Wärmerückgewinnung</p>
+            
+            <!-- Key Performance Indicators -->
+            <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #fbbf24;">< 1 kWh/m³</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Energieverbrauch</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #06b6d4;">99,9%</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Reinheit</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #10b981;">100%</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Solar betrieben</div>
+                </div>
+            </div>
+            
+            <!-- Official Source Reference -->
+            <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
+                <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">
+                    📋 <strong>Offizielle Quelle:</strong> Alle technischen Daten basieren auf der 
+                    <a href="https://www.desertgreener.info/technologie/" target="_blank" rel="noopener" 
+                       style="color: #fbbf24; text-decoration: none; font-weight: 600; border-bottom: 1px solid #fbbf24;"
+                       onclick="trackEvent('header_official_tech_link')">
+                        offiziellen DESERTGREENER Technologie-Dokumentation
+                    </a>
+                </p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">🏠 Start</a>
+                <span>›</span>
+                <span>Technologie-Details</span>
+                <span style="margin-left: 2rem; color: #64748b;">|</span>
+                <a href="https://www.desertgreener.info/technologie/" target="_blank" rel="noopener" onclick="trackEvent('breadcrumb_official_link')">🔗 Offizielle Quelle</a>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="tech-content">
+        <div class="container">
+            
+            <!-- 1. Grundidee der patentierten Technologie -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">⚙️</div>
+                    <div>
+                        <h2 class="section-title">Grundidee der patentierten Technologie</h2>
+                        <p class="section-subtitle">Energieautarke Meerwasserentsalzung durch innovative Solarwärme-Nutzung</p>
+                    </div>
+                </div>
+                
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🌞</div>
+                            <h3 class="tech-card-title">Solarthermischer Antrieb</h3>
+                        </div>
+                        <p>Sonnenenergie als <strong>alleinige Energiequelle</strong> für den gesamten Entsalzungsprozess. Keine fossilen Brennstoffe oder externe Stromzufuhr erforderlich.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Energiequelle:</span>
+                                <span class="spec-value">100% Solar</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">CO₂-Emissionen:</span>
+                                <span class="spec-value">Nahezu null</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Betriebskosten:</span>
+                                <span class="spec-value">Minimal</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🌪️</div>
+                            <h3 class="tech-card-title">Natürliche Konvektion</h3>
+                        </div>
+                        <p><strong>Luftzirkulation ohne mechanische Pumpen</strong> oder Kompressoren. Das System nutzt natürliche Temperaturgradienten für kontinuierliche Zirkulation.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Mechanik:</span>
+                                <span class="spec-value">Keine Pumpen</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Wartung:</span>
+                                <span class="spec-value">Minimal</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Ausfallrisiko:</span>
+                                <span class="spec-value">Sehr gering</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🔄</div>
+                            <h3 class="tech-card-title">Mehrstufige Wärmerückgewinnung</h3>
+                        </div>
+                        <p><strong>Kondensationsstufen</strong> zur optimalen Rückgewinnung von Wärmeenergie. Maximale Effizienz durch stufenweise Energienutzung.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Effizienz:</span>
+                                <span class="spec-value">90% Recycling</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Verluste:</span>
+                                <span class="spec-value">< 10%</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Leistung:</span>
+                                <span class="spec-value">Optimiert</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">📦</div>
+                            <h3 class="tech-card-title">Modulare Skalierbarkeit</h3>
+                        </div>
+                        <p><strong>Containerbasierte Module</strong> ermöglichen flexible Anpassung je nach Standortgröße und Wasserbedarf. Von 1m³ bis 5.000m³ täglich.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Klein:</span>
+                                <span class="spec-value">1-5 m³/Tag</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Mittel:</span>
+                                <span class="spec-value">50-500 m³/Tag</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Groß:</span>
+                                <span class="spec-value">5.000+ m³/Tag</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Patent Protection Box -->
+                <div class="patent-box">
+                    <div class="patent-content">
+                        <div class="patent-title">🏆 Patentgeschützte Technologie</div>
+                        <p>Das System ist durch EU-Patent geschützt und deckt die einzigartige Kombination aus vertikaler Mehrstufen-Struktur, Solarabsorber-Integration, Verdunstungsstufen und autarkem Betriebssystem ab.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="https://www.desertgreener.info/technologie/" target="_blank" rel="noopener" 
+                               style="display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 1rem; margin-bottom: 0.5rem; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease;"
+                               onmouseover="this.style.background='rgba(255,255,255,0.3)'"
+                               onmouseout="this.style.background='rgba(255,255,255,0.2)'"
+                               onclick="trackEvent('tech_details_official_link')">
+                                🔗 Offizielle Technologie-Seite
+                            </a>
+                            <a href="https://www.desertgreener.info/ueber-uns/faq/" target="_blank" rel="noopener"
+                               style="display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 0.5rem; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease;"
+                               onmouseover="this.style.background='rgba(255,255,255,0.3)'"
+                               onmouseout="this.style.background='rgba(255,255,255,0.2)'"
+                               onclick="trackEvent('patent_faq_official_link')">
+                                📜 Patent-FAQ Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 2. Der Turm als Herzstück -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">🏗️</div>
+                    <div>
+                        <h2 class="section-title">Der Turm als Herzstück</h2>
+                        <p class="section-subtitle">Vertikale Mehrstufen-Architektur für maximale Effizienz</p>
+                    </div>
+                </div>
+                
+                <!-- Process Flow -->
+                <div class="process-flow">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h3 style="color: #1e293b; margin-bottom: 1rem;">Funktionsprinzip der Turmlösung</h3>
+                        <a href="https://www.desertgreener.info/technologie/meerwasserentsalzung-turmloesung/" target="_blank" rel="noopener"
+                           style="display: inline-block; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: all 0.3s ease;"
+                           onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 15px rgba(16, 185, 129, 0.3)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+                           onclick="trackEvent('turmloesung_official_link')">
+                            🔗 Detaillierte Turmlösung-Dokumentation
+                        </a>
+                    </div>
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <div class="flow-icon">🌊</div>
+                            <div class="flow-title">Meerwasser-Einleitung</div>
+                            <div class="flow-desc">Salzwasser wird in den Turm eingeleitet und durch Sonnenkollektoren erhitzt</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="flow-icon">🔥</div>
+                            <div class="flow-title">Solarerhitzung</div>
+                            <div class="flow-desc">Konzentrierte Sonnenenergie erhitzt das Meerwasser zur Verdunstung</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="flow-icon">⬆️</div>
+                            <div class="flow-title">Natürliche Konvektion</div>
+                            <div class="flow-desc">Warme, feuchte Luft steigt durch natürlichen Auftrieb nach oben</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="flow-icon">❄️</div>
+                            <div class="flow-title">Mehrstufenkondensation</div>
+                            <div class="flow-desc">Wasserdampf kondensiert an kühleren Flächen in mehreren Stufen</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="flow-icon">💧</div>
+                            <div class="flow-title">Reinstwasser-Sammlung</div>
+                            <div class="flow-desc">99,9% reines Trinkwasser wird gesammelt und abgeleitet</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🌡️</div>
+                            <h3 class="tech-card-title">Temperaturgradient-Nutzung</h3>
+                        </div>
+                        <p>Der <strong>natürliche Temperaturgradient</strong> (unten heiß, oben kühl) erzeugt kontinuierliche Zirkulation ohne mechanische Energie.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Unten (Erhitzer):</span>
+                                <span class="spec-value">60-80°C</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Oben (Kondensator):</span>
+                                <span class="spec-value">25-35°C</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Gradient:</span>
+                                <span class="spec-value">Kontinuierlich</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🏜️</div>
+                            <h3 class="tech-card-title">Technologische Oase</h3>
+                        </div>
+                        <p>Der Turm wirkt wie ein <strong>natürlicher Verdunstungskondensator</strong> - eine technische Nachbildung des Oasen-Prinzips.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Prinzip:</span>
+                                <span class="spec-value">Biomimetik</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Vorbild:</span>
+                                <span class="spec-value">Natürliche Oase</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Effizienz:</span>
+                                <span class="spec-value">Optimiert</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 3. Fraunhofer-Kooperation -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">🔬</div>
+                    <div>
+                        <h2 class="section-title">Fraunhofer-Kooperation und Patentschutz</h2>
+                        <p class="section-subtitle">Wissenschaftliche Validierung durch Deutschlands führendes Forschungsinstitut</p>
+                    </div>
+                </div>
+                
+                <div class="fraunhofer-section">
+                    <div class="fraunhofer-logo">
+                        <div class="fraunhofer-badge">🏛️ Fraunhofer ISE Partnership</div>
+                        <div>
+                            <strong>Institut für Solare Energiesysteme, Freiburg</strong><br>
+                            <span style="color: #64748b;">Europas größtes Solarforschungsinstitut</span><br>
+                            <a href="https://www.desertgreener.info/technologie/fraunhofer/" target="_blank" rel="noopener"
+                               style="color: #0ea5e9; text-decoration: none; font-weight: 600; font-size: 0.9rem; border-bottom: 1px solid #0ea5e9; transition: all 0.3s ease;"
+                               onmouseover="this.style.color='#0284c7'; this.style.borderColor='#0284c7'"
+                               onmouseout="this.style.color='#0ea5e9'; this.style.borderColor='#0ea5e9'"
+                               onclick="trackEvent('fraunhofer_official_link')">
+                                📋 Offizielle Fraunhofer-Kooperation Details
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <div class="tech-card-icon">⚡</div>
+                                <h3 class="tech-card-title">Effizienz-Validierung</h3>
+                            </div>
+                            <p>Fraunhofer <strong>prüft und validiert</strong> die Effizienz der Solarthermie-Komponenten und Wärmerückgewinnungsstufen.</p>
+                            <ul class="tech-specs">
+                                <li>
+                                    <span class="spec-label">Geprüft:</span>
+                                    <span class="spec-value">Solarabsorber</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Validiert:</span>
+                                    <span class="spec-value">Wärmerückgewinnung</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Zertifiziert:</span>
+                                    <span class="spec-value">Gesamtsystem</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <div class="tech-card-icon">🌱</div>
+                                <h3 class="tech-card-title">Umweltverträglichkeit</h3>
+                            </div>
+                            <p><strong>Umweltverträglichkeitsprüfung</strong> für thermodynamisch optimiertes, modulares System für Industrie- und Landwirtschaftsanwendungen.</p>
+                            <ul class="tech-specs">
+                                <li>
+                                    <span class="spec-label">LCA-Analyse:</span>
+                                    <span class="spec-value">Durchgeführt</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">CO₂-Bilanz:</span>
+                                    <span class="spec-value">Negativ</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Nachhaltigkeit:</span>
+                                    <span class="spec-value">Zertifiziert</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <div class="tech-card-icon">🏭</div>
+                                <h3 class="tech-card-title">Skalierungs-Optimierung</h3>
+                            </div>
+                            <p><strong>Thermodynamische Optimierung</strong> für industrielle Skalierung und landwirtschaftliche Großanwendungen.</p>
+                            <ul class="tech-specs">
+                                <li>
+                                    <span class="spec-label">Industrie:</span>
+                                    <span class="spec-value">Validiert</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Landwirtschaft:</span>
+                                    <span class="spec-value">Optimiert</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Skalierung:</span>
+                                    <span class="spec-value">Modular</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Patent Details -->
+                <div style="background: white; border: 2px solid #e2e8f0; border-radius: 12px; padding: 2rem; margin-top: 2rem;">
+                    <h3 style="color: #1e293b; margin-bottom: 1.5rem;">📜 Patentschutz Details</h3>
+                    <div class="tech-grid">
+                        <div>
+                            <h4 style="color: #10b981; margin-bottom: 1rem;">Geschützte Technologien:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;">
+                                    ✅ <strong>Vertikale Mehrstufen-Struktur</strong>
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;">
+                                    ✅ <strong>Solarabsorber-Verdunstungs-Integration</strong>
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;">
+                                    ✅ <strong>Mehrebenen-Wärmerückführung</strong>
+                                </li>
+                                <li style="padding: 0.5rem 0;">
+                                    ✅ <strong>Autarkes Betriebssystem ohne externe Energie</strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #0ea5e9; margin-bottom: 1rem;">Schutzgebiet:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;">
+                                    🇪🇺 <strong>EU-Patent erteilt</strong>
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;">
+                                    🌍 <strong>Weltweite Anmeldung</strong>
+                                </li>
+                                <li style="padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9;">
+                                    ⚖️ <strong>20 Jahre Laufzeit</strong>
+                                </li>
+                                <li style="padding: 0.5rem 0;">
+                                    🔒 <strong>Technologisches Monopol für DGRX</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 4. Skalierbarkeit und Anwendungen -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">📈</div>
+                    <div>
+                        <h2 class="section-title">Skalierbarkeit und Anwendungen</h2>
+                        <p class="section-subtitle">Modulare Containereinheiten für jeden Wasserbedarf</p>
+                    </div>
+                </div>
+                
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🏘️</div>
+                            <h3 class="tech-card-title">Kleine Einheiten</h3>
+                        </div>
+                        <p><strong>Dörfer, Inseln, Resorts</strong> - Dezentrale Wasserversorgung für kleine Gemeinden und touristische Einrichtungen.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Tagesleistung:</span>
+                                <span class="spec-value">1-5 m³</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Versorgte Personen:</span>
+                                <span class="spec-value">20-100</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Aufstellfläche:</span>
+                                <span class="spec-value">< 50 m²</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🌾</div>
+                            <h3 class="tech-card-title">Mittlere Einheiten</h3>
+                        </div>
+                        <p><strong>Landwirtschaftliche Nutzung</strong> - Bewässerung für Gewächshäuser, Plantagen und agrarische Betriebe in ariden Gebieten.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Tagesleistung:</span>
+                                <span class="spec-value">50-500 m³</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Bewässerte Fläche:</span>
+                                <span class="spec-value">10-100 ha</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Module:</span>
+                                <span class="spec-value">5-50 Container</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🏭</div>
+                            <h3 class="tech-card-title">Großanlagen</h3>
+                        </div>
+                        <p><strong>Industrielle Cluster</strong> - Wasserversorgung für Städte, Industrieanlagen und großflächige Agrarprojekte.</p>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Tagesleistung:</span>
+                                <span class="spec-value">5.000+ m³</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Versorgte Personen:</span>
+                                <span class="spec-value">25.000+</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Module:</span>
+                                <span class="spec-value">500+ Container</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Regional Applications -->
+                <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                        <h3 style="color: #1e293b; margin: 0;">🌍 Globale Anwendungsgebiete</h3>
+                        <a href="https://www.desertgreener.info/technologie/meerwasserentsalzung-skalierbar/" target="_blank" rel="noopener"
+                           style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.85rem; transition: all 0.3s ease;"
+                           onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 15px rgba(14, 165, 233, 0.3)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+                           onclick="trackEvent('skalierbarkeit_official_link')">
+                            📈 Skalierbarkeits-Dokumentation
+                        </a>
+                    </div>
+                    <div class="tech-grid">
+                        <div>
+                            <h4 style="color: #dc2626; margin-bottom: 1rem;">🏜️ Trockengebiete</h4>
+                            <p>Afrika, Naher Osten, Australien - Wasserversorgung in ariden und semi-ariden Klimazonen.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #0ea5e9; margin-bottom: 1rem;">🏖️ Küstenregionen</h4>
+                            <p>Salzhaltige Grundwassergebiete, Inseln, Küstenstädte mit begrenzten Süßwasserressourcen.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #10b981; margin-bottom: 1rem;">🌱 Autarke Projekte</h4>
+                            <p>Agrar- und Tourismusprojekte, die unabhängige Wasserversorgung benötigen.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 5. Technische Spezifikationen -->
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-icon">⚡</div>
+                    <div>
+                        <h2 class="section-title">Technische Spezifikationen</h2>
+                        <p class="section-subtitle">Leistungsdaten und Effizienzwerte im Detail</p>
+                    </div>
+                </div>
+                
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">⚡</div>
+                            <h3 class="tech-card-title">Energieeffizienz</h3>
+                        </div>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Energieverbrauch:</span>
+                                <span class="spec-value">< 1 kWh/m³</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Herkömmliche Systeme:</span>
+                                <span class="spec-value">10-15 kWh/m³</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Effizienzsteigerung:</span>
+                                <span class="spec-value">90%+</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Wärmerückgewinnung:</span>
+                                <span class="spec-value">90%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">💧</div>
+                            <h3 class="tech-card-title">Wasserqualität</h3>
+                        </div>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Reinheit:</span>
+                                <span class="spec-value">99,9%</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">TDS (Gelöste Stoffe):</span>
+                                <span class="spec-value">< 10 ppm</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Salzgehalt:</span>
+                                <span class="spec-value">< 0,01%</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">WHO-Standard:</span>
+                                <span class="spec-value">Übertroffen</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🔄</div>
+                            <h3 class="tech-card-title">Nebenprodukt-Nutzung</h3>
+                        </div>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Salz-Gewinnung:</span>
+                                <span class="spec-value">Verkaufsfähig</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Abwärme-Nutzung:</span>
+                                <span class="spec-value">Lufttrocknung</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Restwasser:</span>
+                                <span class="spec-value">Vorwärmung</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Effizienz-Bonus:</span>
+                                <span class="spec-value">15-20%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-card-header">
+                            <div class="tech-card-icon">🛠️</div>
+                            <h3 class="tech-card-title">Wartung & Betrieb</h3>
+                        </div>
+                        <ul class="tech-specs">
+                            <li>
+                                <span class="spec-label">Wartungsaufwand:</span>
+                                <span class="spec-value">Minimal</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Bewegliche Teile:</span>
+                                <span class="spec-value">Keine</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Lebensdauer:</span>
+                                <span class="spec-value">25+ Jahre</span>
+                            </li>
+                            <li>
+                                <span class="spec-label">Betriebskosten:</span>
+                                <span class="spec-value">< 0,10 €/m³</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Conclusion Section -->
+            <section class="section">
+                <div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 3rem; border-radius: 16px; text-align: center;">
+                    <h2 style="font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, #fbbf24, #f59e0b, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Technologisches Alleinstellungsmerkmal
+                    </h2>
+                    <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
+                        Das Patent beschreibt eine <strong>autarke, solarthermische Turmentsalzung</strong>, die durch Mehrstufenwärmerückgewinnung und natürliche Luftzirkulation eine <strong>neue Effizienzklasse</strong> in der Meerwasserentsalzung erreicht.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                        <div>
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔬</div>
+                            <strong>Technik</strong><br>
+                            <span style="opacity: 0.8;">Patentgeschützte Innovation</span>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌱</div>
+                            <strong>Ökologie</strong><br>
+                            <span style="opacity: 0.8;">CO₂-neutral & nachhaltig</span>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📈</div>
+                            <strong>Skalierbarkeit</strong><br>
+                            <span style="opacity: 0.8;">Modular & flexibel</span>
+                        </div>
+                    </div>
+                    <a href="index.html" style="display: inline-block; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        🏠 Zurück zur Hauptseite
+                    </a>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">↑</a>
+    
+    <!-- Initialize Cookie Consent System -->
+    <script>
+        // Initialisiere das DESERTGREENER Cookie Consent System
+        document.addEventListener('DOMContentLoaded', function() {
+            window.cookieConsent = new DesertgreenerCookieConsent();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

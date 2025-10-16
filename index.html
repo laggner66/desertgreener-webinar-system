@@ -1295,13 +1295,79 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
+        
+        /* Mobile-Responsive Navigation */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none !important;
+            }
+            .mobile-nav {
+                display: flex !important;
+            }
+            .desktop-only {
+                display: none !important;
+            }
+            
+            /* Mobile Navigation kleiner und kompakter */
+            .sticky-nav {
+                padding: 0.6rem 0 !important;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .desktop-nav {
+                display: flex !important;
+            }
+            .mobile-nav {
+                display: none !important;
+            }
+            .desktop-only {
+                display: block !important;
+            }
+            
+            /* Desktop Hero Padding */
+            .hero {
+                padding: 8rem 0 6rem !important;
+            }
+        }
+        
+        /* Mobile-spezifische Anpassungen */
+        @media (max-width: 768px) {
+            /* Hero Section kompakter auf Mobile */
+            .hero {
+                padding: 4rem 0 3rem !important;
+            }
+            
+            /* Mobile-freundliche Schriftgrößen */
+            .hero h1 {
+                font-size: 2.2rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            /* Mobile CTA Buttons gestapelt */
+            .hero .cta-container {
+                flex-direction: column !important;
+                gap: 0.8rem !important;
+                align-items: stretch !important;
+            }
+            
+            .hero .cta-container a {
+                text-align: center !important;
+                padding: 0.8rem 1.5rem !important;
+            }
+        }
     </style>
     
     <!-- GDPR Cookie Consent System -->
     <script src="cookie-consent.js"></script>
 </head>
 <body>
-    <!-- Sticky Navigation für optimierte User Experience -->
+    <!-- Mobile-Optimierte Sticky Navigation -->
     <nav class="sticky-nav" style="
         position: fixed; 
         top: 0; 
@@ -1313,38 +1379,48 @@
         z-index: 1000;
         transform: translateY(-100%);
         transition: transform 0.3s ease;
-        padding: 1rem 0;
+        padding: 0.8rem 0;
     " id="stickyNav">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between;">
+            <!-- Logo/Brand - Kompakter für Mobile -->
             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #0ea5e9, #10b981); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #0ea5e9, #10b981); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">
                     DG
                 </div>
-                <div>
-                    <div style="font-weight: 700; color: #1e293b; font-size: 1.1rem;">DESERTGREENER</div>
-                    <div style="font-size: 0.75rem; color: #64748b;">Solare Meerwasser-Destillation</div>
+                <div style="display: block;">
+                    <div style="font-weight: 700; color: #1e293b; font-size: 0.95rem; line-height: 1.1;">DESERTGREENER</div>
+                    <div style="font-size: 0.65rem; color: #64748b; display: none;" class="desktop-only">Solare Meerwasser-Destillation</div>
                 </div>
             </div>
             
-            <div style="display: flex; align-items: center; gap: 2rem;">
-                <a href="#problem-solution" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Problem & Lösung</a>
-                <a href="#technology" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Technologie</a>
-                <a href="#validation" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Validierung</a>
-                <a href="#projects" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.9rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Projekte</a>
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav" style="display: none; align-items: center; gap: 1.5rem;">
+                <a href="technologie-details.html" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.85rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'" onclick="trackEvent('nav_tech_details_click')">Tech-Details</a>
+                <a href="#validation" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.85rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Validierung</a>
+                <a href="#projects" style="color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; font-size: 0.85rem;" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='#64748b'">Projekte</a>
                 
                 <a href="#webinar-cta" 
-                   style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; padding: 0.5rem 1.25rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;"
+                   style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; padding: 0.4rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.3s ease;"
                    onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 15px rgba(14, 165, 233, 0.3)'"
                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
                    onclick="trackEvent('sticky_nav_webinar_click');">
-                    🎯 Webinar anmelden
+                    🎯 Webinar
+                </a>
+            </div>
+            
+            <!-- Mobile: Nur wichtigster CTA -->
+            <div class="mobile-nav" style="display: flex; align-items: center;">
+                <a href="#webinar-cta" 
+                   style="background: linear-gradient(135deg, #0ea5e9, #10b981); color: white; padding: 0.5rem 0.8rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.8rem; transition: all 0.3s ease;"
+                   onclick="trackEvent('mobile_nav_webinar_click');">
+                    🎯 Webinar
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section - Komplett überarbeitet für Conversion -->
-    <section class="hero" style="position: relative; padding: 8rem 0 6rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); color: white; overflow: hidden;">
+    <!-- Hero Section - Mobile-Optimiert -->
+    <section class="hero" style="position: relative; padding: 6rem 0 4rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); color: white; overflow: hidden;">
         <!-- Background Pattern -->
         <div style="position: absolute; inset: 0; opacity: 0.03; background-image: radial-gradient(circle at 25% 25%, #ffffff 2px, transparent 2px), radial-gradient(circle at 75% 75%, #ffffff 1px, transparent 1px); background-size: 60px 60px;"></div>
         
@@ -1364,12 +1440,12 @@
                     </div>
                     
                     <!-- Main Headlines - Persona-gezielt -->
-                    <h1 style="font-size: 3.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(135deg, #fbbf24, #f59e0b, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    <h1 class="hero-title" style="font-size: 3.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(135deg, #fbbf24, #f59e0b, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                         DESERTGREENER verwandelt<br>Meerwasser in reinstes Destillat
                     </h1>
                     
                     <!-- Persona-Balance Subheadline -->
-                    <p style="font-size: 1.4rem; opacity: 0.95; margin-bottom: 1rem; color: #e2e8f0; font-weight: 500;">
+                    <p class="subtitle" style="font-size: 1.4rem; opacity: 0.95; margin-bottom: 1rem; color: #e2e8f0; font-weight: 500;">
                         Hocheffizient, patentgeschützt und klimafreundlich
                     </p>
                     
@@ -1402,7 +1478,7 @@
                     <!-- Mehrstufiger CTA-Funnel -->
                     <div style="display: flex; flex-direction: column; gap: 1rem;">
                         <!-- Primary CTA - Webinar (Medium) -->
-                        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="cta-container" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
                             <a href="webinar-anmeldung.html" 
                                style="flex: 1; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 1.25rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1rem; text-align: center; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.75rem;"
                                onclick="trackEvent('hero_webinar_primary');"
@@ -1412,12 +1488,12 @@
                                 <div style="font-size: 0.8rem; opacity: 0.9;">Donnerstag 20:15</div>
                             </a>
                             
-                            <a href="#tech-download" 
+                            <a href="technologie-details.html" 
                                style="flex: 1; background: rgba(14, 165, 233, 0.15); color: #06b6d4; padding: 1.25rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem; text-align: center; transition: all 0.3s ease; border: 2px solid rgba(6, 182, 212, 0.3);"
-                               onclick="trackEvent('hero_tech_download_soft');"
+                               onclick="trackEvent('hero_tech_details_click');"
                                onmouseover="this.style.background='rgba(14, 165, 233, 0.25)'; this.style.borderColor='rgba(6, 182, 212, 0.5)'"
                                onmouseout="this.style.background='rgba(14, 165, 233, 0.15)'; this.style.borderColor='rgba(6, 182, 212, 0.3)'">
-                                📋 Technologie-Datenblatt
+                                🔬 Technologie-Details
                             </a>
                         </div>
                         
@@ -1829,9 +1905,9 @@
                         📋 Technisches Datenblatt herunterladen
                     </a>
                     
-                    <a href="#validation" 
+                    <a href="https://www.desertgreener.info/technologie/fraunhofer/" target="_blank" rel="noopener"
                        style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9; padding: 1.25rem 2.5rem; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 2px solid rgba(14, 165, 233, 0.2);"
-                       onclick="trackEvent('validation_section_interest');"
+                       onclick="trackEvent('fraunhofer_validation_official_link');"
                        onmouseover="this.style.background='rgba(14, 165, 233, 0.15)'; this.style.borderColor='rgba(14, 165, 233, 0.3)'"
                        onmouseout="this.style.background='rgba(14, 165, 233, 0.1)'; this.style.borderColor='rgba(14, 165, 233, 0.2)'">
                         🏛️ Fraunhofer-Validierung ansehen
